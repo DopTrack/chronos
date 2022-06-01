@@ -1,0 +1,147 @@
+/*doc
+---
+title: video
+category: components - video
+---
+*/
+
+/*doc
+---
+title: inline video
+parent: video
+---
+
+The video class makes sure the video or content therein scales to the width
+of the browser. Instead of relying on a javascript library such as fitvids,
+this logic relies on videos being in the 16:9 ratio. The upside is that it's
+much faster to render, the downside being some extended markup is needed.
+
+Any and all embed codes need to be wrapped with a block element with a 
+video class (e.g. ```<div class="video">```). In order to look at it's 
+absolute best, a [pull helper class][pull] is needed around this element,
+to give the video more presence. When adding the pull class, a popup window isn't
+neccesary. You can add a caption in this container if you want.
+See the extended code example below for clarification.
+
+
+```html_example
+<div class="content-container">
+	<p>Each year nearly a million people in Europe suffer from a cardiac arrest. A mere 8% survives due to slow response times of emergency services. The ambulance-drone is capable of saving lives with an integrated defibrillator. The goal is to improve existing emergency infrastructure with a network of drones.</p>
+	
+	<div class="pull">
+		<div class="video">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/y-rEI4bezWc" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<p>Project Creator: Alec Momont - alecmomont.com</p>
+	</div>
+
+	<p>This new type of drones can go over 100 km/h and reaches its destination within 1 minute, which increases chance of survival from 8% to 80%! This drone folds up and becomes a toolbox for all kind of emergency supplies. Future implementations will also serve other use cases such as drowning, diabetes, respiratory issues and traumas.</p>
+</div>
+```
+*/
+
+/*doc
+---
+title: popup video
+parent: video
+---
+
+This video 
+
+```component_example
+filename: video_popup
+```
+
+*/
+
+.video { 
+	background-position: 50%;
+	background-size: cover;
+	
+	position: relative; padding-bottom: percentage(9/16); 
+	padding-top: 30px; 
+	height: 0; 
+	overflow: hidden; 
+	height: auto; 
+	
+	max-width: 100%;
+	width: 120em;
+	
+	iframe, object, embed {
+		position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+	}
+	h1 {
+		color: cl('white')
+	}
+
+	&--fullscreen {
+		width: auto;
+	}
+	
+	&--popup {
+		background-size: cover;
+		
+		&:before {
+			@extend %iconfont;
+			content: map-get($icons, 'video_play');
+			color: cl('white');
+			font-size: 5rem;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -.5em;
+			margin-top: -.5em;
+		}
+		
+		.grid-row & { 
+			padding: 0; 
+		}
+		.video__content h1 {
+			visibility: hidden;
+			height: 0;
+		}
+	}
+}
+
+/*doc
+---
+title: video for poster
+parent: video
+---
+
+When you want a video to be part of a storytelling page you can choose to
+use a video overlay. This works just like a regular poster, but with modal
+functionality added on top
+
+```component_example
+filename: video
+```
+*/
+
+// .video__content {
+// 	max-width: map-get($content-maxwidth, xs);
+// 	margin: 0 auto;
+// 	color: cl('white');
+// 	//Hide while video is playing
+// 	iframe + & {
+// 		display: none;
+// 	}
+	
+// 	h1 {
+// 		position: absolute;
+// 		bottom: 3rem;
+// 		color: cl('white');
+// 		font-weight: fw(light);
+// 		font-size: 4.5rem;
+// 	}
+// 	@include icon("video_play") {
+// 		font-size: 10em;
+		
+// 		position: absolute;
+// 		top: 50%;
+// 		left: 50%;
+// 		text-align: center;
+// 		margin-left: -.5em;
+// 		margin-top: -.5em;
+// 	}
+// }

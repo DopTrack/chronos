@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'redisp/style.css' %}" type="text/css" media="screen"/>
+    <script type="text/javascript" src="{% static 'redisp/redips-drag-source.js' %}"></script>
+    <script type="text/javascript" src="{% static 'redisp/script.js' %}"></script>
+
+     {{ course.name }}
+     <br>
+     <br>
+
+    <form method="post">
+       {% csrf_token %}
+        <input type="button" value="Save schedule" class="button" onclick="save()" title="Save schedule"/>
+    </form>
+
+    <div style="clear: both;"></div>
+    <div id="main_container">
+        <!-- tables inside this DIV could have draggable content -->
+        <div id="redips-drag">
+
+
+            <!-- left container (table with students) -->
+            <div id="left">
+                <table id="table1">
+                    <tbody>
+                        <tr><td>Students</td></tr>
+                        <tr>
+                           <td>
+                                <div style="float: none; width: 100%;">
+                                    {% if students %}
+                                        {% for student in students %}
+                                               <div class="dark" style="float: left; width: 130px">
+                                                 <div id="{{student.id}}" class="redips-drag redips-clone">{{student.username}}</div>
+                                                 <input id="b_{{student.id}}" type="button" value="" onclick="report('{{student.id}}')" title="Show only {{ student.username }}"/>
+                                               </div>
+                                            {% endfor %}
+                                    {% endif %}
+                                </div>
+                           </td>
+                       </tr>
+                    </tbody>
+                </table>
+            </div><!-- left container -->
+
+            <!-- right container -->
+            <div id="right" class="table_holder">
+
+                <table id="table2">
+                    <colgroup>
+                        <col width="50"/>
+                        {% for day in gridDayAxis %}
+                            <col width="100"/>
+                           {% endfor %}
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class="redips-trash" title="Trash">Drop here to remove</td>
+                            {% for day in gridDayAxis %}
+                               <td class="redips-mark dark"><div id="{{day.pk}}"><span class="d month">{{day.val|date:"M"}}</span><span class="d day">{{day.val|date:"d"}}</span><span class="d week">{{day.val|date:"D"}}</span></div></td>
+                            {% endfor %}
+                        </tr>
+                       {% for time in gridTimeStepAxis %}
+                         <tr>
+                            <td class="redips-mark dark"><div class="timeid" id="{{time.pk}}">{{time.val|time:"H:i"}}</div></td>
+                            {% for day in gridDayAxis %}
+                                {% with celdataList=gridData|get_item:day.pk|get_item:time.pk %}
+                                    {% if celdataList %}
+                                            <td>
+                                        {% for celdata in celdataList %}
+                                            <div id="{{celdata.pk}}" class="redips-drag ar">{{celdata.val.username}}</div>
+                                        {% endfor %}
+                                        </td>
+                                    {% else %}
+                                        <td/>
+                                    {% endif %}
+                                    {% endwith%}
+                                {% endfor %}
+                         </tr>
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div><!-- right container -->
+            <div style="clear: both;"></div> <!-- clear to make sure the 2 floating tables are inside the drag container  -->
+        </div><!-- drag container -->
+        <div id="message">Drag students to the timetable (hold SHIFT key to clone)</div>
+
+    </div><!-- main container -->
+
+{% endblock %}
+

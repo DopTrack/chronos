@@ -1,0 +1,269 @@
+/*doc
+---
+title: cards
+category: components - cards
+---
+Cards are elements with unique related data that serves as an entry point to more detailed information. For example, a card could contain a photo, text, and a link about a single subject. We have three type of cards.
+They are always shown on a grey background (add ``bg-grey`` as a classname to the parent container)
+
+*/
+
+
+// ```component_example
+
+/*doc
+---
+title: card
+name: card_default
+parent: cards
+---
+
+```component_example
+filename: card
+parameters:
+  image: true
+  title: Delftse studenten ontwerpen mechanische honkbalwerper
+  description: Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider. Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider.
+wrapper: bg-grey container
+```
+*/
+.card {
+	transition: none;
+	display: block;
+	color: cl('black');
+	background: #000;
+	height: em(380px);
+	position: relative;
+	overflow: hidden;
+	
+	//GRADIENT
+	&:before {
+		content: '';
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		z-index: 1;
+		background: linear-gradient(rgba(cl('white'), 0), cl('white')) no-repeat bottom left;
+		background-size: 100% 2em;
+	}
+	//BLUE LINE
+	&:after {
+		z-index: 3;
+	}
+	@include onhover-line-bottom;
+
+	@include hover {
+		color: cl('black');
+		&:after {
+			height: .5em;
+		}
+		.card__img {
+			opacity: .5;
+		}
+	}		
+	
+	&__img {
+		transition: t(opacity, easeOut);//, t(transform);
+		transform-origin: center;
+		background-position: 50%;
+		background-size: cover;
+		// transform: scale(1.1);		
+		height: 50%;
+	}
+	&__content {
+		// transition: t(transform);
+		// transform: translateY(0);
+		
+		position: absolute;
+		//Only if the card has an image, make it half-height
+		.card__img + & { top: 50%; }
+		
+		// z-index: 1;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		
+		background-color: cl('white');
+
+		@include box;
+	}
+}
+/*doc
+---
+title: cards with no description
+name: card_no_description
+parent: cards
+---
+```component_example
+filename: card
+parameters:
+  variation: card--no_description
+  image: //placehold.it/380x380
+  title: Particle Blogs vanuit MIT (3) ‘De bestuursvergadering’
+wrapper: bg-grey container
+```
+*/
+.card--no_description {
+	&:before {
+		background-size: 100% 50%;
+		background-image: linear-gradient(rgba(cl('black'), 0), cl('black'))
+	}
+	.card__content {
+		background: transparent;
+		color: #fff;
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		bottom: 0;
+		height: auto;
+	}
+	.card__img {
+		position: absolute;left:0;right:0;top:0;bottom:0;
+		padding: 0;margin: 0;
+		height: 100%;
+	}
+}
+.card--no_image,
+.card--no_description {
+	//Line above the h3
+	.card__content {
+		background-color: transparent;
+		color: #fff;
+	}
+	.h3 {
+		color: cl('white');
+		//Line above header
+		&:before {
+			content: '';
+			width: 1.5em;
+			height: 1px;
+			display: block;
+			margin-bottom: .5em;
+			background-color: cl('white');
+		}
+	}
+}
+
+/*doc
+---
+title: cards with no image
+name: card_no_image
+parent: cards
+---
+```component_example
+filename: card
+parameters:
+	variation: card--no_image
+	title: Belangrijke stap richting het begrijpen van DNA replicatie
+	description: Wetenschappers van de TU Delft hebben duidelijkheid verschaft over de manier waarop het proces van DNA-replicatie in de E. coli bacterie wordt beëindigd. Het onderzoek is een belangrijke stap richting het begrijpen van DNA replicatie en hoe cellen omgaan met fouten tijdens DNA replicatie.
+wrapper: bg-grey container
+```
+*/
+.card--no_image {
+	background: cl('blue') image-url('torch.svg') no-repeat 50%;
+	.card__img { display: none; }
+	.card__content {
+		// top: $card_hoveroffset;
+		background-color: transparent;
+		color: #fff;
+	}
+	.h3 { color: #fff;}
+	&:before {
+		background-image: linear-gradient(rgba(cl('blue'),0), cl('blue'))
+	}
+}
+
+
+
+
+/*doc
+---
+title: horizontal card
+parent: cards
+---
+By adding a ```card--horizontal``` class to your card, you can stretch 
+split the view in two. Used for wide cards
+	
+```component_example_table
+filename: card
+wrapper: bg-grey container
+parameters:
+  variation: card--horizontal
+  image: //placehold.it/380x380
+  title: Kunstwerk op campus TU Delft ode aan de ingenieur
+  description: Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen. 
+  
+ ```
+*/
+.card--horizontal {
+	// max-width: rem(760px);
+	// img {
+	// 	min-width: 50%;
+	// 	min-height: 100%;
+	// 	width: auto;
+	// 	height: auto;
+	// }
+	&:before {
+		width: 50%;
+		right: 0;
+	}
+	.card__img {
+		height: 100%;
+		width: 50%;
+	}
+	.card__content {
+		top: 0;
+		left: 50%;
+		// right: - $card_hoveroffset;
+		width: 50%;
+	}
+	@include hover {
+		.card__content {
+			// transform: translateX(- $card_hoveroffset);
+		}
+	}
+}
+/*doc
+---
+title: themes
+parent: cards
+---
+
+There are several options for colored cards. Available keys are found in _variables.scss
+Use this in the loop found in _card.scss
+	
+```component_example_table
+filename: card
+wrapper: bg-grey container
+parameters:
+  variation: card--green
+  image: //placehold.it/380x380
+  title: Kunstwerk op campus TU Delft ode aan de ingenieur
+  description: Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen. 
+
+filename: card
+wrapper: bg-grey container
+parameters:
+  variation: card--red
+  image: //placehold.it/380x380
+  title: Kunstwerk op campus TU Delft ode aan de ingenieur
+  description: Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen. 
+```
+*/
+@each $color in ('green', 'red') {
+	.card--#{$color} {
+		&.card--no_image {
+			background-color: cl($color);
+			&:before {
+				background: linear-gradient(rgba(cl($color), 0), cl($color));
+			}
+		}
+		.h3 {
+			color: cl($color);
+		}	
+		&:after {
+			background-color: cl($color);
+		}
+	}
+}

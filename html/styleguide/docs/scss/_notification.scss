@@ -1,0 +1,69 @@
+/*doc
+---
+title: notices
+category: components - notification
+---
+
+```component_example_table
+filename: notification
+parameters:
+  type: notice
+
+filename: notification
+parameters:
+  type: notice--success
+
+filename: notification
+parameters:
+  type: notice--error
+```
+
+*/
+
+.notice {
+	@include box;
+	background: cl('blue');
+	color: cl('white');
+	max-width: 30rem;
+	
+	button {
+		background-color: cl('white');
+		color: cl('blue');
+		
+		@include hover {
+			// background-color: cl('black');
+			background-color: darken(cl('blue'), 10%) !important;
+		}
+	}
+
+	.btn--ghost {
+		border: 1px solid cl('white');
+		background-color: transparent !important;
+		color: cl('white') !important;
+	}
+
+	&--success {
+		background: cl('green');
+		color: cl('white');
+
+		button {
+			color: cl('green');
+			
+			@include hover {
+				background-color: darken(cl('green'), 10%) !important;
+			}
+		}
+	}
+
+	&--error {
+		background: cl('orange');
+		color: cl('white');
+
+		button {
+			color: cl('orange');
+			@include hover {
+				background-color: darken(cl('orange'), 10%) !important;
+			}
+		}
+	}
+}

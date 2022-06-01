@@ -1,0 +1,6 @@
+<dl class="accordion">
+	{% for item in data %}
+		<dt class="accordion__title"><span>{{ item.title }}</span></dt>
+		<dd class="accordion__content">{{ item.description|safe }}</dd>
+	{% endfor %}
+</dl>

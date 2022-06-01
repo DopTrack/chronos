@@ -1,0 +1,24 @@
+<div class="tableHolder">
+	<table class="{% if data.className %}{{ data.className }}{% endif %}">
+		{% if data.columns %}
+			<tr class="odd first">
+			{% for column in data.columns %}
+				<th class="{% cycle 'odd' 'even' %}{% if column.className %} {{ column.className }}{% endif %}">{{ column.label }}</th>
+			{% endfor %}
+			</tr>
+		{% endif %}
+		{% if data.rows %}
+			{% for row in data.rows %}
+				{% if data.columns %}
+					<tr class="{% cycle 'even' 'odd' %}">
+				{% else %}
+					<tr class="first {% cycle 'odd' 'even' %}">
+				{% endif %}
+					{% for column in row %}
+						<td class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">{{ column }}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		{% endif %}
+	</table>
+</div>

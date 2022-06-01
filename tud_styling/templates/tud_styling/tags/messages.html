@@ -1,0 +1,14 @@
+{% if messages %}
+	<div class="modal is-active">
+		<button data-target="this.parent" class="menu menu--close button-reset js-toggle">
+			<i class="i-close"></i>
+		</button>
+		<div class="modal__content">
+			{% for message in messages %}
+				<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}" data-dismiss="alert">
+					{{ message }}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}

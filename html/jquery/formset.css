@@ -1,0 +1,45 @@
+
+/*  formset elements horizontal  */
+
+.student-formset {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0 !important;
+}
+.block {
+  width: 100px;
+  display: inline-block; 
+}
+
+.dynamic-form.a {
+	display: inline-block;
+}
+
+.delete-row {
+  background: url(/static/img/delete.png) no-repeat 6px center;
+  color: transparent;   
+}
+
+.delete-row:hover {
+  color: transparent;
+}
+
+.add-row {
+  background: url(/static/img/add.png) no-repeat 6px center;
+  color: transparent;   
+}
+
+.add-row:hover {
+  color: transparent;
+}
+
+a.command {
+  margin: 0 0 0 30px;	
+}
+
+/* deze heeft niets met formset te maken */
+
+.feedback {
+	background-color: lightblue;
+	margin-bottom: 10px;	
+}

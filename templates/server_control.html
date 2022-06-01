@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+    
+    Display server activity:   
+    past <input class="hoursInput" id="hoursPast" name="next" value="6" maxlength="4" size="4"/> hours 
+    to coming <input class="hoursInput" id="hoursFutures" name="next" value="10" maxlength="4" size="4" /> hours <spawn id="serveractivityctrlFeedback">feedback</spawn>
+    <div id="serveractivityctrl" style="position: relative;">ctrl</div>
+    <br>
+    <br>	
+	
+	
+    <form action="/servercontrol/" method="post">
+           {% csrf_token %}
+           <input type="hidden" name="next" value="{{form.next}}" />
+           
+           <table class="form">
+             {{ form }}
+             <tr></tr>
+		     <tr><td></td> 
+		   	     <td><input type="submit" value="Schedule recording" /></td>
+           </table>          
+     </form>
+     
+    <br> 
+    All scheduled recordings:
+    <table class="list">
+         <tr>
+           <th>Date recording</th>
+           <th>Recording ID</th>
+           <th>Duration</th>
+           <th>Action</th>
+         </tr>
+		{% for schedule in schedules %}
+		  <tr {% if user.id == schedule.userid %}class="recordowner"{% endif %}>			     
+		    <td>{{ schedule.time }}</td>
+		    <td>{{ schedule.id }}</td>
+		    <td>{{ schedule.length }} sec</td>
+
+			<td>	
+              {% if schedule.canDelete %}
+                <a href="{% url 'delete_schedule' schedule.id %}">delete</a>
+              {% endif %}
+            </td>
+		    
+		  </tr>
+		{% empty %}
+		    <tr><td>No Schedules found.</td></tr>
+		{% endfor %}
+	</table>
+              
+     
+     <script>
+        function refreshServerActivityCtrl(){
+    		$('#serveractivityctrlFeedback').html("refreshing");
+        	$.get('/serveractivity/ctrl/', {   'hoursPast': $('#hoursPast').val(),
+        		                               'hoursFuture': $('#hoursFutures').val(),
+        		                               'starttime': $('#id_starttime').val(),
+        		                               'length': $('#id_length').val(),
+        		                               'satellitename': $('#id_satellitename').val(),
+        		                               'noradid': $('#id_noradid').val()},
+        		  function(data){
+        		     $('#serveractivityctrl').html(data);
+        		     $('#serveractivityctrlFeedback').html("");
+                  });
+        };
+        /* Zet het volgende uit bij debuggen server code */ 
+        refreshServerActivityCtrl();
+        setInterval(refreshServerActivityCtrl, 10000); 
+       
+
+        $(".hoursInput").keyup(function(){
+            refreshServerActivityCtrl();
+        });
+        $("#id_starttime").keyup(function(){
+            refreshServerActivityCtrl();
+        }); 
+        $("#id_length").keyup(function(){
+            refreshServerActivityCtrl();
+        });
+        
+    </script>
+    
+        <script>
+            /* used in rendered html control, to fade in and out */
+		    function blinker() {
+			   $('.blinking').fadeOut(2000);
+			   $('.blinking').fadeIn(2000);
+		    }
+		    setInterval(blinker, 1000);
+		    
+		    /* used in rendered html control, to show tooltips on some elements */
+		    $(function() {
+		        $( document ).tooltip({  	
+		          items: "[tt]",
+		          content: function() {
+		            var element = $( this );
+		            if ( element.is( "[tt]" ) ) {
+		              var text = element.attr('tt');
+		              return text;
+		            }
+		          }
+		        });
+		      });
+		</script>
+     
+{% endblock %} 

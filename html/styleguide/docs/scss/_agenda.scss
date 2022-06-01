@@ -1,0 +1,16 @@
+/*doc
+---
+title: agenda
+category: components - agenda
+---
+
+*/
+.agenda {
+	.agenda__month {
+		font-size: 3rem;
+	}
+	.agenda__item {
+		margin-bottom: $spacing;
+		
+	}
+}

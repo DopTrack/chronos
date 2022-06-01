@@ -1,0 +1,40 @@
+.news-summary {
+	text-decoration: none;
+	display: block;
+
+	i:before,
+	i:after {
+		background-color: cl('black');
+	}
+
+	.label,
+	p {
+		color: cl('black');
+		margin: 0;
+	}
+	.label {
+		margin-bottom: .3em;
+	}
+	img {
+		width: 100%;
+	}
+	&:first-of-type {
+		// padding-top: 0;
+		margin-top: 0;
+	}
+	padding: 1.5rem 0 2rem 0;
+	// margin: 2rem 0;
+	
+	
+	transition: t(background-color, ease, normal);
+	background-color: transparent;
+	
+	@include hover {
+		background-color: cl('grey_light');
+		.h3 {
+			color: cl('blue_dark');
+		}
+	}
+	@include onhover-line-top;
+	// @include onhover-line-bottom;
+}

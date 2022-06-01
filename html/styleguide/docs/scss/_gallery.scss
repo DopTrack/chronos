@@ -1,0 +1,136 @@
+/*doc
+---
+title: gallery
+parent: images
+---
+
+Galleries can be filled with one or more images. From 5 images onward,
+the inline image strip is replaced with a carousel-like component.
+This is automatic
+
+```component_example_table
+filename: gallery
+wrapper: pull-right
+parameters:
+  slides:
+  	- image: //placehold.it/900x600
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  
+filename: gallery
+wrapper: pull-right
+parameters:
+  slides:
+  	- image: //placehold.it/900x600
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk.
+  	- image: //placehold.it/900x600
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk.
+  
+filename: gallery
+wrapper: pull-right
+parameters:
+  slides:
+  	- image: //placehold.it/900x600
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/900x600
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/900x600
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  
+filename: gallery
+wrapper: pull-right
+parameters:
+  slides:
+  	- image: //placehold.it/600x400
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/600x400
+  	  description: Quantumcomputers maken gebruik van
+  	- image: //placehold.it/600x400
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes
+  	- image: //placehold.it/600x400
+  
+filename: gallery
+parameters:
+  slides:
+  	- image: //placehold.it/400x300
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/400x300
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/400x300
+  	- image: //placehold.it/400x300
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/400x300
+  	  description: Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. 
+  	- image: //placehold.it/400x300
+```
+*/
+.gallery {
+	list-style: none;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	@include group;
+	
+	figcaption {
+		box-sizing: border-box;
+		padding-left: 0;
+		padding-top: 1em;
+	}
+}
+
+//WHEN SLIDER
+.slick-slider {
+	position: relative;
+	
+	img {
+		width: 100%;
+		display: block;
+	}
+	figcaption {
+		padding: 0;
+	}
+}
+//PAGING
+.slick-paging {
+	margin-top: $spacing;
+	figure {
+		margin-right: 1rem;
+	}
+	.slick-slide {
+		transition: t(opacity);
+		opacity: 0.6;
+	}
+	.slick-current {
+		opacity: 1;
+	}
+}
+
+//SLICK SLIDER + paging STYLING
+.slick-slide:focus {
+	outline: none;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+	@extend .button-reset;
+	width: 2em;
+	font-size: 2em;
+	height: 100%;
+	background: cl('blue');
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	&:before {
+		color: cl('white');
+	}
+}
+.slick-prev {
+	@include icon('arrow_left') {
+		
+	}
+}
+.slick-next {
+	right: 0;
+	@include icon('arrow_right') {
+	}
+}

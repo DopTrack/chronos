@@ -1,0 +1,78 @@
+/*doc
+---
+title: aside navigation
+parent: navigation
+name: nav-aside
+---
+This navigation element appears as a subnavigation for something.
+
+```component_example
+filename: nav-aside
+```
+*/
+
+.nav-aside {
+	// overflow: hidden;
+	a:active,
+	.is-active a,
+	.is-active {
+		text-indent: .5em;
+		margin-left: 0;
+		color: cl('black');
+		&:before {
+			width: 100%;
+		}
+		&:after { 
+			width: .3rem; 
+			left: 0;
+		}
+	}
+
+	span,
+	a {
+		transition: t(margin, fast, ease), t(background-color);
+				
+		display: block;
+		padding: .8em 0;
+		padding-left: 1em;
+		margin-left: -1em;
+		position: relative;
+		z-index: 1;
+		text-decoration: none;
+		
+		@include hover {
+			// background: cl('grey_light');
+			&:before {
+				width: 100%;
+			}
+			&:after {
+				width: .3rem;
+			}
+		}
+		&:before,
+		&:after {
+			transition: t(width);
+			content: '';
+			position: absolute;
+			width: 0;
+			top:0;
+			bottom:0;
+			left: 0;
+		}
+		&:before { 
+			transition: t(width, normal);
+			background: cl('white'); 
+			z-index: -1;
+		}
+		&:after { 
+			transition: t(width);
+			background: cl('blue'); 
+		}
+	}
+	ul {
+		list-style: none;
+	}
+	> ul {
+		padding-left: 0;
+	}
+}

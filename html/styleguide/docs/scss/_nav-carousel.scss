@@ -1,0 +1,72 @@
+/*doc
+---
+title: related navigation
+parent: navigation
+---
+```component_example
+filename: nav-carousel
+```
+*/
+.nav-carousel {
+	
+	background: cl('blue');
+	color: cl('white');
+	display: inline-block;
+	
+	a {
+		color: cl('white');
+		text-decoration: none;
+		display: block;
+	}
+	position: absolute;
+	right: 1.5em;
+	bottom: 2.5rem;
+	
+	@include box;
+	
+
+
+	@include bp("md-") {
+		
+		left: 0;
+		right: 0;
+		bottom: auto;
+		top: 0;
+		z-index: $zindex-navigation - 2;
+		margin: auto;
+		text-align: center;
+		cursor: pointer;
+		padding: 0;
+		.label {
+			padding: 0.5rem;
+			font-size: .8rem;
+			margin-bottom: 0;
+			display: block;
+			
+			&:after {
+				transition: t(transform);
+				
+				transform: rotate(0deg);
+				margin-left: .5rem;
+			}
+
+		}
+		ul {
+			transition: t(max-height);
+			height: 0;
+			max-height: 0;
+			overflow: hidden;
+			text-align: left;
+		}
+
+		&.is-active {
+			.label:after {
+				transform: rotate(180deg);
+			}
+			ul {
+				height: auto;
+				max-height: rem(330px);
+			}
+		}
+	}
+}

@@ -1,0 +1,112 @@
+{% load cms_tags menu_tags sekizai_tags tud_styling staticfiles%}<!DOCTYPE html>
+<html class='no-js' lang='en' prefix="og: http://ogp.me/ns#">
+  <head>
+	<meta charset='utf-8' />
+	<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible' />
+	<meta content='width=device-width,initial-scale=1.0' name='viewport' />
+
+	<meta content="TU Delft" property="og:site_name">
+	<meta content="{{ request.build_absolute_uri }}" property="og:url">
+	<meta content="{% page_attribute 'page_title' %}" property="og:title">
+	<meta content="{% page_attribute 'meta_description' %}" property="og:description">
+	<meta content="website" property="og:type">
+
+	<meta content="TU Delft" name="twitter:card">
+	<meta content="{{ request.build_absolute_uri }}" name="twitter:url">
+	<meta content="{% page_attribute 'page_title' %}" name="twitter:title">
+	<meta content="{% page_attribute 'meta_description' %}" name="twitter:description">
+
+	<meta name="description" content="{% page_attribute meta_description %}"/>
+	<meta name="keywords" content="{% page_attribute meta_keywords %}"/>
+
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="{% static 'tud_styling/img/mstile-144x144.png' %}" />
+	<meta name="msapplication-square70x70logo" content="{% static 'tud_styling/img/mstile-70x70.png' %}" />
+	<meta name="msapplication-square150x150logo" content="{% static 'tud_styling/img/mstile-150x150.png' %}" />
+	<meta name="msapplication-wide310x150logo" content="{% static 'tud_styling/img/mstile-310x150.png' %}" />
+	<meta name="msapplication-square310x310logo" content="{% static 'tud_styling/img/mstile-310x310.png' %}" />
+	
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'tud_styling/img/apple-touch-icon-57x57.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'tud_styling/img/apple-touch-icon-114x114.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'tud_styling/img/apple-touch-icon-72x72.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'tud_styling/img/apple-touch-icon-144x144.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="{% static 'tud_styling/img/apple-touch-icon-60x60.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% static 'tud_styling/img/apple-touch-icon-120x120.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="{% static 'tud_styling/img/apple-touch-icon-76x76.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% static 'tud_styling/img/apple-touch-icon-152x152.png' %}" />
+	<link rel="icon" type="image/png" href="{% static 'tud_styling/img/favicon-196x196.png' %}" sizes="196x196" />
+	<link rel="icon" type="image/png" href="{% static 'tud_styling/img/favicon-96x96.png' %}" sizes="96x96" />
+	<link rel="icon" type="image/png" href="{% static 'tud_styling/img/favicon-32x32.png' %}" sizes="32x32" />
+	<link rel="icon" type="image/png" href="{% static 'tud_styling/img/favicon-16x16.png' %}" sizes="16x16" />
+	<link rel="icon" type="image/png" href="{% static 'tud_styling/img/favicon-128.png' %}" sizes="128x128" />
+
+	<link href="https://plus.google.com/114978264267835011405" rel="publisher" title="TU Delft on Google+" />
+	<link href="https://plus.google.com/114978264267835011405" rel="author" title="TU Delft on Google+" />
+	
+	<title>{% block title %}{% page_attribute "page_title" %}{% endblock title %}</title>
+	
+	<link rel="stylesheet" href="{% static "tud_styling/css/application.css" %}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{% static "tud_styling/css/tud_additional.css" %}" type="text/css" media="screen" />
+
+	<script src='{% static "tud_styling/js/jquery.min.js" %}' type="text/javascript"></script>
+	<script src='{% static "tud_styling/js/jquery-ui.js" %}' type="text/javascript"></script>
+	{% block styletag %}{% endblock styletag %}
+
+	<style type="text/css">
+		.nav {
+			padding-left: 0;
+		}
+		.nav li {
+			display: inline;
+			list-style-type: none;
+			padding-right: 20px;
+		}
+		.container {
+			width: 940px;
+			margin: 0 auto
+		}
+		.content {
+			float: left;
+			width: 80%;
+		}
+		.sidebar {
+			float: left;
+			width: 20%;
+		}
+	</style>
+	{% render_block "css" %}
+  </head>
+  <body>
+	{% cms_toolbar %}
+	<div class="tud_main">
+		{% include 'components_django_cms/nav-top.html' with class="bg-blue" %}
+		{% include 'components_django_cms/nav-overlay.html' %}
+		{% include 'components_django_cms/nav-search.html' %}
+
+		{% block header %}{% endblock %}
+
+		<main>
+			<div class='container'>
+				{% block breadcrumb %}{% endblock %}
+				<div class='row'>
+					{% tud_messages %}
+
+					{% block mainrow %}{% endblock %}
+				</div>
+			</div>
+		</main>
+		{% include 'components_django_cms/footer.html' %}
+		{% include 'components_django_cms/nav-bottom.html' %}
+	</div>	   
+   	<link rel="stylesheet" href="{% static "tud_styling/css/jquery-ui.css" %}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{% static "tud_styling/css/jquery-ui.tud.theme.css" %}" type="text/css" media="screen" />
+
+	<script src='{% static "tud_styling/js/slick.min.js" %}' type="text/javascript"></script>
+    <link href='{% static "tud_styling/css/slick.css" %}' rel='stylesheet' type='text/css'>
+    <script src='{% static "tud_styling/js/all.js" %}'></script>
+    <script src='{% static "tud_styling/js/tud_additional.js" %}'></script>
+   
+	{% render_block "js" %}
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{% load menu_tags i18n staticfiles %}
+	<nav class='nav-bottom'>
+      <button class='js-menu xs-hide'>
+        <div class='patty'></div>
+      </button>
+      <div class='container no-spacing'>
+        <a class='logo left' href='/'>
+          <img width="54" src="{% static 'tud_styling/img/logo.svg' %}" />
+          <span class='text-hide'>{% trans 'TU Delft' %}</span>
+        </a>
+        <span class="sm-show left">{% trans 'Delft University of Technology' %}</span>
+        <div class='right'>
+          <nav class='nav-main'>
+			<ul>
+				{% show_menu 0 100 100 100 "components_django_cms/menu-top.html" %}
+				{% language_chooser "components_django_cms/menu-language.html" %}
+			</ul>
+			<!--
+            <button class='button-reset btn--icon i-search js-modal' data-target='.nav-search'>
+              <span class='text-hide'>{% trans 'Search' %}</span>
+            </button>
+            -->
+          </nav>
+        </div>
+      </div>
+    </nav>

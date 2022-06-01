@@ -1,0 +1,12 @@
+<div class="tabHolder">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			{% for tab in tabs %}
+				<li><a href="{{ tab.link }}"{% if forloop.first %} class="is-active"{% endif %}>{{ tab.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+	{% for tab in tabs %}
+		<div class="tud_tabContent{% if forloop.first %} is-active{% endif %}">{{ tab.content|safe }}</div>
+	{% endfor %}
+</div>

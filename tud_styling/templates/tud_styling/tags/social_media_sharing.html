@@ -1,0 +1,11 @@
+<ul class='sharing'>
+	{% for item in data %}
+		<li>
+			<a href="{{ item.link }}" class="btn--icon i-{{ item.type }}">
+				<span class='text-hide'>
+					{% if item.label %}{{ item.label }}{% else %}{{ item.type }}{% endif %}
+				</span>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

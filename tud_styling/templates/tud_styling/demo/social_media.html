@@ -1,0 +1,12 @@
+{% extends "tud_styling/demo/base.html" %}
+
+{% load tud_styling %}
+
+{% block content %}
+    <h1>Social media</h1>
+    <h2>Channels</h2>
+    {% include "tud_styling/tags/social_media_channels.html" %}
+
+	<h2>Sharing</h2>
+    {% social_media_sharing data.sharing curr_url %}
+{% endblock %}

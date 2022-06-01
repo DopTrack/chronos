@@ -1,0 +1,24 @@
+/*doc
+---
+title: label
+category: components - label
+---
+
+A label is used for dates, or titles or other things.
+
+```html_example
+<span class="label">This is a label</span>
+```
+
+```component_example 
+filename: facts
+```
+
+*/
+.label {
+	text-transform: uppercase;
+	// font-variant: small-caps;
+	letter-spacing: 1px;
+	// font-weight: fw(bold);
+	font-size: 0.75rem;
+}

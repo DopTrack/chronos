@@ -1,0 +1,12 @@
+{% load i18n %}
+<div class='modal is-active'>
+	<button class='menu menu--close button-reset js-toggle' data-target='this.parent'>
+		<div class='i-close'>
+			<span class='text-hide'>{% trans 'Close menu' %}</span>
+
+		</div>
+	</button>
+	<div class='modal__content'>
+		{{ data }}
+	</div>
+</div>

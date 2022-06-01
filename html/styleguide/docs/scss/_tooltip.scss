@@ -1,0 +1,131 @@
+/*doc
+---
+title: tooltip
+category: components - tooltip
+---
+
+Tooltips are a quick way to provide extended information on a term or 
+action on a page. The tooltips can be applied on words in the content and 
+provides a subtle dotted line under the word to indicate the tooltip 
+functionality. The tooltip fades in after a user hovers over the marked 
+word. You can further specify whether you want the tooltip to appear (see example).
+
+**UX note**: Don’t overuse tooltips in your content. Reserve them for 
+difficult words / terms. 
+
+```html_example_table
+This is a <span class="tooltip" title="Difficult to comprehend">confounding</span> adjective.                 
+
+This is a <span class="tooltip tooltip--bottom" title="Difficult to comprehend">confounding</span> adjective. 
+
+This is a <span class="tooltip tooltip--left" title="Difficult to comprehend">confounding</span> adjective.   
+
+This is a <span class="tooltip tooltip--right" title="Difficult to comprehend">confounding</span> adjective.  
+
+```
+
+*/
+$tooltip-color: cl('blue_dark');
+
+.tooltip {
+	cursor: help;
+	position: relative;
+	text-decoration: none;
+	border-bottom: 1px dotted;
+
+	&:after,
+	&:before {
+		transition: t(opacity), t(transform, fast, bounce);
+		pointer-events: none;
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 1;
+		font-size: .8em;
+		opacity: 0;
+		
+		bottom: 0;
+		left: 50%;
+	}
+	&:before {
+		border: .5rem solid transparent;
+		border-top-color: $tooltip-color;
+		margin-bottom: -1rem;
+	}
+	&:after {
+		content: attr(title);
+		background: $tooltip-color;
+		color: cl('white');
+		text-align: left;
+		margin-left: -8rem;
+		width: 16rem;
+		padding: .5rem;
+	}
+	&:hover {
+		&:before, &:after {
+			opacity: 1;
+			bottom: 100%;
+			transform: translateY(-12px);
+		}
+	}
+}
+
+.tooltip--bottom {
+	&:before, &:after {
+		bottom: auto;
+		top: 100%;
+	}
+	&:before {
+		border-bottom-color: $tooltip-color;
+		border-top-color: transparent;
+		margin-top: -1em;
+		margin-bottom: auto;
+	}
+	@include hover {
+		&:before, &:after {
+			bottom: auto;
+			top: 100%;
+			transform: translateY(12px);
+		}
+	}
+}
+
+.tooltip--left,
+.tooltip--right {
+	&:before {
+		border-top-color: transparent;
+		margin: 0;
+	}
+	&:after {
+		bottom: -50%;
+	}
+	@include hover {
+		&:before { bottom: 0; }
+		&:after { bottom: -50%; }
+	}
+}
+
+
+.tooltip--left {
+	&:before { border-right-color: $tooltip-color; }
+	&:after {  margin-left: 1rem; }
+	&:before, &:after { left: 90%; }
+	@include hover {
+		&:before, &:after {
+			transform: translateX(1rem);
+		}
+	}
+}
+
+
+.tooltip--right {
+	&:before { border-left-color: $tooltip-color; }
+	&:after {  margin-right: 1rem; }
+	&:before, &:after { left: auto; right: 90%; }
+
+	@include hover {
+		&:before, &:after {
+			transform: translateX(-1rem);
+		}
+	}
+}

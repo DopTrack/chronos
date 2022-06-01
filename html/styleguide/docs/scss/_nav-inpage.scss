@@ -1,0 +1,23 @@
+/*doc
+---
+title: in-page navigation
+parent: navigation
+---
+```component_example
+filename: nav-inpage
+```
+*/
+.nav-inpage {
+	// position: fixed;
+	display: block;
+	background: cl('white');
+	font-size: .9rem;
+	border-left: $border;
+	box-sizing: border-box;	
+	@include box;
+	
+	a {
+		display: block;
+		// margin-top: .5rem;
+	}
+}

@@ -1,0 +1,346 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>a brand new styleguide: </title>
+		<link rel="stylesheet" href="../css/application.css">
+		<link rel="stylesheet" href="../css/doc.css">
+	</head>
+	<body class="docs">
+		<nav class="nav-bottom">
+			<div class="container no-spacing">
+				<a href="/" class="logo left">
+					<img src='logo.svg', width='54px' />
+				</a>
+				<span class="sm-show left">Technische Universiteit Delft Online Styleguide</span>
+				<div class="right">
+					<nav class="nav-main">
+						<ul>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>components</a>
+								<ul class="nav-main__submenu">
+								
+									
+											<li><a href="/docs/components_-_accordion.html">accordion</a></li>
+										
+									
+											<li><a href="/docs/components_-_agenda.html">agenda</a></li>
+										
+									
+									
+									
+									
+											<li><a href="/docs/components_-_buttons.html">buttons</a></li>
+										
+									
+											<li><a href="/docs/components_-_cards.html">cards</a></li>
+										
+									
+									
+									
+									
+											<li><a href="/docs/components_-_facts.html">facts</a></li>
+										
+									
+									
+									
+											<li><a href="/docs/components_-_images.html">images</a></li>
+										
+									
+									
+											<li><a href="/docs/components_-_label.html">label</a></li>
+										
+									
+											<li><a href="/docs/components_-_navigation.html">navigation</a></li>
+										
+									
+											<li><a href="/docs/components_-_notification.html">notification</a></li>
+										
+									
+											<li><a href="/docs/components_-_profile.html">profile</a></li>
+										
+									
+									
+											<li><a href="/docs/components_-_read_more.html">read more</a></li>
+										
+									
+											<li><a href="/docs/components_-_sharing.html">sharing</a></li>
+										
+									
+											<li><a href="/docs/components_-_tags.html">tags</a></li>
+										
+									
+											<li><a href="/docs/components_-_tooltip.html">tooltip</a></li>
+										
+									
+											<li><a href="/docs/components_-_video.html">video</a></li>
+										
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>layout</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+											<li><a href="/docs/layout_-_background_colors.html">background colors</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/layout_-_container.html">container</a></li>
+										
+									
+									
+											<li><a href="/docs/layout_-_forms.html">forms</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/layout_-_pull.html">pull</a></li>
+										
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>typography</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+									
+											<li><a href="/docs/typography_-_blockquote.html">blockquote</a></li>
+										
+									
+											<li><a href="/docs/typography_-_body.html">body</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/typography_-_headers.html">headers</a></li>
+										
+									
+									
+											<li><a href="/docs/typography_-_intro.html">intro</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>sass</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/sass_-_cl.html">cl</a></li>
+										
+									
+											<li><a href="/docs/sass_-_colors.html">colors</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<main class="">
+				<article class="doc-content"><h1>TU Delft Styleguide</h1>
+<p class="styleguide">This is a automated styleguide for the TU Delft. The style guide consists 
+of two parts. One part are html templates of several TU Delft webpages. 
+The other part is documentation about all the elements used in those templates, 
+for example the different types of buttons, headers, icons etc. </p><p class="styleguide">The templates are generated using <a class="styleguide" href="https://middlemanapp.com/" title="https://middlemanapp.com/">Middleman</a>, 
+which also doubles as the webserver.
+<a class="styleguide" href="/docs" title="/docs">The documentation with examples</a> is generated with <a class="styleguide" href="http://hologram.com" title="http://hologram.com">Hologram</a></p><p class="styleguide">Some template code and documentation code is shared, so that adjustments 
+in code partials are updated in both the templates and de docs. 
+This is to make development easier, and allows you to manage your code in one place.
+So don’t code in the templates. Update via the partials as much as possible!</p>
+<h2>Installation</h2>
+<p class="styleguide">You will need a ruby capable environment. 
+Visit <a class="styleguide" href="https://www.ruby-lang.org/en/documentation/installation/" title="https://www.ruby-lang.org/en/documentation/installation/">the ruby site</a>
+to view installation instructions on how to get up and running with ruby.</p><p class="styleguide">Once Ruby is installed, we need to install <a class="styleguide" href="http://bundler.io/" title="http://bundler.io/">Bundler</a>
+by typing in a terminal <code class="styleguide">gem install bundler</code>.
+Bundler is an app that manages the version and the dependencies of your
+software stack. It allows us to install all the other software needed to
+run this guide in one line in your terminal. Also, it will help to update
+old software, and rollback if a newer version breaks anything.</p><p class="styleguide">The repository contains the configuration for Bundler to use (it refers to the file Gemfile). So no actions are necessary to configure Bundler.</p><p class="styleguide">Once bundler is installed, you can install the neccesary software by typing
+the following in your terminal: <code class="styleguide">bundle install</code>. 
+This will install all the required software, such as Middleman.</p>
+<h2>Running</h2>
+<p class="styleguide">Assuming your install went correctly, you can run the app by executing 
+<code class="styleguide">bundle exec middleman</code> in your terminal.
+Follow the instructions and visit <a class="styleguide" href="http://localhost:4567" title="http://localhost:4567">http://localhost:4567</a>
+once the app is running to view the index page (home).</p><p class="styleguide">Once it&#39;s running, Hologram makes a new build of the docs <a class="styleguide" href="http://localhost:4567/docs" title="http://localhost:4567/docs">http://localhost:4567/docs</a>
+available. </p><p class="styleguide"><em>Note</em>: To build manually, remove <code class="styleguide">activate :hologram</code> on line 27
+in the config.rb, and type in <code class="styleguide">bundle exec hologram</code> in the terminal
+every time you&#39;ve made changes to the source and need to see the updated
+version.</p>
+<h2>Updating components</h2>
+<p class="styleguide">To illustrate the above, we’ll describe an example of the steps you need to take
+when updating an element, let’s say the accordion component. 
+If we&#39;re not sure where we can find a certain component, we can look it up in either
+the docs (where an url is located beneath the header of each component), or by using
+the element inspector in chrome. <strong><em>Classnames should correspond with filenames</em></strong>.
+Since the classname is .accordion, we can find the haml/html partial in 
+<code class="styleguide">source/components/_accordion.haml</code>, the (s)css in <code class="styleguide">source/css/project/components/_accordion.scss</code>, 
+and the javascript in <code class="styleguide">source/js/_accordion.js</code>.
+Update what you need and when you are done run <code class="styleguide">bundle exec hologram</code>. 
+This builds the documentation in the source folder so you can see the changes.</p>
+<h2>Creating components</h2>
+<p class="styleguide">Let&#39;s assume you want to add a new component to the library. First you need to
+create a HAML file in the <code class="styleguide">source/components/</code> folder. Let&#39;s call this file
+<code class="styleguide">_foobar.haml</code>. We use an underscore here because we only need to include 
+this file, and not export it. You fill this partial with some html and hit save.
+You can now use it in a template by typing <code class="styleguide">=partial &#39;foobar&#39;</code> in the 
+appropriate file (created or found in <code class="styleguide">source</code>).
+To style it, and to make it show up in the docs, also create a <code class="styleguide">_foobar.scss</code>
+in the <code class="styleguide">source/css/project/components</code> folder and add the following comment:</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>/*doc
+---
+title: foobar
+category: component - foobar
+---
+
+Just a simple foobar.
+
+```component_example
+filename: foobar
+```
+
+*/</pre>
+  </div>
+</div><p class="styleguide">This will cause hologram to recognize the file as a component, and have it available
+in the docs.</p>
+<h3>Notes on updating</h3>
+<p class="styleguide">If you want to update the docs, make sure to create/update the partials 
+and not write raw html in the docs unless it&#39;s a global style.
+The reason is that you want a single source to build the site with, and
+not have to update html in two different places.</p>
+<h2>Project Structure</h2>
+<table class="styleguide"> <tr>
+<th style="text-align: left">folder</th>
+<th style="text-align: left">used by</th>
+<th style="text-align: left">function</th>
+</tr>
+ <tr>
+<td style="text-align: left"><strong>data</strong></td>
+<td style="text-align: left">middleman, hologram</td>
+<td style="text-align: left">data folder used by middleman to populate partials</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>doc_source</strong></td>
+<td style="text-align: left">hologram</td>
+<td style="text-align: left">files used by hologram to generate the docs. Of special note is markup<em>example</em>template which is used for the &#39;example&#39; and &#39;code&#39; tabs</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>icons</strong></td>
+<td style="text-align: left">middleman, hologram</td>
+<td style="text-align: left">this houses all the icons. If you want new icons place an svg here and it will take care of itself</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>lib</strong></td>
+<td style="text-align: left">middleman, hologram</td>
+<td style="text-align: left">used by middleman to autobuild the docs, and by hologram to render the view partials</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>source</strong></td>
+<td style="text-align: left">middleman</td>
+<td style="text-align: left">the project source as it appears in the browser. You&#39;ll spend most of your time here</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>source/components</strong></td>
+<td style="text-align: left">middleman, hologram</td>
+<td style="text-align: left">All the different building blocks of the site are here, written in <a class="styleguide" href="http://haml.info/" title="http://haml.info/">HAML</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>source/css</strong></td>
+<td style="text-align: left">hologram</td>
+<td style="text-align: left">You can find all of the css here. Don&#39;t touch the files in the generated subfolder. These are generated using external programmes, and you will lose your data if you tinker here.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>source/docs</strong></td>
+<td style="text-align: left">hologram</td>
+<td style="text-align: left">This is the folder hologram copies the files from it&#39;s build to</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>source/fonts</strong></td>
+<td style="text-align: left">hologram</td>
+<td style="text-align: left">The HelveticaNeue and Icon fonts</td>
+</tr>
+ </table>						</article>
+						
+				</main>
+		</div>
+		<footer class="clear-both">
+			<p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+		</script>
+		<script type="text/javascript", src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+    	<link rel="stylesheet", type="text/css", href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css" />
+		<script src="../js/all.js"></script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+/*doc
+---
+title: accordion
+category: components - accordion
+---
+
+```component_example
+filename: accordion
+data: data.accordion.docs
+```
+*/
+
+.accordion__title {
+	user-select: none;
+	transition: t(color);
+	overflow: hidden; _overflow:visible;zoom:1;
+	cursor: pointer;	
+	span {
+		display: block;
+		overflow: hidden; _overflow:visible;zoom:1;
+		font-weight: fw(bold);
+	}
+	&:hover { color: cl('blue'); }
+
+	@include icon("minus") {
+		transition: t(transform);
+		transform: rotate(0deg);
+		transform-origin: 50%;
+		
+		border: 1px solid cl('grey');
+		color: cl('blue');
+		font-size: 0.8rem;
+		padding: 0.5rem;
+		border-radius: 100%;
+		line-height: 1;
+		display: inline-block;
+		text-align: center;
+		margin-right: 1em;
+		float: left;
+		display: block;
+	}
+	&.is-closed {
+		@include icon("plus") {
+			transform: rotate(180deg);
+		}
+	}
+}
+.accordion__content {
+	transition: t(height);
+	margin-bottom: 1em;
+	
+	overflow: hidden;
+	&.is-closed {
+		height: 0;
+	}
+}

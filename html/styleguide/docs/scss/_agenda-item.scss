@@ -1,0 +1,37 @@
+/*doc
+---
+title: agenda item
+parent: agenda
+---
+
+```component_example
+filename: agenda-item
+parameters:
+	title: Titel
+	label: Event
+	date: 15/06/2015
+```
+
+*/
+.agenda__item {
+	overflow: hidden;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	// border-bottom: 1px solid cl('blue_light');
+	@include onhover-line-bottom;
+	.label {
+		color: cl('black');
+	}
+}
+.agenda__day {
+	font-size: 3rem;
+	font-family: $font-header;
+	font-weight: fw(light);
+	float: left;
+	color: cl('black');
+	width: 1.5em;
+}
+.agenda__content {
+	overflow: hidden;
+}

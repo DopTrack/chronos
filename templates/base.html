@@ -1,0 +1,213 @@
+{% load staticfiles sitetree %}
+{% load cms_tags %}
+{% load mathjax %}
+
+<!DOCTYPE html>
+<html class='no-js' lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+    <script src='/static/styleguide/js/vendor/modernizr.min.js'></script>
+    <title>TU Delft doptrack {% sitetree_page_title from user|menu %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'styleguide/css/application.css' %}"> 
+    
+    <link rel="stylesheet" href="{% static 'jquery-ui/jquery-ui.min.css' %}">
+	<script src="{% static 'jquery-ui/jquery.js' %}"></script>
+	<script src="{% static 'jquery-ui/jquery-ui.js' %}"></script>
+	
+	<link rel="stylesheet" href="{% static 'jquery/formset.css' %}">
+	<script src="{% static 'jquery/jquery.formset.js' %}"></script>
+	
+	{% mathjax_scripts %}
+	<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { 
+      preferredFont: "TeX", 
+      availableFonts: ["STIX","TeX"], 
+      styles: {".MathJax": {color: "#000000"}} 
+      }
+});
+</script>
+    
+  </head>
+  <body>
+    <nav class='bg-blue nav-top'>
+      <button class='js-menu xs-hide'>
+        <div class='patty'></div>
+      </button>
+      <div class='container no-spacing'>
+      
+        <!-- LOGO -->
+        <a class='logo left' href='/'>
+          <img src="/static/styleguide/img/logo.svg" />
+          <span class='text-hide'>TU Delft</span>
+        </a>
+        <div class='right'>
+          
+          <!-- HEADER MENU -->
+          <nav class='nav-main'>
+              {% sitetree_menu from user|menu include "trunk" template "sitetree/tud_headerMenu.html" %}
+            
+            {% comment %} search heeft geen toegevoegde waarde in deze simpele app 
+            <button class='button-reset btn--icon i-search js-modal' data-target='.nav-search'>
+              <span class='text-hide'>Zoeken</span>
+            </button>
+            {% endcomment %}
+          </nav>
+        </div>
+      </div>
+    </nav>
+    <nav class='nav-overlay'>
+
+      <!-- MENU (gelijk aan header menu) na drukken op ... (en de .. verschijnen in header als menu niet meer past) -->
+      <div class='container no-spacing'>
+        {% sitetree_menu from user|menu include "trunk" template "sitetree/tud_headerMenuOverlay.html" %}
+        <!-- div class='language-switch'>
+          <a href='#'>English</a>
+          <a href='#'>Nederlands</a>
+        </div-->
+        <button class='menu menu--close button-reset js-toggle' data-target='.nav-overlay'>
+          <div class='i-close'>
+            <span class='text-hide'>Sluit menu</span>
+          </div>
+        </button>
+      </div>
+    </nav>
+   {% comment %} search heeft geen toegevoegde waarde in deze simpele app
+    <form class='nav-search'>
+      <input autofocus name='search' type='search'>
+      <div>
+        <input checked id='subject' name='type' type='radio'>
+        <label for='subject'>Onderwerp 1</label>
+      </div>
+      <div>
+        <input id='person' name='type' type='radio'>
+        <label for='person'>Persoon 1</label>
+      </div>
+      <button class='button-reset i-search'></button>
+    </form>
+   {% endcomment %}
+    
+    <main>      
+      <div class='container' >
+        
+        <!-- Kruimelpath  (de > tekens worden er door application.css in geplaatst en het teken is een font geladen door een javascript)  -->
+        <nav class='breadcrumb'>
+          {% sitetree_breadcrumbs from user|menu template "sitetree/tud_breadcrumb.html" %}
+        </nav>
+        <div class='row' >
+            <!-- Menu aan de linker kant 
+          <aside class='md-3'>
+            
+            <nav class='nav-aside'>
+              {% sitetree_menu from user|menu include "trunk" template "sitetree/tud_menuAside.html" %}
+            </nav>
+          </aside>
+          -->
+          <article class='md-12'>
+              {% block messages %}
+          	    {% if messages %}
+			  	  <div class="feedback">
+		    	    {% for message in messages %}
+		        	  <div {%if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div><!--    (time of message: {% now "f s" %}) -->
+		    	    {% endfor %}
+	   			  </div>
+			    {% endif %}
+			  {% endblock %}			    
+			    
+			    {% with cmsPageId=request|getCmsPageIdTemplate %}
+				    {% show_placeholder "content" cmsPageId %}
+			    {% endwith %}	
+			  			  			  
+          	  {% block content %}{% endblock %}
+          </article>
+        </div>
+      </div>
+    </main>
+
+{% comment %} Uitgezet want de enorme footer en bottom munu voegt niets toe
+    <footer>
+      <a class='js-back_to_top' href='#' title='back_to_top'>
+        <div class='btn--icon i-arrow_down'></div>
+      </a>
+      <div class='container'>
+        <div class='row'>
+          <div class='md-6 lg-6 space'>
+            <h1>Technische Universiteit Delft</h1>
+            <a class='btn--icon i-facebook' href='#'>
+              <span class='text-hide'>Facebook</span>
+            </a>
+            <a class='btn--icon i-linkedin' href='#'>
+              <span class='text-hide'>Linkedin</span>
+            </a>
+            <a class='btn--icon i-twitter' href='#'>
+              <span class='text-hide'>Twitter</span>
+            </a>
+            <a class='btn--icon i-youtube' href='#'>
+              <span class='text-hide'>Youtube</span>
+            </a>
+          </div>
+          <div class='md-6 lg-6'>
+            <div class='row'>
+              <div class='sm-6'>
+                <address>
+                Landbergstraat 15<br/>
+                2628 CE Delft<br/>
+                Tel: <a href="tel:+31 (0)15 27 89807">+31 (0)15 27 89807</a><br/>
+                <a href="mailto:info@tudelft.nl">info@tudelft.nl</a>
+                </address>
+              </div>
+              <div class='sm-6'>
+                <a href='#'>Routebeschrijving<br/></a>
+                <a href='#'>Plattegrond campus<br/></a>
+                <a href='#'>Plattegrond gebouw<br/></a>
+                <a href='#'>Meer gebouwinformatie</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Onderste Menu -->
+    <nav class='nav-bottom'>
+      <div class='container no-spacing'>
+        <a class='logo left' href='/'>
+          <img width="54" src="/static/styleguide/img/logo.svg" />
+        </a>
+        <span class='sm-show left'>Technische Universiteit Delft</span>
+        <div class='right'>
+          <nav class='nav-main'>
+            {% sitetree_menu from user|menu include "trunk" template "sitetree/tud_headerMenu.html" %}
+            <button class='button-reset btn--icon i-search js-modal' data-target='.nav-search'>
+              <span class='text-hide'>Zoeken</span>
+            </button>
+          </nav>
+          <!-- %button.button-reset.js-menu -->
+          <!-- .patty -->
+        </div>
+      </div>
+    </nav>
+   {% endcomment %}    
+    
+    <!-- /Slick slider -->
+    <script src='//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js' type='text/javascript'></script>
+    <script>
+      $.fn.slick || document.write('<script src="/static/styleguide/js/vendor/slick.min.js"><\/script>')
+    </script>
+    
+    <link href='//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css' rel='stylesheet' type='text/css'>
+     <script src="/static/styleguide/js/all.js"></script>
+  </body>
+</html>

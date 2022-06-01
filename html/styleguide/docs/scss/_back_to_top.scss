@@ -1,0 +1,46 @@
+.js-back_to_top {
+	transition: t(opacity);
+	opacity: 0;
+	
+	position: fixed;
+	z-index: $zindex-navigation;
+	bottom: 4.55rem;
+	right: map-get($gutters, xs) * .5;
+	
+	&:hover {
+		.btn--icon:after {
+			background-color: cl('white');
+		}
+	}
+
+	.btn--icon {
+		&:before {color: cl('blue');}
+		&:after {border-color: cl('blue');}
+	}
+
+	// &:before { @extend .i-arrow_down:before;}
+	&.up { .btn--icon:before { content: map-get($icons, 'arrow_up'); } }
+
+	&.show {
+		opacity: 1;
+	}
+	&.is-fixed {
+		position: absolute;
+		top: -3em;
+		bottom: auto;
+	}
+}
+
+.disable-mouse {
+	// background: #fc0;
+	position: fixed;
+	transform: translateZ(1);
+	left: 0; right:0;top:0;bottom:0;
+	// z-index: -1;
+	// pointer-events: none;
+	
+	&.is-scroll {
+		z-index: 999999999999;
+		
+	}
+}

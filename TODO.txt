@@ -1,0 +1,16 @@
+________________ Hierboven is verouderd, hier werkt richard nu aan (5 mrt 2018)  
+- Menu bovenaan plaatsen (submenuitems niet tonen)
+- footer, footermenu, tree, en search verwijderen
+- anonomous gebruiker
+- mail optie naar superusers
+- help text
+- database file instelbaar extern plaatsen of docker database gebruiken
+- waterfall plot
+- map satelite tracker
+ 
+____ 
+TODO miniem schoonheidsfoutje image lijst rebruild existing url 
+	als ?pid in de url staat dan gaad het goed maar als je in image gallery image 25 toont dan werkt de url niet meer.   
+      (phothoswipe werkt met # parameters, maar die worden door browser niet doorgestuurd naar de server)
+      DUS via ajax call binnenhalen dan werkt #&pid=...... wel.
+ 

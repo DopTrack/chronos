@@ -1,0 +1,23 @@
+{% extends "tud_styling/demo/base.html" %}
+
+{% load tud_styling %}
+
+
+{% block content %}
+    <h1>This is a <em>{{ layout }}</em> Django form</h1>
+
+    <form class="form-{{ layout }}" action="" method="post">
+        {% csrf_token %}
+        {{ form|as_tud:layout }}
+        {% if layout == "horizontal" %}
+            <p class="form-actions">
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </p>
+        {% else %}
+            <input type="submit" value="Submit" class="btn btn-primary">
+        {% endif %}
+    </form>
+
+    <p>Submit the form to see error messages styled into it.</p>
+
+{% endblock %}

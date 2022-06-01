@@ -1,0 +1,76 @@
+/*doc
+---
+title: Read more
+category: components - read more
+---
+
+In order to use a readmore component, wrap the text in a div with the proper class.
+The height of the hidden content is determined through javascript, so it's
+animatable and readable for people without javascript enabled.
+Use the data-title to enable multilingual support.
+
+```html_example
+<div class="readmore" data-title= "Lees meer">
+	<h2>Razendsnel rekenenen</h2>
+	<p>Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. Dit geeft de mogelijkheid bepaalde rekenproblemen razendsnel op te lossen die huidige supercomputers niet aankunnen, waaronder het zoeken naar bijzondere materialen, zoals supergeleiders of materialen voor superbatterijen. Het gebruik van quantumtechnologie creëert netwerkverbindingen die onmogelijk af te luisteren zijn.</p>
+	<p>Quantumcomputers maken gebruik van een bijzondere eigenschap van quantumdeeltjes, waardoor quantumbits niet alleen 1 of 0 kunnen zijn, maar ook allebei tegelijk. Dit geeft de mogelijkheid bepaalde rekenproblemen razendsnel op te lossen die huidige supercomputers niet aankunnen, waaronder het zoeken naar bijzondere materialen, zoals supergeleiders of materialen voor superbatterijen. Het gebruik van quantumtechnologie creëert netwerkverbindingen die onmogelijk af te luisteren zijn.</p>
+</div>
+```
+*/
+
+.readmore {
+	$btnHeight: 2.5rem;
+	$fadeHeight: 4rem;
+	$inactiveBlockHeight: ($btnHeight + $fadeHeight) * 2;
+
+	transition: t(height);
+	overflow: hidden;
+	&.is-inactive {
+		height: $inactiveBlockHeight;
+		position: relative;
+		cursor: pointer;
+		
+		&:before {
+			
+			content: attr(data-title);
+			display: block;
+			position: absolute;
+			bottom: 0rem;
+			box-sizing: border-box;
+			width: 100%;
+			
+	
+			transition: t(color);
+			
+			line-height: $btnHeight;
+			
+			color: cl('blue');
+			background-color: cl('background');
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 0.75rem;
+			border-top: 1px solid cl('blue');
+			z-index: 1;
+		}
+		&:after {
+			transition: t(opacity, normal, easeOut);
+			opacity: 1;
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: $btnHeight;
+			height: $fadeHeight;
+			width: 100%;
+			background-image: linear-gradient(rgba(cl('background'), 0), cl('background'));
+		}
+
+		@include hover {
+			&:before {
+				color: cl('blue_dark');
+			}
+			&:after {
+				opacity: 0;
+			}
+		}
+	}
+}

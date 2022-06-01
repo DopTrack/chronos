@@ -1,0 +1,21 @@
+{% load sitetree tag_utils %}{% gapless %}
+
+    {% if sitetree_items %}
+		
+		{% for item in sitetree_items %}
+		    {% if forloop.first %}
+		      <ul {% if item.depth = 1 %}class='nav-main__submenu'{% endif %}>
+		    {% endif %}
+		         <li{% if item.depth = 0 %} class='nav-main__mainitem' data-priority='{{forloop.revcounter0}}'{% endif %}>
+                    <a href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %}>{{ item.title_resolved }}</a>
+				    {% if item.has_children %}
+      		           {% sitetree_children of item for menu template "sitetree/tud_headerMenu.html" %}
+				    {% endif %}
+			      </li>
+			{% if forloop.last %}
+			  </ul>
+			{% endif %}
+		{% endfor %}
+
+    {% endif %}
+{% endgapless %}

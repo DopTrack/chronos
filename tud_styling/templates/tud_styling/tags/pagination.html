@@ -1,0 +1,36 @@
+{% with tud_pagination_url=tud_pagination_url|default:"?" %}
+
+    <div class="{{ pagination_css_classes }}">
+        <ul class='paging'>
+
+            <li class="paging__prev{% if current_page == 1 %} disabled{% endif %}">
+                <a href="{% if current_page == 1 %}#{% else %}{{ tud_pagination_url }}page=1{% endif %}" class="onhover-arrow_left"></a>
+            </li>
+
+            {% if pages_back %}
+                <li>
+                    <a href="{{ tud_pagination_url }}page={{ pages_back }}">&hellip;</a>
+                </li>
+            {% endif %}
+
+            {% for p in pages_shown %}
+                <li>
+                    <a href="{% if current_page == p %}#{% else %}{{ tud_pagination_url }}page={{ p }}{% endif %}" {% if current_page == p %} class="is-active"{% endif %}>{{ p }}</a>
+                </li>
+            {% endfor %}
+
+            {% if pages_forward %}
+                <li>
+                    <a href="{{ tud_pagination_url }}page={{ pages_forward }}">&hellip;</a>
+                </li>
+            {% endif %}
+
+            <li class="paging__next{% if current_page == num_pages %} disabled{% endif %}">
+                <a href="{% if current_page == num_pages %}#{% else %}{{ tud_pagination_url }}page={{ num_pages }}{% endif %}" class="onhover-arrow_right"></a>
+            </li>
+
+        </ul>
+
+    </div>
+
+{% endwith %}

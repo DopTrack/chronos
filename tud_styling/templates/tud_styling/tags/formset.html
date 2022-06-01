@@ -1,0 +1,7 @@
+{% load tud_styling %}
+
+{{ formset.management_form }}
+
+{% for form in formset %}
+    {% tud_form form layout=layout|default:"inline" %}
+{% endfor %}

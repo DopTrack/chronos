@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load sitetree %}
+
+{% block content %}
+
+	<h2>Courses</h2>
+	
+		<table class="list">
+		    <tr>
+		       <th>Name</th>
+		       <th>Start</th>
+		       <th>End</th>
+		       <th>Action</th>
+		       <th>Docent</th>
+		    </tr>  
+			{% for course in object_list %}
+			  <tr>
+		        <td>{{course.name}}</td>
+			    <td>{{ course.start }}</td>
+			    <td>{{ course.end }}</td>
+			    <td> 
+			        {% if course.docent_id == user.id or canEditAll %}	
+			          <a href="{% url 'course-edit' course.id %}">edit</a>&nbsp;
+     			      <a href="{% url 'managetimeslots' course.id %}">slots</a>&nbsp;
+			    	  <a href="{% url 'course-delete' course.id %}" onclick="return confirm('Are you sure you want to delete this course and related timeslots ?');">delete</a>
+			    	{% endif %}
+			    	
+			    	{% if user|has_group:"student" %} 
+			          <a href="{% url 'requesttimeslot' course.id %}">timeslots</a>
+			        {% endif %}
+               </td>
+                <td>{{ course.docent.first_name }} {{ course.docent.last_name }}</td>			        
+			  </tr>
+			{% empty %}
+			    <tr><td>No courses yet.</td></tr>
+			{% endfor %}
+		</table>
+		
+		{% if  user|has_group:"docent" or canEditAll %}
+		  <td><a href="{% url 'course-new' %}">Create course</a></td>
+		{% endif %}
+	
+{% endblock %} 

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <link rel="stylesheet" href="/static/jquery-ui/jquery-ui.min.css">
+  <script src="/static/jquery-ui/jquery.js"></script>
+  <script src="/static/jquery-ui/jquery-ui.js"></script>
+    
+  <title>POC server control</title>
+
+  <style type="text/css">
+    div#ymlactivity {
+      position: relative;
+      height: 175px;
+      background-color: lightblue;      
+    } 
+    
+    div#timemarker {
+      position: absolute;
+      background-color: pink;
+      height: 100%;            
+    }
+    
+
+    div#toptimemarker {
+      position: absolute; 
+      /*background-color: gray;*/
+      height: 100px;
+      width: 100%; }      
+    
+    div#toptimelabelstart {
+      position: absolute;
+      left: -15px;
+      display: inline-block;
+      white-space: nowrap;
+      border: solid 1px black;      }
+      
+    div#toptimelabelend {
+      position: absolute;
+      right: -15px;
+      display: inline-block;
+      white-space: nowrap;
+      border: solid 1px black;      }      
+    
+    div#toppointer {
+      position: absolute;
+      background-color: lightblue;
+      top: 22px;
+      bottom: -35px; 
+      border-left: solid 1px black;    }
+
+
+    div#bottomtimemarker {
+      position: absolute; 
+      /*background-color: gray;*/
+      top: 125px;
+      height: 50px;
+      width: 100%;    }
+
+    div#bottomtimelabel {
+      position: absolute;
+      left: -15px;
+      bottom: 0px;
+      display: inline-block;
+      white-space: nowrap;
+      border: solid 1px black;     }
+            
+    div#bottompointer {
+      position: absolute;
+      background-color: lightblue;
+      top: -85px;
+      bottom: 22px;      
+      border-left: solid 1px black;    }
+      
+    div#recordingdot {
+      position: absolute;
+      left: -2px;
+      bottom: 30px;   }
+            
+        
+    
+    
+    div#timeslots {
+      position: absolute;
+      background-color: white;
+      top: 50px;
+      width: 100%; 
+      height: 12px;     }   
+    
+    div#you {
+    	position: absolute;
+    	background-color: yellow;
+    	height: 100%;
+    	border-left: solid 1px black;   }
+    div#other {
+    	position: absolute;
+    	background-color: orange;
+    	height: 100%;
+    	border-left: solid 1px black;   }
+    
+    div#slotlabel {
+        position: absolute;       
+        top: -4px;    }        
+    
+    
+    div#ymlfiles {
+        position: absolute;
+        background-color: white;
+        height: 25px;
+        top: 100px;
+        width: 100%;   }
+
+    div#recorded {
+        position: absolute;
+        background-color: green;
+        height: 25px;
+        border-left: solid 1px black;   }
+    
+    div#recording {
+      position: absolute;
+      background-color: red;
+        height: 25px;
+        border-left: solid 1px black;   }
+    
+    div#scheduled {
+      position: absolute;
+      background-color: orange;
+      height: 25px;
+      border-left: solid 1px black;   }
+    
+    div#virtual {
+      position: absolute;
+      background-color: gray;
+      height: 25px;
+      border-left: solid 1px black;   }
+    
+    div#leganda {
+      position: absolute;
+    }
+}
+    
+    
+  </style>
+  
+  <script>
+    alert("okokokok");
+    
+    function blinker() {
+	   $('.blinking').fadeOut(2000);
+	   $('.blinking').fadeIn(2000);
+    }
+    setInterval(blinker, 1000);
+    
+    $(function() {
+        $( document ).tooltip({        	
+          items: "[tt]",
+          content: function() {
+            var element = $( this );
+            if ( element.is( "[tt]" ) ) {
+              var text = element.attr('tt');
+              return text;
+            }
+          }
+        });
+      });
+
+
+</script>
+  
+</head>
+
+
+
+<body>
+	
+	<div id="ymlactivity" style="width: 600px;">
+	    <div id="toptimemarker">
+	        <div id="timemarker" style="left: 30px">
+	            <div id="toptimelabelstart">201612310000 (past)</div>
+	            <div id="toppointer"></div>
+	        </div>
+  		    <div id="timemarker" style="left: 570px;">
+		        <div id="toptimelabelend">201612311000 (future)</div>
+		        <div id="toppointer"></div>
+		    </div>
+	    </div>
+	    <div id="bottomtimemarker">
+	        <div id="timemarker" style="left: 200px">
+	            <div id="bottomtimelabel">201612310400 (now)</div>
+	            <div id="bottompointer"></div>
+	            <div id="recordingdot"><img src="/static/serverControl/Red-dot-5px.png"/></div>
+	        </div>
+	    </div>
+	    <div id="timeslots">
+	        <div id="leganda" class="blinking" style="right:-10px; top:-4px;">slots</div>
+	        <div id="other" style="left:20px; width:30px;" ></div>
+	        <div id="you" style="left:220px; width:30px;">
+	           <div id="slotlabel">you</div></div>
+	        <div id="other" style="left:420px; width:30px;"></div>
+	        <div id="other" style="left:420px; width:30px;"></div>
+	        <div id="other" style="left:450px; width:30px;"></div>
+	    </div>
+	    <div id="ymlfiles">
+	        <div id="leganda" class="blinking" style="right:-10px;">recordings</div>
+	        <a href="test" title="go to download page"><div id="recorded" tt="<b>recorded:<br>Delfi-C3_201623111759</b>  1GB" style="left:10px; width:5px"></div></a>     
+	        <div id="recorded" style="left:120px; width:5px">r2</div>    
+	        <div id="recording" style="left:220px; width:5px">r</div>    
+	        <div id="scheduled" style="left:320px; width:5px">s1</div>    
+	        <div id="scheduled" style="left:420px; width:5px">s2</div>    
+	        <div id="scheduled" style="left:470px; width:5px" tt="<b>Automated recording:<br>Delfi-C3_201623111759</b>  500 sec"></div>    
+	        <div id="virtual" tt="<b>virtual:<br>Delfi-C3_201623111759</b>  360 sec" style="left:520px; width:5px;"></div>
+	    </div>
+	</div>
+	
+</body> 

@@ -1,0 +1,203 @@
+
+
+  <style type="text/css">
+    div#ymlactivity {
+      display: block;
+      position: relative;
+      height: 175px;
+      background-color: lightblue;      
+    } 
+    
+    div#timemarker {
+      position: absolute;
+      background-color: pink;
+      height: 100%;            
+    }    
+
+    div#toptimemarker {
+      position: absolute; 
+      /*background-color: gray;*/
+      height: 100px;
+      width: 100%; }      
+    
+    div#toptimelabelstart {
+      position: absolute;
+      left: -15px;
+      display: inline-block;
+      white-space: nowrap;
+      border: solid 1px black;      }
+      
+    div#toptimelabelend {
+      position: absolute;
+      right: -15px;
+      display: inline-block;
+      white-space: nowrap;
+      border: solid 1px black;      }      
+    
+    div#feedback {
+      position: absolute;
+      left: 40%;
+      color: red;
+    }
+    
+    div#toppointer {
+      position: absolute;
+      background-color: lightblue;
+      top: 27px;
+      bottom: -35px; 
+      border-left: solid 1px black;    }
+
+
+    div#bottomtimemarker {
+      position: absolute; 
+      /*background-color: gray;*/
+      top: 125px;
+      height: 50px;
+      width: 100%;    }
+
+    div#bottomtimelabel {
+      position: absolute;
+      left: -15px;
+      bottom: 0px;
+      display: inline-block;
+      white-space: nowrap;
+      border: solid 1px black;     }
+            
+    div#bottompointer {
+      position: absolute;
+      background-color: lightblue;
+      top: -85px;
+      bottom: 27px;      
+      border-left: solid 1px black;    }
+      
+    div#recordingdot {
+      position: absolute;
+      left: -2px;
+      bottom: 30px;   }
+            
+        
+    
+    
+    div#timeslots {
+      position: absolute;
+      background-color: white;
+      top: 50px;
+      width: 100%; 
+      height: 12px;     }   
+    
+    div#you {
+    	position: absolute;
+    	background-color: yellow;
+    	height: 100%;    	
+    	border-left: solid 1px black;   }
+    div#other {
+    	position: absolute;
+    	background-color: gray;
+    	height: 100%;
+    	border-left: solid 1px black;   }
+    
+    div#slotlabel {
+        position: absolute;       
+        top: 10px;    }        
+    
+    
+    div#ymlfiles {
+        position: absolute;
+        background-color: white;
+        height: 25px;
+        top: 100px;
+        width: 100%;   }
+
+    div#recorded {
+        position: absolute;
+        background-color: green;
+        height: 25px;
+        border-left: solid 1px black;   }
+    
+    div#recording {
+      position: absolute;
+      background-color: red;
+        height: 25px;
+        border-left: solid 1px black;   }
+    
+    div#scheduled {
+      position: absolute;
+      background-color: orange;
+      height: 25px;
+      border-left: solid 1px black;   } 
+    
+    div#virtual {
+      position: absolute;
+      background-color: pink;
+      height: 25px;
+      border-left: solid 1px black;   }
+    
+    div#leganda {
+      position: absolute;
+    }
+}
+    
+    
+  </style>
+  
+
+    
+    <div id="ymlactivity" style="width: {{ctrlData.width}}px">
+        <div id="toptimemarker">
+            <div id="timemarker" style="left: {{ctrlData.start_px}}px">
+                <div id="toptimelabelstart">{{ctrlData.start_label}}</div>
+                <div id="toppointer"></div>
+            </div>
+            <div id="timemarker" style="left: {{ctrlData.end_px}}px;">
+                <div id="toptimelabelend">{{ctrlData.end_label}}</div>
+                <div id="toppointer"></div>
+            </div>
+            {% if feedbackList %}
+               <div id="feedback" tt="{% for msg in feedbackList %}
+                                        {{msg}}<br>
+                                      {% endfor %}">ERROR
+               </div>
+            {% endif %}            
+        </div>
+        <div id="bottomtimemarker">
+            <div id="timemarker" style="left: {{ctrlData.now_px}}px">
+                <div id="bottomtimelabel">{{ctrlData.now_label}}</div>
+                <div id="bottompointer"></div>
+                {% if ctrlData.nowRecording %}
+                    <div id="recordingdot" class="blinking"><img src="/static/serverControl/Red-dot-5px.png"/></div>
+                {% endif %}
+            </div>
+        </div>
+        <div id="timeslots">
+            <div id="leganda" class="blinking" style="right:-10px; top:-4px;">slots</div>
+            
+            {% for slot in timeslots %}
+                
+                {% if slot.user.id == user.id %}
+					<div id="you" style="left: {{slot.px_start}}px; width: {{slot.width}}px;" tt="{{slot.user.username}}<br>{{slot.label}}" >
+					    <div id="slotlabel"></div></div>
+				{% else %}
+                    <div id="other" style="left: {{slot.px_start}}px; width: {{slot.width}}px;" tt="{{slot.user.username}}<br>{{slot.label}}" ></div>                
+                {% endif %}
+            {% endfor %}
+
+        </div>
+        <div id="ymlfiles">
+            <div id="leganda" class="blinking" style="right:-10px;">recordings</div>
+
+            {% if ctrlData.virtual_start %} 
+              <div id="virtual" tt="VIRTUAL:<br> {{ctrlData.virtual_satellitename}}  {{ctrlData.virtual_noradid}}  {{ctrlData.virtual_start}}" style="left: {{ctrlData.virtual_px_start}}px; width: {{ctrlData.virtual_width}}px;"></div>
+            {% endif %} 
+            {% for rec in recordings %}
+              <div id="recorded" style="left: {{rec.px_start}}px; width: {{rec.width}}px" tt="RECORDED:<br> {{rec.id}} <br>Size: {{rec.recSize}}"></div>    
+		    {% endfor %}
+            {% for rec in schedules %}
+              <div id="scheduled" style="left: {{rec.px_start}}px; width: {{rec.width}}px" tt="SCHEDULED:<br> {{rec.id}}"></div>    
+		    {% endfor %}
+        </div>
+    </div>
+    {% if ctrlData.feedback %}
+       <div>{{ ctrlData.feedback }}</div>
+    {% endif %}
+    
+    

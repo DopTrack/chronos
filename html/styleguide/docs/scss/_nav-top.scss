@@ -1,0 +1,32 @@
+/*doc
+---
+title: top navigation
+name: nav-top
+parent: navigation
+---
+This component is used to navigate users to the main pages of the website and offers a language switch and a search functionality.
+
+There are two versions available for this component. First there’s a blue version which is used on contentpages with no hero component. On all other pages (with a hero component) we use the transparent version the header navigation. The TU Delft logo and the search can’t be changed.
+
+This navigation appears in the masthead, spanning the entire width of the screen.
+It serves as a kind of reversed footer. Background color is optional thru a [theme class][layout - background colors]
+
+```component_example
+filename: nav-top
+```
+*/
+.nav-top {
+	position: absolute;
+	top: 0;
+	z-index: $zindex-navigation - 1;
+	width: 100%;
+	
+	img {
+		vertical-align: top;
+		padding-top: 7px;
+	}
+
+}
+.logo {
+	display: inline-block;
+}

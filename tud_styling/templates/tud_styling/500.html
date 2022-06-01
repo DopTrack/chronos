@@ -1,0 +1,25 @@
+{% extends "tud_styling/base/base.html" %}
+{% load cms_tags menu_tags %}
+
+{% block header %}
+	<div class="banner statuscode500">
+      <div class="container">
+        <div class="poster__content">
+
+        </div>
+      </div>
+    </div>
+{% endblock header %}
+
+{% block breadcrumb %}{% endblock breadcrumb %}
+
+{% block title %}
+	500 Internal server error
+{% endblock title %}
+
+{% block mainrow %}
+	<article class='md-12 user-content'>
+		<h1>500 Internal server error</h1>
+		{% placeholder "content" %}
+	</article>
+{% endblock mainrow %}

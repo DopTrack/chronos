@@ -1,0 +1,22 @@
+{% load sitetree tag_utils %}{% gapless %}
+
+{% comment %}
+   Berg-R  	5 mrt 2018:
+   			 op dit moment word node alleen opgenomen in kruimelpath als deze is opgenomen in tree
+   			 , in tudelft huisstijl kun je ook in menu subitems hebben
+   			 , En die worden dus weggelaten, dat is te verhelpen,
+   			 maar omdat ik nu toch geen kruimelpath toon laat ik het even zo.     			 
+{% endcomment %}
+
+{% if sitetree_items %}
+  <ul class='list-inline'>
+	{% for item in sitetree_items %}
+		{% if item.insitetree  %}
+			<li>
+				<a href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %}>{{ item.title_resolved }}</a>
+			</li>
+		{% endif %}
+	{% endfor %}
+  </ul>
+{% endif %}
+{% endgapless %}

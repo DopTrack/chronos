@@ -1,0 +1,39 @@
+.nav-search {
+	color: cl('white');
+	// height: 11rem;
+	// font-size: 3rem;
+	// text-align: center;
+	> * {
+		margin-top: 0 !important;
+	}
+	button,
+	input[type="search"] {
+		font-size: 2rem;
+		padding-left: 0.8em;
+		border: none;
+	}
+	input {
+		vertical-align: middle;
+	}
+	button {
+		border-radius: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: cl('blue');
+		width: 2.3em;
+		height: 2.3em;
+		padding: 0;
+		&:before {
+			font-size: .8em;
+			line-height: 2.6;
+		}
+	}
+	input[type="search"] {
+		//100% minus the width of the button
+		width: calc(100% - 1.3em);
+		height: 2.3em;
+		vertical-align: top;
+		margin-bottom: 0.7rem;
+	}
+}

@@ -1,0 +1,20 @@
+footer {
+	position: relative;
+	background-color: cl('blue');
+	color: cl('white');
+	padding-bottom: 4rem;
+	overflow: auto;
+	h1 {
+		font-size: 2rem;
+		@include bp('sm+') {
+			font-size: 3rem;
+		}
+	}
+	a {
+		text-decoration: underline;
+		color: cl('white');
+	}
+	.space {
+		margin-bottom: $spacing;
+	}
+}

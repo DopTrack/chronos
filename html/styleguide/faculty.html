@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html class='no-js' lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+    <script src='js/vendor/modernizr.min.js'></script>
+    <title>Tu Delft</title>
+    <link href="css/application.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class='nav-top'>
+      <button class='js-menu xs-hide'>
+        <div class='patty'></div>
+      </button>
+      <div class='container no-spacing'>
+        <a class='logo left' href='/'>
+          <img src="img/logo.svg" />
+          <span class='text-hide'>TU Delft</span>
+        </a>
+        <div class='right'>
+          <nav class='nav-main'>
+            <ul>
+              <li class='nav-main__mainitem' data-priority='6'>
+                <a href='#'>Templates</a>
+                <ul class='nav-main__submenu'>
+                  <li>
+                    <a href='/agenda_overview.html'>Agenda</a>
+                  </li>
+                  <li>
+                    <a href='/agenda_detail.html'>Agenda Detail</a>
+                  </li>
+                  <li>
+                    <a href='/contact.html'>Contact</a>
+                  </li>
+                  <li>
+                    <a href='/faq.html'>FAQ</a>
+                  </li>
+                  <li>
+                    <a href='/grid_example.html'>Grid example</a>
+                  </li>
+                  <li>
+                    <a href='/faculty.html'>Homepage</a>
+                  </li>
+                  <li>
+                    <a href='/index.html'>Homepage (faculty)</a>
+                  </li>
+                  <li>
+                    <a href='/news_header.html'>Nieuws Detail (header)</a>
+                  </li>
+                  <li>
+                    <a href='/news_no_header.html'>Nieuws Detail (no header)</a>
+                  </li>
+                  <li>
+                    <a href='/news_overview.html'>Nieuws Overzicht</a>
+                  </li>
+                  <li>
+                    <a href='/profile.html'>Profile</a>
+                  </li>
+                  <li>
+                    <a href='/special.html'>Special</a>
+                  </li>
+                  <li>
+                    <a href='/textpage.html'>Textpage</a>
+                  </li>
+                </ul>
+              </li>
+              <li class='nav-main__mainitem' data-priority='4'>
+                <a href='#'>Studeren</a>
+                <ul class='nav-main__submenu'>
+                  <li>
+                    <a>Studeren aan de TU Delft</a>
+                  </li>
+                  <li>
+                    <a>Bacheloropleidingen</a>
+                  </li>
+                  <li>
+                    <a>Masteropleidingen</a>
+                  </li>
+                  <li>
+                    <a>PhD at TU Delft</a>
+                  </li>
+                  <li>
+                    <a>Van HBO naar TU Delft</a>
+                  </li>
+                  <li>
+                    <a>Minoren en keuzevakken</a>
+                  </li>
+                  <li>
+                    <a>Onderwijs voor professionals</a>
+                  </li>
+                  <li>
+                    <a>Online onderwijs</a>
+                  </li>
+                  <li>
+                    <a>Exchange and Free mover</a>
+                  </li>
+                </ul>
+              </li>
+              <li class='nav-main__mainitem' data-priority='3'>
+                <a href='#'>Onderzoek</a>
+              </li>
+              <li class='nav-main__mainitem' data-priority='2'>
+                <a href='#'>Zakelijk</a>
+              </li>
+              <li class='nav-main__mainitem' data-priority='5'>
+                <a href='#'>Actueel</a>
+                <ul class='nav-main__submenu'>
+                  <li>
+                    <a href='/news_overview.html'>Nieuws Overzicht</a>
+                  </li>
+                  <li>
+                    <a href='/news_header.html'>Nieuws Detail (header)</a>
+                  </li>
+                  <li>
+                    <a href='/news_no_header.html'>Nieuws Detail (no header)</a>
+                  </li>
+                  <li>
+                    <a href='/agenda.html'>Agenda</a>
+                  </li>
+                </ul>
+              </li>
+              <li class='nav-main__mainitem' data-priority='1'>
+                <a href='#'>Over TU Delft</a>
+              </li>
+              <li class='nav-main__mainitem' data-priority='0'>
+                <a href='#'>English</a>
+              </li>
+            </ul>
+            <button class='button-reset btn--icon i-search js-modal' data-target='.nav-search'>
+              <span class='text-hide'>Zoeken</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </nav>
+    <nav class='nav-overlay'>
+      <div class='container no-spacing'>
+        <ul class='list-reset'>
+          <li data-priority='6'>
+            <div class='nav-overlay__mainitem'>Templates</div>
+            <ul class='list-reset row'>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/agenda_overview.html'>Agenda</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/agenda_detail.html'>Agenda Detail</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/contact.html'>Contact</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/faq.html'>FAQ</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/grid_example.html'>Grid example</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/faculty.html'>Homepage</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/index.html'>Homepage (faculty)</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/news_header.html'>Nieuws Detail (header)</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/news_no_header.html'>Nieuws Detail (no header)</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/news_overview.html'>Nieuws Overzicht</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/profile.html'>Profile</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/special.html'>Special</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/textpage.html'>Textpage</a>
+              </li>
+            </ul>
+          </li>
+          <li data-priority='4'>
+            <div class='nav-overlay__mainitem'>Studeren</div>
+            <ul class='list-reset row'>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Studeren aan de TU Delft</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Bacheloropleidingen</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Masteropleidingen</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>PhD at TU Delft</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Van HBO naar TU Delft</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Minoren en keuzevakken</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Onderwijs voor professionals</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Online onderwijs</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='#'>Exchange and Free mover</a>
+              </li>
+            </ul>
+          </li>
+          <li data-priority='3'>
+            <div class='nav-overlay__mainitem'>Onderzoek</div>
+          </li>
+          <li data-priority='2'>
+            <div class='nav-overlay__mainitem'>Zakelijk</div>
+          </li>
+          <li data-priority='5'>
+            <div class='nav-overlay__mainitem'>Actueel</div>
+            <ul class='list-reset row'>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/news_overview.html'>Nieuws Overzicht</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/news_header.html'>Nieuws Detail (header)</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/news_no_header.html'>Nieuws Detail (no header)</a>
+              </li>
+              <li class='sm-6 lg-4'>
+                <a class='nav-overlay__subitem' href='/agenda.html'>Agenda</a>
+              </li>
+            </ul>
+          </li>
+          <li data-priority='1'>
+            <div class='nav-overlay__mainitem'>Over TU Delft</div>
+          </li>
+          <li data-priority='0'>
+            <div class='nav-overlay__mainitem'>English</div>
+          </li>
+          <li>
+            <a class='btn--icon i-facebook' href='#'>
+              <span class='text-hide'>Facebook</span>
+            </a>
+            <a class='btn--icon i-linkedin' href='#'>
+              <span class='text-hide'>Linkedin</span>
+            </a>
+            <a class='btn--icon i-twitter' href='#'>
+              <span class='text-hide'>Twitter</span>
+            </a>
+            <a class='btn--icon i-youtube' href='#'>
+              <span class='text-hide'>Youtube</span>
+            </a>
+          </li>
+        </ul>
+        <div class='language-switch'>
+          <a href='#'>English</a>
+          <a href='#'>Nederlands</a>
+        </div>
+        <button class='menu menu--close button-reset js-toggle' data-target='.nav-overlay'>
+          <div class='i-close'>
+            <span class='text-hide'>Sluit menu</span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    <form class='nav-search'>
+      <input autofocus name='search' type='search'>
+      <div>
+        <input checked id='subject' name='type' type='radio'>
+        <label for='subject'>Onderwerp</label>
+      </div>
+      <div>
+        <input id='person' name='type' type='radio'>
+        <label for='person'>Persoon</label>
+      </div>
+      <button class='button-reset i-search'></button>
+    </form>
+    <div class='carousel'>
+      <div class='carousel__slides'>
+        <a href="/textpage.html" class="poster " data-src-lg="img/posters/io1920.jpg" data-src-md="img/posters/io960.jpg" data-src-sm="img/posters/io480.jpg"><div class='container no-spacing'>
+          <div class='poster__content'>
+            <div class='content-container'>
+              <h1>TU Delft Start 'Space Institute'</h1>
+            </div>
+            <div class='btn--round'>Lees meer</div>
+          </div>
+        </div>
+        </a>
+        <div class="poster " data-src-lg="img/posters/opendag1920.jpg" data-src-md="img/posters/opendag960.jpg" data-src-sm="img/posters/opendag480.jpg"><div class='container no-spacing'>
+          <div class='poster__content'>
+            <div class='content-container'>
+              <h1>TU Delft Open Dag komt eraan!</h1>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class='container no-spacing'>
+        <div class='carousel__arrowcontainer'></div>
+        
+      </div>
+    </div>
+    <main>
+      <div class='container'>
+        <div class='row'>
+          <section class='md-9'>
+            <h2 class='h3'>Actueel</h2>
+            <div class='row'></div>
+            <div class='grid-row'>
+              <div class='sm-6'>
+                <a class='card' href='#'>
+                  <div class='card__img' style='background-image: url(/img/cards/baseball.jpg)'></div>
+                  <section class='card__content'>
+                    <h1 class='h3'>
+                      Delftse studenten ontwerpen mechanische honkbalwerper
+                    </h1>
+                    <p>
+                      Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider.
+                    </p>
+                  </section>
+                </a>
+              </div>
+              <div class='sm-6'>
+                <a class='card card--no_image' href='#'>
+                  <section class='card__content'>
+                    <h1 class='h3'>
+                      ERC Advanced Grant voor Prof. Serge Hoogendoorn
+                    </h1>
+                    <p>
+                      Hij ontving deze grant voor vijfjarig onderzoek naar het ontrafelen van voetgangers- en fietsstromen in steden.
+                    </p>
+                  </section>
+                </a>
+              </div>
+            </div>
+            <div class='grid-row'>
+              <div class='sm-7'>
+                <a class='card' href='#'>
+                  <section class='card__content'>
+                    <h1 class='h3'>
+                      Gratis online studeren
+                    </h1>
+                    <p>
+                      Cursussen voor iedereen, waar ook ter wereld, zonder vooropleiding of ingangstoets.
+                    </p>
+                  </section>
+                </a>
+              </div>
+              <div class='sm-7'>
+                <a class='card card--long' href='#'>
+                  <div class='card__img' style='background-image: url(/img/cards/wind_test.jpg)'></div>
+                  <section class='card__content'>
+                    <h1 class='h3'>
+                      Students perform wind test at Oerol
+                    </h1>
+                    <p>
+                      During the festival students measure sand drift caused by wind. There are also dune-friendly beach huts on show.
+                    </p>
+                  </section>
+                </a>
+              </div>
+              <div class='sm-5'>
+                <a class='card card--no_description' href='#'>
+                  <div class='card__img' style='background-image: url(/img/cards/company_incubator.jpg)'></div>
+                  <section class='card__content'>
+                    <h1 class='h3'>
+                      Bedrijfsincubator YES!Delft viert tiende verjaardag
+                    </h1>
+                  </section>
+                </a>
+              </div>
+            </div>
+          </section>
+          <section class='md-3'>
+            <h2 class='h3'>Agenda</h2>
+            <div class='agenda'>
+              <h1 class='agenda__month'>June</h1>
+              <div class='equalheight'>
+                <a class='agenda__item' href='/agenda_detail.html'>
+                  <div class='agenda__day'>29</div>
+                  <div class='agenda__content'>
+                    <div class='label'>event</div>
+                    <h3>Professional Education on Nuclear Energy</h3>
+                  </div>
+                </a>
+                <a class='agenda__item' href='/agenda_detail.html'>
+                  <div class='agenda__day'>27</div>
+                  <div class='agenda__content'>
+                    <div class='label'>lecture</div>
+                    <h3>The New Town: The Rise and Fall of New Towns in the Netherlands</h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section class='presentation group'>
+        <div class='presentation__slides md-7 no-padding'>
+          <div class='presentation__slide' style="background-image:url('//placehold.it/900x500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                Amsterdam Conservation Center
+              </h1>
+              <p>
+                Over 15 jaar is de robot net zo gemeengoed als de computer op het werk nu.  We kunnen ze dan even makkelijk bedienen als onze smart phone en ze alle routinematige handwerk laten uitvoeren. Het TU Delft Robotics Institute zet zich binnen het onderzoeksthema ‘Robots that Work’ in om deze toekomstvisie te verwezenlijken.
+              </p>
+            </div>
+          </div>
+          <div class='presentation__slide' style="background-image:url('//placekitten.com/900/500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                Robots that work
+              </h1>
+            </div>
+          </div>
+          <div class='presentation__slide' style="background-image:url('//fillmurray.com/900/500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                Bioprocess Pilot Facility
+              </h1>
+            </div>
+          </div>
+          <div class='presentation__slide' style="background-image:url('//placehold.it/900x500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                Talking Traffic
+              </h1>
+            </div>
+          </div>
+          <div class='presentation__slide' style="background-image:url('//placehold.it/900x500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                QuTech
+              </h1>
+            </div>
+          </div>
+          <div class='presentation__slide' style="background-image:url('//placehold.it/900x500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                DIVA
+              </h1>
+            </div>
+          </div>
+          <div class='presentation__slide' style="background-image:url('//placehold.it/900x500');">
+            <div class='presentation__slide__content'>
+              <h1>
+                Organ on a chip
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class='presentation__controls md-5'>
+          <h1 class='h2'>Onderzoeksprojecten</h1>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class='js-back_to_top' href='#' title='back_to_top'>
+        <div class='btn--icon i-arrow_down'></div>
+      </a>
+      <div class='container'>
+        <div class='row'>
+          <div class='md-6 lg-6 space'>
+            <h1>Technische Universiteit Delft</h1>
+            <a class='btn--icon i-facebook' href='#'>
+              <span class='text-hide'>Facebook</span>
+            </a>
+            <a class='btn--icon i-linkedin' href='#'>
+              <span class='text-hide'>Linkedin</span>
+            </a>
+            <a class='btn--icon i-twitter' href='#'>
+              <span class='text-hide'>Twitter</span>
+            </a>
+            <a class='btn--icon i-youtube' href='#'>
+              <span class='text-hide'>Youtube</span>
+            </a>
+          </div>
+          <div class='md-6 lg-6'>
+            <div class='row'>
+              <div class='sm-6'>
+                Landbergstraat 15<br/>
+                2628 CE Delft<br/>
+                Tel: <a href="tel:+31 (0)15 27 89807">+31 (0)15 27 89807</a><br/>
+                <a href="mailto:info@tudelft.nl">info@tudelft.nl</a>
+              </div>
+              <div class='sm-6'>
+                <a href='#'>Routebeschrijving<br/></a>
+                <a href='#'>Plattegrond campus<br/></a>
+                <a href='#'>Plattegrond gebouw<br/></a>
+                <a href='#'>Meer gebouwinformatie</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <nav class='nav-bottom'>
+      <div class='container no-spacing'>
+        <a class='logo left' href='/'>
+          <img width="54" src="img/logo.svg" />
+        </a>
+        <span class='sm-show left'>Technische Universiteit Delft</span>
+        <div class='right'>
+          <nav class='nav-main'>
+            <ul>
+              <li class='nav-main__mainitem' data-priority='6'>
+                <a href='#'>Templates</a>
+                <ul class='nav-main__submenu'>
+                  <li>
+                    <a href='/agenda_overview.html'>Agenda</a>
+                  </li>
+                  <li>
+                    <a href='/agenda_detail.html'>Agenda Detail</a>
+                  </li>
+                  <li>
+                    <a href='/contact.html'>Contact</a>
+                  </li>
+                  <li>
+                    <a href='/faq.html'>FAQ</a>
+                  </li>
+                  <li>
+                    <a href='/grid_example.html'>Grid example</a>
+                  </li>
+                  <li>
+                    <a href='/faculty.html'>Homepage</a>
+                  </li>
+                  <li>
+                    <a href='/index.html'>Homepage (faculty)</a>
+                  </li>
+                  <li>
+                    <a href='/news_header.html'>Nieuws Detail (header)</a>
+                  </li>
+                  <li>
+                    <a href='/news_no_header.html'>Nieuws Detail (no header)</a>
+                  </li>
+                  <li>
+                    <a href='/news_overview.html'>Nieuws Overzicht</a>
+                  </li>
+                  <li>
+                    <a href='/profile.html'>Profile</a>
+                  </li>
+                  <li>
+                    <a href='/special.html'>Special</a>
+                  </li>
+                  <li>
+                    <a href='/textpage.html'>Textpage</a>
+                  </li>
+                </ul>
+              </li>
+              <li class='nav-main__mainitem' data-priority='4'>
+                <a href='#'>Studeren</a>
+                <ul class='nav-main__submenu'>
+                  <li>
+                    <a>Studeren aan de TU Delft</a>
+                  </li>
+                  <li>
+                    <a>Bacheloropleidingen</a>
+                  </li>
+                  <li>
+                    <a>Masteropleidingen</a>
+                  </li>
+                  <li>
+                    <a>PhD at TU Delft</a>
+                  </li>
+                  <li>
+                    <a>Van HBO naar TU Delft</a>
+                  </li>
+                  <li>
+                    <a>Minoren en keuzevakken</a>
+                  </li>
+                  <li>
+                    <a>Onderwijs voor professionals</a>
+                  </li>
+                  <li>
+                    <a>Online onderwijs</a>
+                  </li>
+                  <li>
+                    <a>Exchange and Free mover</a>
+                  </li>
+                </ul>
+              </li>
+              <li class='nav-main__mainitem' data-priority='3'>
+                <a href='#'>Onderzoek</a>
+              </li>
+              <li class='nav-main__mainitem' data-priority='2'>
+                <a href='#'>Zakelijk</a>
+              </li>
+              <li class='nav-main__mainitem' data-priority='5'>
+                <a href='#'>Actueel</a>
+                <ul class='nav-main__submenu'>
+                  <li>
+                    <a href='/news_overview.html'>Nieuws Overzicht</a>
+                  </li>
+                  <li>
+                    <a href='/news_header.html'>Nieuws Detail (header)</a>
+                  </li>
+                  <li>
+                    <a href='/news_no_header.html'>Nieuws Detail (no header)</a>
+                  </li>
+                  <li>
+                    <a href='/agenda.html'>Agenda</a>
+                  </li>
+                </ul>
+              </li>
+              <li class='nav-main__mainitem' data-priority='1'>
+                <a href='#'>Over TU Delft</a>
+              </li>
+              <li class='nav-main__mainitem' data-priority='0'>
+                <a href='#'>English</a>
+              </li>
+            </ul>
+            <button class='button-reset btn--icon i-search js-modal' data-target='.nav-search'>
+              <span class='text-hide'>Zoeken</span>
+            </button>
+          </nav>
+          <!-- %button.button-reset.js-menu -->
+          <!-- .patty -->
+        </div>
+      </div>
+    </nav>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script>
+      window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <!-- /Slick slider -->
+    <script src='//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js' type='text/javascript'></script>
+    <script>
+      $.fn.slick || document.write('<script src="js/vendor/slick.min.js"><\/script>')
+    </script>
+    <link href='//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css' rel='stylesheet' type='text/css'>
+    <script src="js/all.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{% if field.field.widget.tud %}
+    {% with tud=field.field.widget.tud %}
+        {% if prepend %}
+            {% if append %}
+                {% include "tud_styling/tags/field_prepend_append.html" %}
+            {% else %}
+                {% include "tud_styling/tags/field_prepend_append.html" with append=tud.append %}
+            {% endif %}
+        {% else %}
+            {% if append %}
+                {% include "tud_styling/tags/field_prepend_append.html" with prepend=tud.prepend %}
+            {% else %}
+                {% include "tud_styling/tags/field_prepend_append.html" with prepend=tud.prepend append=tud.append %}
+            {% endif %}
+        {% endif %}
+    {% endwith %}
+{% else %}
+    {% include "tud_styling/tags/field_prepend_append.html" %}
+{% endif %}

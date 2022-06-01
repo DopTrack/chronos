@@ -1,0 +1,466 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>a brand new styleguide: components - cards</title>
+		<link rel="stylesheet" href="../css/application.css">
+		<link rel="stylesheet" href="../css/doc.css">
+	</head>
+	<body class="docs">
+		<nav class="nav-bottom">
+			<div class="container no-spacing">
+				<a href="/" class="logo left">
+					<img src='logo.svg', width='54px' />
+				</a>
+				<span class="sm-show left">Technische Universiteit Delft Online Styleguide</span>
+				<div class="right">
+					<nav class="nav-main">
+						<ul>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>components</a>
+								<ul class="nav-main__submenu">
+								
+									
+											<li><a href="/docs/components_-_accordion.html">accordion</a></li>
+										
+									
+											<li><a href="/docs/components_-_agenda.html">agenda</a></li>
+										
+									
+									
+									
+									
+											<li><a href="/docs/components_-_buttons.html">buttons</a></li>
+										
+									
+											<li><a class="is-active" href="/docs/components_-_cards.html">cards</a></li>
+										
+									
+									
+									
+									
+											<li><a href="/docs/components_-_facts.html">facts</a></li>
+										
+									
+									
+									
+											<li><a href="/docs/components_-_images.html">images</a></li>
+										
+									
+									
+											<li><a href="/docs/components_-_label.html">label</a></li>
+										
+									
+											<li><a href="/docs/components_-_navigation.html">navigation</a></li>
+										
+									
+											<li><a href="/docs/components_-_notification.html">notification</a></li>
+										
+									
+											<li><a href="/docs/components_-_profile.html">profile</a></li>
+										
+									
+									
+											<li><a href="/docs/components_-_read_more.html">read more</a></li>
+										
+									
+											<li><a href="/docs/components_-_sharing.html">sharing</a></li>
+										
+									
+											<li><a href="/docs/components_-_tags.html">tags</a></li>
+										
+									
+											<li><a href="/docs/components_-_tooltip.html">tooltip</a></li>
+										
+									
+											<li><a href="/docs/components_-_video.html">video</a></li>
+										
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>layout</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+											<li><a href="/docs/layout_-_background_colors.html">background colors</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/layout_-_container.html">container</a></li>
+										
+									
+									
+											<li><a href="/docs/layout_-_forms.html">forms</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/layout_-_pull.html">pull</a></li>
+										
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>typography</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+									
+											<li><a href="/docs/typography_-_blockquote.html">blockquote</a></li>
+										
+									
+											<li><a href="/docs/typography_-_body.html">body</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/typography_-_headers.html">headers</a></li>
+										
+									
+									
+											<li><a href="/docs/typography_-_intro.html">intro</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>sass</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/sass_-_cl.html">cl</a></li>
+										
+									
+											<li><a href="/docs/sass_-_colors.html">colors</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<main class="row">
+				<article class="doc-content md-9"><h1 id="cards" class="styleguide">cards</h1>
+<p class="styleguide"><small>found in: <a href="scss/_card.scss">/source/css/project/components//_card.scss</a></small></p><p class="styleguide">Cards are elements with unique related data that serves as an entry point to more detailed information. For example, a card could contain a photo, text, and a link about a single subject. We have three type of cards.
+They are always shown on a grey background (add <code class="styleguide">bg-grey</code> as a classname to the parent container)</p>
+<h2 id="card_default" class="styleguide">card</h2>
+<p class="styleguide"><small>found in: <a href="scss/_card.scss">/source/css/project/components//_card.scss</a></small></p><div class="codeExample">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			<li><a href="#" class="is-active">example</a></li>
+			<li><a href="#">code</a></li>
+		</ul>
+	</nav>
+	<div class="is-active exampleOutput group">
+		<div class='bg-grey container'><a class='card' href='#'>
+  <div class='card__img' style='background-image: url(//placehold.it/380x190)'></div>
+  <section class='card__content'>
+    <h1 class='h3'>
+      Delftse studenten ontwerpen mechanische honkbalwerper
+    </h1>
+    <p>
+      Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider. Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider.
+    </p>
+  </section>
+</a>
+</div>
+	</div>
+	<div class="codeBlock">
+		<pre><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">'card'</span> <span class="na">href=</span><span class="s">'#'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'card__img'</span> <span class="na">style=</span><span class="s">'background-image: url(//placehold.it/380x190)'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">'card__content'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'h3'</span><span class="nt">&gt;</span>
+      Delftse studenten ontwerpen mechanische honkbalwerper
+    <span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider. Een goede werper in het honkbal heeft verschillende soorten aangooien in zijn repertoire, zoals de fastball, de change up en de slider.
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></pre>
+	</div>
+</div>
+<h2 id="card_no_description" class="styleguide">cards with no description</h2>
+<p class="styleguide"><small>found in: <a href="scss/_card.scss">/source/css/project/components//_card.scss</a></small></p><div class="codeExample">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			<li><a href="#" class="is-active">example</a></li>
+			<li><a href="#">code</a></li>
+		</ul>
+	</nav>
+	<div class="is-active exampleOutput group">
+		<div class='bg-grey container'><a class='card card--no_description' href='#'>
+  <div class='card__img' style='background-image: url(//placehold.it/380x380)'></div>
+  <section class='card__content'>
+    <h1 class='h3'>
+      Particle Blogs vanuit MIT (3) ‘De bestuursvergadering’
+    </h1>
+  </section>
+</a>
+</div>
+	</div>
+	<div class="codeBlock">
+		<pre><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">'card card--no_description'</span> <span class="na">href=</span><span class="s">'#'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'card__img'</span> <span class="na">style=</span><span class="s">'background-image: url(//placehold.it/380x380)'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">'card__content'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'h3'</span><span class="nt">&gt;</span>
+      Particle Blogs vanuit MIT (3) ‘De bestuursvergadering’
+    <span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></pre>
+	</div>
+</div>
+<h2 id="card_no_image" class="styleguide">cards with no image</h2>
+<p class="styleguide"><small>found in: <a href="scss/_card.scss">/source/css/project/components//_card.scss</a></small></p><div class="codeExample">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			<li><a href="#" class="is-active">example</a></li>
+			<li><a href="#">code</a></li>
+		</ul>
+	</nav>
+	<div class="is-active exampleOutput group">
+		<div class='bg-grey container'><a class='card card--no_image' href='#'>
+  <section class='card__content'>
+    <h1 class='h3'>
+      Belangrijke stap richting het begrijpen van DNA replicatie
+    </h1>
+    <p>
+      Wetenschappers van de TU Delft hebben duidelijkheid verschaft over de manier waarop het proces van DNA-replicatie in de E. coli bacterie wordt beëindigd. Het onderzoek is een belangrijke stap richting het begrijpen van DNA replicatie en hoe cellen omgaan met fouten tijdens DNA replicatie.
+    </p>
+  </section>
+</a>
+</div>
+	</div>
+	<div class="codeBlock">
+		<pre><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">'card card--no_image'</span> <span class="na">href=</span><span class="s">'#'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">'card__content'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'h3'</span><span class="nt">&gt;</span>
+      Belangrijke stap richting het begrijpen van DNA replicatie
+    <span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      Wetenschappers van de TU Delft hebben duidelijkheid verschaft over de manier waarop het proces van DNA-replicatie in de E. coli bacterie wordt beëindigd. Het onderzoek is een belangrijke stap richting het begrijpen van DNA replicatie en hoe cellen omgaan met fouten tijdens DNA replicatie.
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></pre>
+	</div>
+</div>
+<h2 id="horizontal_card" class="styleguide">horizontal card</h2>
+<p class="styleguide"><small>found in: <a href="scss/_card.scss">/source/css/project/components//_card.scss</a></small></p><p class="styleguide">By adding a <code class="styleguide">card--horizontal</code> class to your card, you can stretch 
+split the view in two. Used for wide cards</p><div class="codeCollection">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			<li><a href="#" class="is-active" target=".exampleOutput">example</a></li>
+			<li><a href="#">code</a></li>
+		</ul>
+	</nav>
+	<div class="is-active exampleOutput group">
+		
+			<div class="group">
+				<div class='bg-grey container'><a class='card card--horizontal' href='#'>
+  <div class='card__img' style='background-image: url(//placehold.it/380x380)'></div>
+  <section class='card__content'>
+    <h1 class='h3'>
+      Kunstwerk op campus TU Delft ode aan de ingenieur
+    </h1>
+    <p>
+      Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen.
+    </p>
+  </section>
+</a>
+</div>
+			</div>
+		
+	</div>
+	<div class="codeBlock">
+	    <div class="highlight">
+	        
+				<pre><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">'card card--horizontal'</span> <span class="na">href=</span><span class="s">'#'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'card__img'</span> <span class="na">style=</span><span class="s">'background-image: url(//placehold.it/380x380)'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">'card__content'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'h3'</span><span class="nt">&gt;</span>
+      Kunstwerk op campus TU Delft ode aan de ingenieur
+    <span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen.
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></pre>
+			
+		</div>
+	</div>
+</div>
+<h2 id="themes" class="styleguide">themes</h2>
+<p class="styleguide"><small>found in: <a href="scss/_card.scss">/source/css/project/components//_card.scss</a></small></p><p class="styleguide">There are several options for colored cards. Available keys are found in _variables.scss
+Use this in the loop found in _card.scss</p><div class="codeCollection">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			<li><a href="#" class="is-active" target=".exampleOutput">example</a></li>
+			<li><a href="#">code</a></li>
+		</ul>
+	</nav>
+	<div class="is-active exampleOutput group">
+		
+			<div class="group">
+				<div class='bg-grey container'><a class='card card--green' href='#'>
+  <div class='card__img' style='background-image: url(//placehold.it/380x380)'></div>
+  <section class='card__content'>
+    <h1 class='h3'>
+      Kunstwerk op campus TU Delft ode aan de ingenieur
+    </h1>
+    <p>
+      Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen.
+    </p>
+  </section>
+</a>
+</div>
+			</div>
+		
+			<div class="group">
+				<div class='bg-grey container'><a class='card card--red' href='#'>
+  <div class='card__img' style='background-image: url(//placehold.it/380x380)'></div>
+  <section class='card__content'>
+    <h1 class='h3'>
+      Kunstwerk op campus TU Delft ode aan de ingenieur
+    </h1>
+    <p>
+      Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen.
+    </p>
+  </section>
+</a>
+</div>
+			</div>
+		
+	</div>
+	<div class="codeBlock">
+	    <div class="highlight">
+	        
+				<pre><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">'card card--green'</span> <span class="na">href=</span><span class="s">'#'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'card__img'</span> <span class="na">style=</span><span class="s">'background-image: url(//placehold.it/380x380)'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">'card__content'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'h3'</span><span class="nt">&gt;</span>
+      Kunstwerk op campus TU Delft ode aan de ingenieur
+    <span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen.
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></pre>
+			
+				<pre><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">'card card--red'</span> <span class="na">href=</span><span class="s">'#'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'card__img'</span> <span class="na">style=</span><span class="s">'background-image: url(//placehold.it/380x380)'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">'card__content'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'h3'</span><span class="nt">&gt;</span>
+      Kunstwerk op campus TU Delft ode aan de ingenieur
+    <span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      Als een ode aan de ingenieur plaatsen studenten van de TU Delft op maandag 27 juli a.s. het zelfgebouwde kunstwerk ‘Street Light Evolution’ op de campus van de universiteit. Het kunstwerk laat de ontwikkeling van lantaarnpalen door de eeuwen heen zien. Het kunstwerk was eerder al te zien tijdens het Amsterdam Light Festival en krijgt nu een vaste plek naast de vijver voor de faculteit Industrieel Ontwerpen.
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></pre>
+			
+		</div>
+	</div>
+</div>						</article>
+						
+							<aside class="md-3">
+								<nav class="nav-inpage">
+									<ul class="list-reset">
+									
+												<li><a href="#card_default">card</a></li>
+											
+												<li><a href="#card_no_description">cards with no description</a></li>
+											
+												<li><a href="#card_no_image">cards with no image</a></li>
+											
+												<li><a href="#horizontal_card">horizontal card</a></li>
+											
+												<li><a href="#themes">themes</a></li>
+											
+									</ul>
+								</nav>
+							</aside>
+						
+				</main>
+		</div>
+		<footer class="clear-both">
+			<p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+		</script>
+		<script type="text/javascript", src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+    	<link rel="stylesheet", type="text/css", href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css" />
+		<script src="../js/all.js"></script>
+	</body>
+</html>

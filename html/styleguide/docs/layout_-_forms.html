@@ -1,0 +1,268 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>a brand new styleguide: layout - forms</title>
+		<link rel="stylesheet" href="../css/application.css">
+		<link rel="stylesheet" href="../css/doc.css">
+	</head>
+	<body class="docs">
+		<nav class="nav-bottom">
+			<div class="container no-spacing">
+				<a href="/" class="logo left">
+					<img src='logo.svg', width='54px' />
+				</a>
+				<span class="sm-show left">Technische Universiteit Delft Online Styleguide</span>
+				<div class="right">
+					<nav class="nav-main">
+						<ul>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>components</a>
+								<ul class="nav-main__submenu">
+								
+									
+											<li><a href="/docs/components_-_accordion.html">accordion</a></li>
+										
+									
+											<li><a href="/docs/components_-_agenda.html">agenda</a></li>
+										
+									
+									
+									
+									
+											<li><a href="/docs/components_-_buttons.html">buttons</a></li>
+										
+									
+											<li><a href="/docs/components_-_cards.html">cards</a></li>
+										
+									
+									
+									
+									
+											<li><a href="/docs/components_-_facts.html">facts</a></li>
+										
+									
+									
+									
+											<li><a href="/docs/components_-_images.html">images</a></li>
+										
+									
+									
+											<li><a href="/docs/components_-_label.html">label</a></li>
+										
+									
+											<li><a href="/docs/components_-_navigation.html">navigation</a></li>
+										
+									
+											<li><a href="/docs/components_-_notification.html">notification</a></li>
+										
+									
+											<li><a href="/docs/components_-_profile.html">profile</a></li>
+										
+									
+									
+											<li><a href="/docs/components_-_read_more.html">read more</a></li>
+										
+									
+											<li><a href="/docs/components_-_sharing.html">sharing</a></li>
+										
+									
+											<li><a href="/docs/components_-_tags.html">tags</a></li>
+										
+									
+											<li><a href="/docs/components_-_tooltip.html">tooltip</a></li>
+										
+									
+											<li><a href="/docs/components_-_video.html">video</a></li>
+										
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>layout</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+											<li><a href="/docs/layout_-_background_colors.html">background colors</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/layout_-_container.html">container</a></li>
+										
+									
+									
+											<li><a class="is-active" href="/docs/layout_-_forms.html">forms</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/layout_-_pull.html">pull</a></li>
+										
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>typography</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+									
+											<li><a href="/docs/typography_-_blockquote.html">blockquote</a></li>
+										
+									
+											<li><a href="/docs/typography_-_body.html">body</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/typography_-_headers.html">headers</a></li>
+										
+									
+									
+											<li><a href="/docs/typography_-_intro.html">intro</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+							<li class="nav-main__mainitem", data-priority="index">
+								<a href='#'>sass</a>
+								<ul class="nav-main__submenu">
+								
+									
+									
+									
+									
+									
+									
+									
+									
+											<li><a href="/docs/sass_-_cl.html">cl</a></li>
+										
+									
+											<li><a href="/docs/sass_-_colors.html">colors</a></li>
+										
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</ul>
+							</li>
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<main class="">
+				<article class="doc-content"><h1 id="forms" class="styleguide">forms</h1>
+<p class="styleguide"><small>found in: <a href="scss/_forms.scss">/source/css/project/base//_forms.scss</a></small></p><div class="codeCollection">
+	<nav class="nav-tab">
+		<ul class="list-inline">
+			<li><a href="#" class="is-active" target=".exampleOutput">example</a></li>
+			<li><a href="#">code</a></li>
+		</ul>
+	</nav>
+	<div class="is-active exampleOutput group">
+		
+			<div class="group">
+				<input type="text" />
+			</div>
+		
+			<div class="group">
+				<textarea rows="3"></textarea>
+			</div>
+		
+			<div class="group">
+				<label><input type="checkbox" />Checkbox</label>
+<label><input type="checkbox" />Checkbox</label>
+			</div>
+		
+			<div class="group">
+				<label><input type="radio" name="radio"/>Radio</label>
+<label><input type="radio" name="radio" />Radio</label>
+
+			</div>
+		
+	</div>
+	<div class="codeBlock">
+	    <div class="highlight">
+	        
+				<pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span></pre>
+			
+				<pre><span class="nt">&lt;textarea</span> <span class="na">rows=</span><span class="s">"3"</span><span class="nt">&gt;&lt;/textarea&gt;</span></pre>
+			
+				<pre><span class="nt">&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="nt">/&gt;</span>Checkbox<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="nt">/&gt;</span>Checkbox<span class="nt">&lt;/label&gt;</span></pre>
+			
+				<pre><span class="nt">&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"radio"</span><span class="nt">/&gt;</span>Radio<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"radio"</span> <span class="nt">/&gt;</span>Radio<span class="nt">&lt;/label&gt;</span></pre>
+			
+		</div>
+	</div>
+</div>						</article>
+						
+				</main>
+		</div>
+		<footer class="clear-both">
+			<p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+		</script>
+		<script type="text/javascript", src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+    	<link rel="stylesheet", type="text/css", href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css" />
+		<script src="../js/all.js"></script>
+	</body>
+</html>

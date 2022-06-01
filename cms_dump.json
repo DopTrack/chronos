@@ -1,0 +1,239 @@
+/home/richard/projects/doptrack/SatelliteDataProcessing/remote/client.key
+[
+{
+  "model": "djangocms_picture.picture",
+  "pk": 38,
+  "fields": {
+    "template": "default",
+    "picture": 2,
+    "external_picture": "",
+    "width": null,
+    "height": null,
+    "alignment": "",
+    "caption_text": "",
+    "attributes": {},
+    "link_url": "",
+    "link_page": null,
+    "link_target": "",
+    "link_attributes": {},
+    "use_automatic_scaling": true,
+    "use_no_cropping": false,
+    "use_crop": false,
+    "use_upscale": false,
+    "thumbnail_options": null
+  }
+},
+{
+  "model": "djangocms_picture.picture",
+  "pk": 39,
+  "fields": {
+    "template": "default",
+    "picture": 4,
+    "external_picture": "",
+    "width": null,
+    "height": null,
+    "alignment": "",
+    "caption_text": "",
+    "attributes": {},
+    "link_url": "",
+    "link_page": null,
+    "link_target": "",
+    "link_attributes": {},
+    "use_automatic_scaling": true,
+    "use_no_cropping": false,
+    "use_crop": false,
+    "use_upscale": false,
+    "thumbnail_options": null
+  }
+},
+{
+  "model": "djangocms_picture.picture",
+  "pk": 41,
+  "fields": {
+    "template": "default",
+    "picture": 4,
+    "external_picture": "",
+    "width": null,
+    "height": null,
+    "alignment": "",
+    "caption_text": "",
+    "attributes": {},
+    "link_url": "",
+    "link_page": null,
+    "link_target": "",
+    "link_attributes": {},
+    "use_automatic_scaling": true,
+    "use_no_cropping": false,
+    "use_crop": false,
+    "use_upscale": false,
+    "thumbnail_options": null
+  }
+},
+{
+  "model": "djangocms_picture.picture",
+  "pk": 42,
+  "fields": {
+    "template": "default",
+    "picture": 2,
+    "external_picture": "",
+    "width": null,
+    "height": null,
+    "alignment": "",
+    "caption_text": "",
+    "attributes": {},
+    "link_url": "",
+    "link_page": null,
+    "link_target": "",
+    "link_attributes": {},
+    "use_automatic_scaling": true,
+    "use_no_cropping": false,
+    "use_crop": false,
+    "use_upscale": false,
+    "thumbnail_options": null
+  }
+},
+{
+  "model": "djangocms_picture.picture",
+  "pk": 43,
+  "fields": {
+    "template": "default",
+    "picture": 6,
+    "external_picture": "",
+    "width": null,
+    "height": null,
+    "alignment": "",
+    "caption_text": "",
+    "attributes": {},
+    "link_url": "",
+    "link_page": null,
+    "link_target": "",
+    "link_attributes": {},
+    "use_automatic_scaling": true,
+    "use_no_cropping": false,
+    "use_crop": false,
+    "use_upscale": false,
+    "thumbnail_options": null
+  }
+},
+{
+  "model": "djangocms_picture.picture",
+  "pk": 45,
+  "fields": {
+    "template": "default",
+    "picture": 6,
+    "external_picture": "",
+    "width": null,
+    "height": null,
+    "alignment": "",
+    "caption_text": "",
+    "attributes": {},
+    "link_url": "",
+    "link_page": null,
+    "link_target": "",
+    "link_attributes": {},
+    "use_automatic_scaling": true,
+    "use_no_cropping": false,
+    "use_crop": false,
+    "use_upscale": false,
+    "thumbnail_options": null
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 1,
+  "fields": {
+    "body": "<p>Dit is een test</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 3,
+  "fields": {
+    "body": "<p><strong>nog meer tekst</strong></p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 20,
+  "fields": {
+    "body": "<p>Technische documentatie (admin)</p>\n\n<p>Hier alle info</p>\n\n<ul>\n\t<li>cms bewerken</li>\n\t<li>remote server gedeelte\n\t<ul>\n\t\t<li>certificaten remote server gedeelte\n\t\t<ul>\n\t\t\t<li>testen verbinding</li>\n\t\t</ul>\n\t\t</li>\n\t</ul>\n\t</li>\n\t<li>TODO</li>\n</ul>\n\n<p><cms-plugin id=\"39\" alt=\"Image - me.jpg \" title=\"Image - me.jpg\"></cms-plugin></p>\n\n<p>En nog meer tekst</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 26,
+  "fields": {
+    "body": "<p>Dit is een test</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 27,
+  "fields": {
+    "body": "<p><strong>nog meer tekst</strong></p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 28,
+  "fields": {
+    "body": "<p>Docent gebruikshanleiding</p>\n\n<p>\u00a0 \u00a0 \u00a0 (Bewerk in CMS\u00a0 \u00a0<a href=\"/cms/cms_docent_main/?edit\">/cms/cms_docent_main/?edit</a></p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 29,
+  "fields": {
+    "body": "<p>Docent gebruikshanleiding</p>\n\n<p>\u00a0 \u00a0 \u00a0 (Bewerk in CMS\u00a0 \u00a0<a href=\"/cms/cms_docent_main/?edit\">/cms/cms_docent_main/?edit</a></p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 30,
+  "fields": {
+    "body": "<p>Log in with your credentials</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 31,
+  "fields": {
+    "body": "<p>Log in with your credentials</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 32,
+  "fields": {
+    "body": "<p>Deze informatie is door admin te bewerken via deze app\u00a0 \u00a0(standaard django cms toegevoegd)\u00a0<br>\nDit gaat via een eenvoudige editor vergelijkbaar met een email samenstellen in html opmaak.</p>\n\n<h1>Dear guest of this website</h1>\n\n<p>This is ..........</p>\n\n<p>This is an image of .........</p>\n\n<p><cms-plugin id=\"43\" alt=\"Image - thumb.Delfi-C3_32789_201803131012_zoomedin.png \" title=\"Image - thumb.Delfi-C3_32789_201803131012_zoomedin.png\"></cms-plugin></p>\n\n<p>Verhaaltje over opstelling met foto van jezelf</p>\n\n<p>foto's hardware &amp; specificaties</p>\n\n<p>\u00a0</p>\n\n<p>Deze webapp ........</p>\n\n<ul>\n\t<li>wat kun je ermee</li>\n\t<li>schema plaatje</li>\n\t<li>request indiennen</li>\n</ul>\n\n<p>\u00a0</p>\n\n<p>\u00a0</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 34,
+  "fields": {
+    "body": "<p>Here you ask a question to the doptrack admin</p>\n\n<p>After this message is send to the admin you will receive an confirmation sended to the reply email address</p>\n\n<p>The capcha is required to make sure the request is comming from a human.</p>\n\n<p>\u00a0</p>\n\n<p>\u00a0</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 37,
+  "fields": {
+    "body": "<p>Here you ask a question to the doptrack admin</p>\n\n<p>After this message is send to the admin you will receive an confirmation sended to the reply email address</p>\n\n<p>The capcha is required to make sure the request is comming from a human.</p>\n\n<p>\u00a0</p>\n\n<p>\u00a0</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 40,
+  "fields": {
+    "body": "<p>Technische documentatie (admin)</p>\n\n<p>Hier alle info</p>\n\n<ul>\n\t<li>cms bewerken</li>\n\t<li>remote server gedeelte\n\t<ul>\n\t\t<li>certificaten remote server gedeelte\n\t\t<ul>\n\t\t\t<li>testen verbinding</li>\n\t\t</ul>\n\t\t</li>\n\t</ul>\n\t</li>\n\t<li>TODO</li>\n</ul>\n\n<p><cms-plugin id=\"41\" alt=\"Image - me.jpg \" title=\"Image - me.jpg\"></cms-plugin></p>\n\n<p>En nog meer tekst</p>"
+  }
+},
+{
+  "model": "djangocms_text_ckeditor.text",
+  "pk": 44,
+  "fields": {
+    "body": "<p>Deze informatie is door admin te bewerken via deze app\u00a0 \u00a0(standaard django cms toegevoegd)\u00a0<br>\nDit gaat via een eenvoudige editor vergelijkbaar met een email samenstellen in html opmaak.</p>\n\n<h1>Dear guest of this website</h1>\n\n<p>This is ..........</p>\n\n<p>This is an image of .........</p>\n\n<p><cms-plugin id=\"45\" alt=\"Image - thumb.Delfi-C3_32789_201803131012_zoomedin.png \" title=\"Image - thumb.Delfi-C3_32789_201803131012_zoomedin.png\"></cms-plugin></p>\n\n<p>Verhaaltje over opstelling met foto van jezelf</p>\n\n<p>foto's hardware &amp; specificaties</p>\n\n<p>\u00a0</p>\n\n<p>Deze webapp ........</p>\n\n<ul>\n\t<li>wat kun je ermee</li>\n\t<li>schema plaatje</li>\n\t<li>request indiennen</li>\n</ul>\n\n<p>\u00a0</p>\n\n<p>\u00a0</p>"
+  }
+}
+]

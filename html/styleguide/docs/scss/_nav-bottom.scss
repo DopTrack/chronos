@@ -1,0 +1,37 @@
+/*doc
+---
+title: navigation
+category: components - navigation
+---
+
+*/
+
+/*doc
+---
+title: main navigation
+parent: navigation
+---
+This navigation appears in the footer, spanning the entire width of the screen.
+It should be included in you main layout template, and appear only once.
+
+**UX note**
+Keep the words used for navigation short and don’t use more then 6 items at once.
+
+```component_example
+filename: nav-main
+```
+*/
+.nav-bottom {
+	background-color: cl('black');
+	color: cl('white');
+	width: 100%;
+	position: fixed;
+	transform: translateZ(0);
+	z-index: $zindex-navigation;
+	bottom: 0;
+	.logo {
+		border-right: 1px solid cl('white');
+		margin-right: 1rem;
+		padding-right: 1rem;
+	}
+}

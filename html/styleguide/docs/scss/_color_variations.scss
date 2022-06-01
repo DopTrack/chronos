@@ -1,0 +1,36 @@
+@each $color in ('black', 'white', 'blue') {
+	.#{$color} {
+		////////////////////////
+		//CAROUSEL
+		////////////////////////
+		.carousel h1 {
+			color: cl($color);
+		}
+
+		////////////////////////
+		//BUTTONS
+		////////////////////////
+		.btn--round {
+			color: cl($color);
+			&:after { border-color: cl($color); }
+
+			@include hover {
+				&:after { background-color: cl($color); }
+			}
+		}
+
+		.btn--icon {
+			&:before {color: cl($color);}
+			&:after {border-color: cl($color);}
+			i:before,
+			i:after {background-color: cl($color);}
+		}
+
+		////////////////////////
+		//NAVIGATION
+		////////////////////////
+		.nav-main__mainitem a {
+			color: cl($color);
+		}
+	}
+}

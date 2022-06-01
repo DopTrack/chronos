@@ -1,0 +1,35 @@
+.js-modal {
+	cursor: pointer;
+}
+.modal {
+	background: rgba(cl('black'), .9);
+	position: fixed;
+	top: -100%;
+	left:0;
+	
+	// display: table;
+	width: 100%;
+	height: 100%;
+	
+	transition: t(opacity, normal);
+	opacity: 0;
+	&.is-active {
+		z-index: $zindex-navigation + 2;
+		opacity: 1;
+		top: 0;
+	}
+	&__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		box-sizing: border-box;
+		max-width: 90%;
+		// display: table-cell;
+		// vertical-align: middle;
+		// text-align: center;
+		// position: relative;
+		// z-index: 999999999;
+		// pointer-events: none;
+	}		
+}

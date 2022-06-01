@@ -1,0 +1,42 @@
+/*doc
+---
+title: breadcrumb
+parent: navigation
+---
+
+Just a simple breadcrumb.
+
+```component_example
+filename: breadcrumb
+```
+
+*/
+.breadcrumb {
+	font-size: .9rem;
+	border-bottom: 1px solid cl('grey_medium');
+	// margin-top: $spacing;
+	overflow-x: auto;
+	width: 100%;
+	ul {
+		white-space: nowrap;
+	}
+	a {
+		color: cl('grey');
+		padding: 1.5rem 0;
+		text-decoration: none;
+		display: inline-block;
+		vertical-align: middle;
+		@include hover {
+			color: cl('grey_dark');
+		}
+	}
+	li {
+		color: cl('grey');
+		@include icon("arrow_right", "before") {
+			color: cl('grey');
+		}
+	}
+	li:first-child:before {
+		display: none;
+	}
+}

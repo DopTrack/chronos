@@ -1,0 +1,125 @@
+/*doc
+---
+title: aside navigation
+parent: navigation
+name: nav-overlay
+---
+This navigation element appears as a subnavigation for something.
+
+```component_example
+filename: nav-overlay
+```
+*/
+.nav-overlay {
+	position: fixed;
+	left:0;right:0;top:0;bottom:0;
+	box-sizing: border-box;
+	z-index: $zindex-navigation * 2;
+	overflow-y: auto;
+	background: cl('blue');
+	user-select: none;
+	// @include box;
+	padding-top: $spacing;
+	
+	&__mainitem,
+	a { 
+		transition: t(color, ease);
+		color: cl('white'); 
+		text-decoration: none;
+		
+		@include hover {
+			color: cl('black');
+		}
+	}
+	.btn--icon {
+		margin-right: 1rem;
+		margin-bottom: 1rem;
+		@include hover {
+			color: cl('white');
+		}
+	}
+	button {
+		position: fixed;
+		transform: translateZ(0);
+		top: 1rem;
+		right: 1rem;
+	}	
+
+	&__mainitem {
+		cursor: pointer;
+		transition: t(color);
+		color: cl('white');
+		display: block;
+		font-size: 2.5rem;
+		line-height: 1;
+		font-family: $font-header;
+		font-weight: fw(light);
+		margin-bottom: 2rem;
+		
+		@include bp('md+') {
+			font-size: 5rem;
+		}
+		@include onhover-line-bottom;
+		&:hover:after {
+			height: 0px;
+		}
+	}
+	&__subitem {
+		padding: .5rem 0;
+	}
+
+	//Toggle logic
+	.is-active {
+		ul {
+			margin-bottom: 1rem;
+		}
+		.nav-overlay__mainitem {
+			color: cl('black');
+			&:after {
+				height: 1px;
+				background-color: cl('black');
+			
+			}
+		}
+		.nav-overlay__subitem {
+			display: block;
+		}
+	}
+	&__subitem {
+		display: none;
+	}
+	display: none;
+	&.is-active {
+		display: block;
+		// .container {
+		// 	display: table-cell;
+		// 	width: 100%;
+		// 	vertical-align: middle;
+		// }
+
+		//scroll prevention
+		~ * {
+			display: none;
+		}
+	}
+	// .no-flexbox & {
+	// 	.nav-overlay__mainitem {
+	// 	}
+	// }
+	// //Flexbox centering & fill & spacing
+	// .flexbox & {
+	// 	&.is-active  {
+	// 		display: flex;
+	// 		flex-flow: column;
+			
+	// 		justify-content: center;
+	// // 		min-height: 30rem;
+	// // 		> ul {
+	// // 			flex-grow: 1;
+	// // 			display: flex;
+	// // 			flex-flow: column;
+	// // 			justify-content: space-between;
+	// // 		}
+	// 	}
+	// }
+}

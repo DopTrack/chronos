@@ -1,0 +1,553 @@
+<!--- xxxx 32789| xxxxx --->
+<!DOCTYPE html>
+<html lang="en">
+<title>LIVE REAL TIME SATELLITE TRACKING AND PREDICTIONS: DELFI C3 </title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta property="og:url" content="http://www.n2yo.com//?s=32789"/>
+<meta property="og:title" content="Real time satellite tracking for: DELFI C3 "/>
+<meta property="og:image" content="http://www.n2yo.com/img/n2yo-circle-fb.png"/>
+<meta property="og:site_name" content="N2YO.com - Real Time Satellite Tracking and Predictions"/>
+<meta property="og:type" content="website"/>
+<meta property="og:description" content="Track satellite(s) DELFI C3  and see where are they located now. Check when there will be the next pass over your location"/>
+<META name="keywords" content="real time tracking, passes, orbiters, satellite, satellites, satellite tracking, Tracking, Position, ISS, Mir, Hubble, Space shuttle, suitsat, geostationary, GOES, NOAA, TV satellites, weather, Iridium, Intelsat, Globalstar, amateur radio, GPS, Military Satellites, Cubesat, Galileo, Beidou">
+<META name="description" content="Select any satellite orbiting the Earth and check where is located now. Check satellite passes over your location and receive alerts on your phone">
+
+<link rel="stylesheet" href="./delfi_files/style.css" type="text/css">
+<link rel="stylesheet" href="./delfi_files/modalmain.css" type="text/css">
+<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMEKXiG_Ti8KHLrOGlOcUAK2LFCgi1qSs&sensor=false"></script>-->
+<!-- Berg -r dit is er na save vanuit chrome en zit niet in bron source  
+    <script async="" src="./delfi_files/analytics.js"></script><script src="./delfi_files/ca-pub-8839140430005838.js"></script><script id="facebook-jssdk" src="./delfi_files/sdk.js"></script><script src="./delfi_files/cb=gapi.loaded_1" async=""></script><script src="./delfi_files/cb=gapi.loaded_0" async=""></script><script async="" type="text/javascript" src="./delfi_files/gpt.js"></script><script type="text/javascript" src="./delfi_files/js"></script>
+-->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="./delfi_files/tooltip.js" type="text/javascript"></script>
+<script src="./delfi_files/polylineencoder.js" type="text/javascript"></script>
+<script src="./delfi_files/jquery.js" type="text/javascript"></script>
+<script src="./delfi_files/sun30.js" type="text/javascript"></script>
+<script src="./delfi_files/label.js" type="text/javascript"></script>
+<script src="./delfi_files/n2yo3.0.js" type="text/javascript"></script>
+<script type="text/javascript" src="./delfi_files/simplemodal.js"></script>
+
+<script language="JavaScript">
+var satlist = '32789';		// DELFI C3 
+//var satlist = '25544';	// SPACE STATION
+var homeName = '';
+var homeLat = '52.00667';
+var homeLng = '4.35556';
+rnd_str = 'c4fc23c8915c5fd96a9b903708ce5991';
+drawFootPrint = 0;
+var mapTypeId = google.maps.MapTypeId.ROADMAP;
+showHideOrbits(true); // true = show by default
+keepSelectedSatelliteCentered(false); // true = keep it centered by default
+var whatsup = false;
+if (window !== top) top.location = window.location;
+/*
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=375772699146364";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+*/
+function wclose (dialog) {
+	dialog.data.fadeOut('slow', function () {
+		dialog.container.hide('slow', function () {
+			dialog.overlay.slideUp('slow', function () {
+				$.modal.close();
+					initialize();
+			});
+		});
+	});
+}
+
+function fullScreen()
+{
+	//$("#simplemodal-container").css("height", "800px");
+	//#$("#simplemodal-container").css("width", "1200px");
+	//$("#satmap").css("height", "100%");
+	//$("#simplemodal-container").height("100%");
+	//var hw = $("#simplemodal-container").height();
+
+
+
+				// load the contact form using ajax
+
+					$("#basic-modal-content1").modal({
+						onClose: wclose
+					});
+
+
+
+	//$('#basic-modal-content1').modal();
+	var hw = document.getElementById('simplemodal-container').clientHeight;
+	hw = parseInt(hw)-50;
+	hw1 = hw+'px';
+	document.getElementById("satmap").style.height = hw1;
+
+	google.maps.event.trigger(map, "resize");
+}
+
+
+</script>
+</head>
+
+<body onload="initialize()">
+<!-- header -->
+<script type='text/javascript' src="./delfi_files/passes.js"></script> 
+<script>
+var startPass = null;
+var endPass = null;
+var timer;
+var issid = 25544;
+var lat = 52.00667;
+var lng = 4.35556;
+go();
+</script>
+
+
+<script type='text/javascript'>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+      '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/31043081/n2yo-header', [728, 90], 'div-gpt-ad-1438712706402-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+
+<!-- <script>
+if(top!=self){
+    alert("For security reasons, framing is not allowed; click OK to remove the frames.")
+    top.location.replace(document.location);
+}
+</script> -->
+
+<!--
+<div id="headercontainer" style="overflow: auto; zoom: 1">
+<table style="width:100%;font-size:14px">
+<tr>
+<td>
+</td>
+<td valign="top">
+
+</td>
+<td align="right">
+ <span id="countdown"></span>
+			<form action="/database/#results" method="GET">
+			<div id="searchbox" align="right">
+	<br/>
+		<INPUT TYPE="text" NAME="q" ID="srcsat" style="font-size: 14px; background-color: #FFFFFF;width:140px" size="12" value="Find a satellite..." onFocus='document.getElementById("srcsat").value="";'>
+		<INPUT TYPE="submit" value="Search" style="font-size: 12px; background-color:#D8D8D8; color:#000000; margin-right: 6px;">
+		<div align="right">
+		<a href="http://www.facebook.com/n2yodotcom">N2YO.com on Facebook</a>
+		&nbsp;&nbsp;
+		<A HREF="/database/">Advanced</A>&nbsp;&nbsp;&nbsp;</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+</tr>
+</td>
+</table>   
+</div>  -->
+
+<!-- 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=372896566168367";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><div id="menu">
+	 <link href="./delfi_files/ddmenu.css" rel="stylesheet" type="text/css" />
+    <script src="./delfi_files/ddmenu.js" type="text/javascript"></script>-->
+<!--INFOLINKS_OFF-->
+<!--   <nav id="ddmenu">
+      <div class="menu-icon"></div>
+    <ul>
+		<li class="no-sub"><a class="top-heading" href="/">Home</a></li>
+		<li>
+        <span class="top-heading"><a class="top-heading" href="/satellites/?c=most-popular">Most tracked</a></span>
+		<i class="caret"></i> 
+            <div class="dropdown">
+			<div class="dd-inner">
+                <div class="column">
+				<A HREF="/satellite/?s=25544">SPACE STATION</A>
+<A HREF="/satellite/?s=36516">SES 1</A>
+<A HREF="/satellite/?s=01576">VANGUARD DEB</A>
+<A HREF="/satellite/?s=00012">VANGUARD R/B</A>
+<A HREF="/satellite/?s=00016">VANGUARD R/B</A>
+<A HREF="/satellite/?s=35681">DEIMOS 1</A>
+<A HREF="/satellite/?s=40967">FOX-1A (AO-85)</A>
+<A HREF="/satellite/?s=00050">DELTA 1 R/B</A>
+<A HREF="/satellite/?s=00047">THOR ABLESTAR R</A>
+<A HREF="/satellite/?s=33591">NOAA 19</A>
+<A HREF="/satellite/?s=36411">GOES 15</A>
+<A HREF="/satellite/?s=29155">GOES 13</A>
+<A HREF="/satellite/?s=00118">THOR ABLESTAR R</A>
+<A HREF="/satellite/?s=00121">THOR ABLESTAR D</A>
+<A HREF="/satellite/?s=05922">TIROS 2 DEB *</A>
+<A HREF="/satellite/?s=00125">THOR ABLESTAR D</A>
+<A HREF="/satellite/?s=00115">THOR ABLE DEB (</A>
+<A HREF="/satellite/?s=00051">ECHO 1 DEB (MET</A>
+<A HREF="/satellite/?s=28654">NOAA 18</A>
+<A HREF="/satellite/?s=23864">PALAPA C2</A>
+				<a href="/satellites/?c=most-popular">MORE...</a>
+                </div>
+				</div>
+            </div>
+        </li>
+		<li>
+		<span class="top-heading"><a class="top-heading" href="/satellites/?c=latest-launches">Just launched</a></span>
+		<i class="caret"></i> 
+            <div class="dropdown">
+			<div class="dd-inner">
+                <div class="column">
+				<A HREF="/satellite/?s=41315">BEIDOU M3-S</A>
+<A HREF="/satellite/?s=41314">AGGIESAT 4</A>
+<A HREF="/satellite/?s=41313">LONESTAR</A>
+<A HREF="/satellite/?s=41310">EUTELSAT 9B</A>
+<A HREF="/satellite/?s=41308">INTELSAT 29E</A>
+<A HREF="/satellite/?s=41241">IRNSS-1E</A>
+<A HREF="/satellite/?s=41240">JASON 3</A>
+<A HREF="/satellite/?s=41238">BELINTERSAT 1</A>
+<A HREF="/satellite/?s=41194">GAOFEN 4</A>
+<A HREF="/satellite/?s=41191">EXPRESS-AMU1</A>
+<A HREF="/satellite/?s=41189">ORBCOMM FM116</A>
+<A HREF="/satellite/?s=41188">ORBCOMM FM117</A>
+<A HREF="/satellite/?s=41187">ORBCOMM FM108</A>
+<A HREF="/satellite/?s=41186">ORBCOMM FM115</A>
+<A HREF="/satellite/?s=41185">ORBCOMM FM113</A>
+<A HREF="/satellite/?s=41184">ORBCOMM FM112</A>
+<A HREF="/satellite/?s=41183">ORBCOMM FM118</A>
+<A HREF="/satellite/?s=41182">ORBCOMM FM110</A>
+<A HREF="/satellite/?s=41181">ORBCOMM FM105</A>
+<A HREF="/satellite/?s=41180">ORBCOMM FM119</A>
+				<a href="/satellites/?c=latest-launches">MORE...</a>
+                </div>
+				</div>
+            </div>
+        </li>
+		<li>
+		<span class="top-heading">Satellites on orbit</span>
+		<i class="caret"></i> 
+            <div class="dropdown">
+			<div class="dd-inner">
+                <div class="column">
+					<h4><a href="/satellites/">CATEGORIES</a></h4>
+                    <a href="/satellites/?c=2">Space Station</a>
+                    <a href="/satellites/?c=1">Brightest</a>
+                    <a href="/satellites/?c=20">GPS Operational</a>
+					<a href="/satellites/?c=21">Glonass Operational</a>
+					<a href="/satellites/?c=22">Galileo</a>
+					<a href="/satellites/?c=35">Beidou</a>
+					<a href="/satellites/?c=30">Military</a>
+					<a href="/satellites/?c=15">Iridium</a>
+					<a href="/satellites/?c=17">Globalstar</a>
+					<a href="/satellites/?c=10">Geostationary</a>
+					<a href="/satellites/?c=34">TV Broadcast</a>
+					<a href="/satellites/?c=26">Space & Earth Science</a>
+					<a href="/satellites/?c=3">Weather</a>
+					<a href="/satellites/?c=32">Cube and Nano Sats</a>
+					<a href="/satellites/?c=18">Amateur radio</a>
+					<a href="/satellites/">MORE CATEGORIES...</a>
+				</div>
+                <div class="column">
+					<h4><a href="/whats-up/whats-up-now.php">WHAT'S UP?</a></h4>
+                    <a href="/whats-up/?c=20">GPS satellites</a>
+                    <a href="/whats-up/?c=21">Glonass satellites</a>
+                    <a href="/whats-up/?c=35">Beidou satellites</a>
+                    <a href="/whats-up/?c=22">Galileo satellites</a>                    
+					<a href="/whats-up/?c=15">Iridium satellites</a>
+                    <a href="/whats-up/?c=17">Globalstar satellites</a>
+                    <a href="/whats-up/whats-up-now.php" style="color:red">What's up in your sky now?</a>
+					<br/>
+					<h4><a href="/database/">FIND A SATELLITE</a></h4>
+					<a href="/database/"> SEARCH DATABASE</a>
+					<a href="/browse/"> BROWSE BY LAUNCH DATE</a>
+					<a href="/satellites/"> BROWSE BY CATEGORY</a>
+					<a href="/satellites/?c=&t=country"> BROWSE BY COUNTRY</a>
+				</div>
+                <div class="column">
+					<h4><a href="/satellites?c=&t=country">OWNERS/COUNTRIES</a></h4>
+					<a href="/satellites?c=US&t=country"><img src='./delfi_files/us.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> UNITED STATES</a>
+					<a href="/satellites?c=CIS&t=country"><img src='./delfi_files/cis.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> CIS (FORMER USSR)</a>
+					<a href="/satellites?c=PRC&t=country"><img src='./delfi_files/prc.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> PEOPLE'S REPUBLIC OF CHINA</a>
+					<a href="/satellites?c=JPN&t=country"><img src='./delfi_files/jpn.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> JAPAN</a>
+					<a href="/satellites?c=ESA&t=country"><img src='./delfi_files/esa.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> EUROPEAN SPACE AGENCY</a>
+					<a href="/satellites?c=FR&t=country"><img src='./delfi_files/fr.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> FRANCE</a>
+					<a href="/satellites?c=IND&t=country"><img src='./delfi_files/ind.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> INDIA</a>
+					<a href="/satellites?c=UK&t=country"><img src='./delfi_files/uk.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> UNITED KINGDOM</a>
+					<a href="/satellites?c=CA&t=country"><img src='./delfi_files/ca.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> CANADA</a>
+					<a href="/satellites?c=GER&t=country"><img src='./delfi_files/ger.gif' border='0' width='20' height='15' style="vertical-align: text-bottom"> GERMANY</a>
+					<a href="/satellites?c=&t=country"> MORE OWNERS/COUNTRIES...</a>
+				</div>
+				</div>
+            </div>
+        </li>
+		<li>
+		<a class="top-heading" href="/info/?a=22">Alerting tools</a>
+		<i class="caret"></i> 
+            <div class="dropdown right-aligned">
+			<div class="dd-inner">
+                <div class="column">
+				<h4>ALERTING TOOLS</h4>
+                    <a href="/info/?a=43"><img src="./delfi_files/phone.png" border="0" width="16" style="vertical-align: text-bottom"> SPACE STATION PREDICTIONS BY VOICE</a>
+                    <a href="/info/?a=18"><img src="./delfi_files//alert.png" border="0" width="16" style="vertical-align: text-bottom"> SPACE STATION NOTIFICATION TOOL </a>
+                    <a href="/info/?a=15"><img src="./delfi_files//email.png" border="0" width="16" style="vertical-align: text-bottom"> ALERTS BY EMAIL AND SMS</a>
+				</div>
+				</div>
+        </li>
+		<li>
+		<span class="top-heading">More stuff</span>
+		<i class="caret"></i> 
+            <div class="dropdown right-aligned">
+			<div class="dd-inner">
+                <div class="column">
+				<h4>ADDITIONAL INFO</h4>
+                    <a href="/space-station" style="color:red">HD LIVE STREAMING FROM ISS</a>
+                    <a href="/info/?a=45">VISITORS MAP</a>
+                    <a href="/about/?a=donation">MAKE A DONATION</a>
+                    <a href="https://www.facebook.com/n2yodotcom">N2YO.COM ON FACEBOOK</a>
+                    <a href="/about/?a=links">EXTERNAL LINKS</a>
+                    <a href="/about/?a=faq">FAQ</a>
+                    <a href="/about/?a=feedback">CONTACT/FEEDBACK</a>
+                    <a href="/about/?a=privacy">PRIVACY POLICY</a>
+                    <a href="/about/?a=terms">TERMS OF USE</a>
+				</div>
+                <div class="column">
+					<h4>USER PREFERENCES</h4>
+										<a href=/login/edit/>SIGN IN</a>					<a href="/login/edit/">EDIT/CHANGE YOUR LOCATION</a>
+					<br/>
+					<h4>SITE OWNERS</h4>
+                    <a href="/widgets/">WIDGETS FOR YOUR PAGE</a>
+                    <a href="/api/">API ACCESS</a>
+				</div>
+				</div>
+			</div>
+        </li>
+	<li class="no-sub"><a class="top-heading" href=/login/edit/>Sign in</a></li>
+    </ul>
+
+
+</nav>
+ -->
+
+<!--INFOLINKS_ON-->
+</div>
+<div class="container-main">
+    <div id="map">
+	<span id="ad1">	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive Test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8839140430005838"
+     data-ad-slot="9034393608"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	
+		
+	</span>
+
+
+
+
+			<div id="basic-modal-content1">
+	<span id="satmap"></span>
+				</div>
+	<span id="chkboxes">
+		<input type="checkbox" name="orbit" checked id="orbit" onClick='javascript:drawOrbits()'/>Draw orbits
+		&nbsp;&nbsp;
+		<input type="checkbox" name="footprint" id="footprint" onClick='javascript:drawFootPrint = this.checked'>Draw footprint
+		&nbsp;&nbsp;
+		<input type="checkbox" NAME="keepcenter" id="keepcenter" onClick='keepSelectedSatelliteCentered(this.checked)'>Keep selection centered
+		&nbsp;&nbsp;
+		<input type="button" class="sButton" id="fit" value="Fit all satellites on the map" onClick='fitMap()'>
+		&nbsp;&nbsp;
+		<button class="sButton" onclick="javascript:fullScreen()">Large map</button>
+	</span>
+	</div>
+	<div id="trackinginfo">
+	<div id="panelalert"></div>
+	<br/>
+	<div id="satname"></div>
+	<br/>
+	<div id="paneldata" style="visibility: hidden">
+		<table id="tabledata">
+			<tr>
+				<td>NORAD ID:</td><td><div id="noradid"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>LOCAL TIME:</td><td><div id="localtime"></div></td>
+			</tr>
+			<tr>
+				<td>UTC:</td><td><div id="utctime"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>LATITUDE:</td><td><div id="satlat"></div></td>
+			</tr>
+			<tr>
+				<td>LONGITUDE:</td><td><div id="satlng"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>ALTITUDE [km]:</td><td><div id="sataltkm"></div></td>
+			</tr>
+			<tr>
+				<td>ALTITUDE [mi]:</td><td><div id="sataltmi"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>SPEED [km/s]:</td><td><div id="satspdkm"></div></td>
+			</tr>
+			<tr>
+				<td>SPEED [mi/s]:</td><td><div id="satspdmi"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>AZIMUTH:</td><td><span id="sataz"></span> <span id="satazcmp"></span></td>
+			</tr>
+			<tr>
+				<td>ELEVATION:</td><td><div id="satel"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>RIGHT ASCENSION:</td><td><div id="satra"></div></td>
+			</tr>
+			<tr>
+				<td>DECLINATION:</td><td><div id="satdec"></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>Local Sidereal Time:</td><td><div id="lmst"></div></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><b><div id="satshadow"></b></div></td>
+			</tr>
+			<tr class="bgray">
+				<td>SATELLITE PERIOD:</td><td><div id="period"></div></td>
+			</tr>
+			<tr>
+				<td align="left" colspan="2"><div id="prediction"></div></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" STYLE="display:inline;">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+</form>				<!--<div class="fb-like-box" data-href="http://www.facebook.com/n2yodotcom" data-width="200" data-show-faces="false" data-stream="false" data-header="false"></div>-->
+				</td>
+				
+				
+			</tr>
+		</table>
+	</div>
+	<br/>
+<!--	<div>
+	<table id="tablelinks">
+	<tr>
+ 	<td class="tabheader">Resources</td>
+	</tr>
+	<tr>
+	<td>
+	<a href="http://www.livemeteors.com/" target="_blank">Listen live to meteors!</a>
+	<br/><a href="http://www.ip2location.com/?rid=731" target="_blank">IP2Location IP Geolocation</font></a>
+	<br/><a href="http://www.magnetic-declination.com" target="_blank">Find your Magnetic Declination</font></a>
+	<br/><a href="http://www.cosmosplus.com" target="_blank">Space Station HD Cam Images!</font></a>
+	<br/><a href="http://www.lastminutestuff.com">Last Minute Stuff!</a>
+	</td>
+	</tr>
+	</table>
+	</div>  -->
+<br/>
+
+	<div>
+	<table id="tablelocation">
+	<tr>
+	<td class="tabheader" colspan="2">Your current location</td>
+	</tr>
+	<tr>
+	<td>
+			Your IP address:</td><td><B>131.180.97.42</B></td>
+
+
+			</td>
+			</tr>
+			<tr>
+			<td>Latitude: </td><td><B>52.00667&deg;</B></td>
+			</tr>
+			<tr>
+			<td>Longitude: </td><td><B>4.35556&deg;</B></td>
+			</tr>
+			<tr>
+			<td>Magnetic decl.: </td><td><B>0&deg; 36' E</B></td>
+			</tr>
+			<tr>
+			<td>Local time zone: </td><td><B><span id="ltz"></span></B></td>
+			</tr>
+			<tr>
+			<td colspan="2" align="center">
+			Is this incorrect?<br><A HREF="/login/edit/">Set your custom location</A>
+			</td>
+			</tr>
+		</table>
+	</div>
+
+
+</div>
+<!--<div id="admainpage">-->
+<div>
+<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=314814&u=satellitetracker&width=728&height=90"></script>
+
+</div>
+
+			<!-- preload the images -->
+			<div style='display:none'>
+				<img src='./delfi_files/x.png' alt='' />
+			</div>
+
+
+<!-- footer -->
+<!-- 
+<br/><br/>
+<div id="footer">
+<table id="footer">
+<!-- Other links-->
+<!-- 
+<tr>
+<td align="center">
+<A HREF="/about/?a=links">Links</A>&nbsp;&nbsp;<A HREF="/about/?a=terms">Terms of Use</A>&nbsp;&nbsp;<A HREF="/about/?a=privacy">Privacy Policy</A>&nbsp;&nbsp;<A HREF="/about/?a=feedback">Contact Us</A> 
+<br/>Copyright &copy; N2YO.com. All rights reserved
+<br/><a href="http://www.itprostar.com">Developed by ITPROSTAR</a>
+<br/><br/><!-- AddThis Button BEGIN -->
+<!--   <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4bfedf760e3dd1ee"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4bfedf760e3dd1ee"></script>
+<!-- AddThis Button END -->
+<!--  </td>
+</tr>
+</table>
+
+</div>
+
+<span style="color:#F7F7F7">
+N2YO: 326<br /></span>
+
+ -->
+
+</body>
+</html>

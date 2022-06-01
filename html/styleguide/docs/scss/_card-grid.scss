@@ -1,0 +1,145 @@
+//Quick loop to build spacing grid in both horizontal and vertical 12 columns
+//this is outside regular grid system because it will pollute the component
+//inspector
+@each $key, $width in $breakpoints {
+  @include bp($width) {
+    @for $i from 1 through $columns {
+      %#{$key}-card-v#{$i} {
+        height: percentage($i/$columns);
+      }
+      %#{$key}-card-#{$i} {
+        width: percentage($i/$columns);
+      }
+    }
+  }
+}
+/*
+You can use this mixin to build a grid of cards. It expects a map value containing
+the card classname as a key (basically the items of the grid), and the 
+number of columns on a per-breakpoint basis
+```
+  @include card-grid((
+    card-0: (
+      xs: 6 5,
+      ^ on xs, 6 columns wide, and 5 columns high (translates to 50% width and ~40% high)
+      md: 12 5
+      ^ on md, be 12 columns wide and 5 columns high
+    )
+  ));
+```
+
+*/
+@mixin card-grid($layout) {
+  //Override display: flex for card-grid
+  display: block;
+  
+  %card {
+    @extend %column;
+  }
+  .card {
+    height: 100%;
+  }
+  @each $card, $dimensions in $layout {
+    @each $key, $values in $dimensions {
+      .#{$card} {
+        @extend %card;
+        @extend %#{$key}-card-#{nth($values, 1)};
+        @extend %#{$key}-card-v#{nth($values, 2)};
+      }
+    }
+  }
+}
+
+/*doc
+---
+title: Card grid
+category: components - card grid
+---
+
+This is the card grid. There are several versions which are build using the
+```card-grid``` mixin.
+
+```component_example
+filename: card-grid
+wrapper: 'bg-grey container'
+parameters:
+  layout: card-grid--1
+```
+
+```component_example
+filename: card-grid
+wrapper: 'bg-grey container'
+parameters:
+  layout: card-grid--2
+```
+*/
+.card-grid--1 {
+  @include card-grid((
+    card-0: (
+      xs: 12 5,
+      sm: 6 5,
+      md: 6 5
+    ),
+    card-1: (
+      xs: 12 5,
+      sm: 6 5,
+      md: 6 5
+    ),
+    card-2: (
+      xs: 12 2,
+      md: 8 2
+    ),
+    card-3: (
+      xs: 12 5,
+      sm: 6 5,
+      md: 4 7
+    ),
+    card-4: (
+      xs: 12 5,
+      sm: 6 5,
+      md: 8 5
+    )
+  ));
+  height: 65em;
+  .card-3 {
+    float: right;
+  }
+}
+
+
+.card-grid--2 {
+  @include card-grid((
+    card-0: (
+      xs: 12 4
+    ),
+    card-1: (
+      xs: 4 6
+    ),
+    card-2: (
+      xs: 8 6
+    ),
+    card-3: (
+      xs: 6 3
+    ),
+    card-4: (
+      xs: 6 3
+    )
+  ));
+  height: 65em;
+}
+// .grid {
+//   @include theming {
+//     .h3 { 
+//       color: map-get($theme-color, 1); 
+//     }
+//     .card:after { 
+//       background-color: map-get($theme-color, 2); 
+//     }
+//     .card--no_image { 
+//       background-color: map-get($theme-color, 1);
+//       .h3 {
+//         color: map-get($theme-color, 2); 
+//       }
+//     }
+//   }
+// }

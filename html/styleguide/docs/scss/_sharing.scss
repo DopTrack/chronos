@@ -1,0 +1,38 @@
+/*doc
+---
+title: sharing
+category: components - sharing
+---
+This component enables a user to share the page on social media or to e-mail the url
+
+```component_example
+filename: sharing
+```
+*/
+.sharing {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	li {
+		display: inline-block;
+	}
+	a {		
+		display: inline-block;
+		// border-radius: 100%;
+		// color: cl('white');
+		// background-color: cl('blue');
+		
+		// transition: t(transform, fast, bounce);
+		color: #fff;
+		// padding: .3em;
+		// font-size: 1.4em;
+		// border-radius: 100%;
+		// display: inline-block;
+		// line-height: 1;
+		&.i-facebook:after { background-color: #3b5998; }
+		&.i-twitter:after { background-color: #00aced; }
+		&.i-linkedin:after { background-color: #007bb6; }
+		&.i-youtube:after {background-color: #bb0000; }
+		&.i-mail:after {background-color: cl('black');}
+	}
+}

@@ -1,0 +1,17 @@
+.list-arrow {
+	@extend .list-reset;
+	
+	li {
+		@extend .onhover-arrow_right;
+		display: block;
+		padding-left: 1rem;
+			
+		&:after,
+		&:before {
+			left: 0;
+		}
+	}
+	li:before {
+		
+	}
+}

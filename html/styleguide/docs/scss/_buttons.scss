@@ -1,0 +1,176 @@
+%basicbtn {
+	transition: t(background-color), t(color), t(border-color);
+	// text-transform: uppercase;
+	padding: .9rem 1.5rem;
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 1rem;
+	color: cl('white');
+	// border: 1px solid cl('blue_dark');
+	border: none;
+	cursor: pointer;	
+	text-decoration: none;
+	line-height: 1;	
+}
+%roundbtn {
+	text-decoration: none;
+	line-height: 1;	
+	display: inline-block;
+	text-align: center;
+	border-radius: 100%;
+}
+
+%roundbtn-expand {
+	@extend %roundbtn;
+	position: relative;	
+	z-index: 1;
+	border-radius: 0;
+	
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;right: 0;top: 0;bottom: 0;
+		z-index: -1;
+		
+		transition: t(background-color, ease), t(transform, elastic);
+		transform: scale(1);
+		
+		border: 1px solid cl('white');
+		border-radius: 100%;
+	}
+	@include hover {
+		color: cl('white') !important;
+		
+		&:after {
+			transform: scale(1.13);
+			background-color: cl('black');
+		}
+	}
+}
+
+/*doc
+---
+title: button
+category: components - buttons
+---
+
+```html_example_table
+<a href="#" class="btn">Click me</a>
+
+<div class="bg-blue container">
+	<a href="#" class="btn">Click me</a>
+</div>
+
+```
+
+*/
+.btn,
+button {
+	@extend %basicbtn;
+	
+	background-color: cl('blue');
+	color: cl('white');
+	
+	.bg-blue & {
+		background-color: cl('white');
+		color: cl('blue');
+	}
+	@include hover {
+		background-color: cl('black');
+		color: cl('white') !important;
+	}
+}
+
+/*doc
+---
+title: Ghost button
+parent: button
+---
+```html_example_table
+<a href="#" class="btn--ghost">Click me</a>
+
+<div class="bg-blue container">
+	<a href="#" class="btn--ghost">Click me</a>
+</div>
+```
+*/
+.btn--ghost {
+	@extend %basicbtn;
+	background-color: transparent;
+	border-color: cl('blue');
+	color: cl('blue');
+	
+	@include hover {
+		color: cl('white');
+		background-color: cl('blue');
+	}
+
+	.bg-blue & {
+		background-color: transparent;
+		color: cl('white');
+		border-color: cl('white');
+		
+		@include hover {
+			background-color: cl('white');
+			color: cl('blue');
+		}
+	}
+}
+/*doc
+---
+title: Round button
+parent: button
+---
+```html_example_table
+<a href="#" class="btn--round">Lees meer</a>
+
+<div class="bg-blue container">
+	<a href="#" class="btn--round">Lees meer</a>
+</div>
+```
+*/
+.btn--round {
+	@extend .label;
+	@extend %roundbtn-expand;
+	font-size: .8rem !important;
+	color: cl('white');
+	display: block;
+	width: 3rem;
+	padding: 2rem 1.31rem;
+	
+	@include hover {
+		&:after {
+			background-color: cl('blue');
+		}
+	}
+}
+/*doc
+---
+title: Icon button
+parent: button
+---
+```html_example
+<a href="#" class="btn--icon i-facebook"><span class="text-hide">Facebook</span></a>
+
+<div class="bg-blue container">
+	<a href="#" class="btn--icon i-facebook"><span class="text-hide">Facebook</span></a>
+</div>
+```
+*/
+.btn--icon {
+	// @extend %roundbtn;
+	@extend %roundbtn-expand;
+	padding: 0.5rem;
+	font-size: 1.4rem;
+	background: transparent;
+	
+	.bg-blue & { 
+		border-color: cl('white');
+		color: cl('white');
+	}
+	&:before,
+	&:after {
+		vertical-align: top;
+		// border: 1px solid transparent;
+	}
+}

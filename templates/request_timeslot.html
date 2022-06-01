@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+		<link rel="stylesheet" href="{% static 'redisp/style.css' %}" type="text/css" media="screen"/>
+	
+	    <form id="requestTimeslotForm"  method="post">
+            {% csrf_token %}
+<!--  
+     		<div class="button_container">
+				<input type="button" value="Save" class="button" onclick="requestTimeslot('20160331','0000');" title="Save timetable"/>
+				<button type="submit" class="button" >Submit</button> 
+			</div>-->
+        </form>
+        
+					<table id="table2">
+						<colgroup>
+							<col width="10"/>
+							{% for day in gridDayAxis %}
+								<col width="10"/>
+                            {% endfor %}
+						</colgroup>
+						<tbody>
+							<tr>
+								<td class="redips-mark blank"></td>
+								
+								{% for day in gridDayAxis %}
+						           <td class="redips-mark cell-date">
+						              <span class="d month">{{day.val|date:"M"}}</span><span class="d day">{{day.val|date:"d"}}</span><span class="d week">{{day.val|date:"D"}}</span>
+  					               </td>
+							    {% endfor %}
+							</tr>
+						   {% for time in gridTimeStepAxis %}
+						     <tr>
+								<td class="redips-mark dark"><div class="time" id="{{time.pk}}">{{time.val|time:"H:i"}}</div></td>
+
+								{% for day in gridDayAxis %}
+           					        <td class="cell-click 
+           					               {% if day.val < closedTimeslotDateTime.date or day.val = closedTimeslotDateTime.date and time.val < closedTimeslotDateTime.time %}
+	     				              	      past 
+		     			               	   {% endif %}" onclick="requestTimeslot('{{day.pk}}','{{time.pk}}')">
+    						          {% with celdata=gridData|get_item:day.pk|get_item:time.pk %}
+	             					    {% if celdata %}
+                						    {% for celpart in celdata %}
+					                    	    <div style="background-color: {% if celpart.val.pk = request.user.pk %}orange{% else %}gray{% endif %};">{{celpart.val.username}}</div>
+					                	    {% endfor %}					                	    
+					              	    {% endif %}
+  	 				                  {% endwith%}
+  	 				                </td>
+  	 				            {% endfor %}
+							 </tr>
+						   {% endfor %}
+						</tbody>
+					</table>
+					
+	<script>
+		function requestTimeslot(day, time){
+		    
+			//var form = $('form');		// deze niet gebruiken want dan krijg je ook search form GET request afgevurd op huidige url te verwerken. 
+			var form = $('#requestTimeslotForm');
+				
+	        var dayField = document.createElement("input");
+	        dayField.setAttribute("type", "hidden");
+	        dayField.setAttribute("name", 'day');
+	        dayField.setAttribute("value", day);
+	        $(form).append(dayField);
+
+	        var timeField = document.createElement("input");
+	        timeField.setAttribute("type", "hidden");
+	        timeField.setAttribute("name", 'time');
+	        timeField.setAttribute("value", time);
+	        $(form).append(timeField);
+	        
+	        form.submit();
+		};
+	</script>
+
+
+{% endblock %}

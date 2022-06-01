@@ -1,0 +1,60 @@
+/*doc
+---
+title: facts & figures
+category: components - facts
+---
+Facts & figures
+This component makes it possible to showcase any statistics by defining 
+a label and an amount (numeric or percentages). There’s a light and a dark 
+theme available (add class ```bg-blue_dark``` or ```bg-blue_light``` to the element.
+
+**UX note**
+Only use this component when you have a minimal of 4 stats to showcase. 
+Less then 4 stats will make it look out of balance.
+Alternatively you can use the grid system to control the division of the columns
+
+```component_example_table
+filename: facts
+wrapper: pull-right
+
+filename: facts
+wrapper: pull-right
+parameters:
+  variation: bg-blue_light
+```
+*/
+.facts {
+	overflow: auto;
+	color: cl('white');
+	// tr {
+	// 	@extend .xs-4;
+	// }
+	
+	th {
+		@extend .label;
+		display: block;
+		font-weight: fw(bold);
+		text-align: left;
+	}
+	td {
+		font-size: 3rem;
+		font-family: $font-header;
+		font-weight: fw(light);
+	}
+	
+	&.bg-blue_dark {
+		th {
+			color: cl('blue_light');
+			border-top: 1px solid cl('blue_light');
+		}
+		
+	}
+
+	&.bg-blue_light {
+		th {
+			color: cl('blue_dark');
+			border-top: 1px solid cl('blue_dark');
+		}
+		
+	}
+}

@@ -1,0 +1,654 @@
+@charset "UTF-8";
+footer ul {
+    list-style-type: none;
+}
+
+.modal__content,
+.modal__content a{
+	color: #fff
+}
+
+.tudcard,
+.card--no_description .card__content p {
+    display: none;
+}
+
+.layout-0 .tudcard,
+.layout-1 .tudcard,
+.layout-2 .tudcard,
+.layout-3 .tudcard,
+.layout-4 .tudcard {
+    display: block;
+    padding: 0;
+    margin: 0 0 20pt 0;
+}
+
+.layout-1 .tudcard{
+    height: 120pt;
+}
+
+.layout-0 .tudcard,
+.layout-2 .tudcard{
+    height: 200pt;
+}
+
+.layout-3 .tudcard{
+    height: 300pt;
+}
+
+.blocks.layout-1 .sm-4 .tudcard{
+    height: 260pt;
+}
+
+.blocks.layout-0 .sm-4 .tudcard,
+.blocks.layout-2 .sm-4 .tudcard{
+    height: 420pt;
+}
+
+.blocks.layout-3 .sm-4 .tudcard{
+    height: 620pt;
+}
+
+.layout-4 .imagecard {
+    height:23.75em;
+}
+
+.layout-4 .imagecard,
+.row div[style^="background"] {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card--no_description .card__content {
+    top: auto;
+    bottom: 0;
+}
+
+.tudcard a,
+.presentation__slide a {
+    text-decoration: none;
+    border: 0;
+}
+
+.tud_tabContent{
+    margin-top: 3rem;
+}
+
+.cms-toolbar-expanded .tud_main{
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.tud_main .nav-top {
+	position: static;
+}
+
+.tud_main main {
+	margin-top: 0;
+}
+
+.banner {
+    background-position: 50% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: block;
+    margin: auto;
+    position: relative;
+    text-decoration: none;
+    transition: opacity 1s cubic-bezier(0.56, 0, 0, 1.6) 0s;
+}
+
+.statuscode400 {
+	background-image: url('../img/400.jpg');
+}
+
+.statuscode404 {
+	background-image: url('../img/404.jpg');
+}
+
+.statuscode500 {
+	background-image: url('../img/500.jpg');
+}
+
+/* TABLE datatable begin */
+.datatable th,
+.datatable td {
+    padding: 6pt 10pt;
+}
+
+.datatable td.even{
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.datatable tr.odd {
+    background: #fefefe;
+}
+
+.datatable tr td{
+	border-top: 1px solid #ccc;
+}
+
+.datatable tr.odd td.even{
+    background: #f9f9f9;
+}
+
+.datatable tr.even td.even{
+    background: #eee;
+}
+.datatable {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.datatable tr{
+	border-bottom: 1px solid #ddd;
+}
+
+.datatable tr.first{
+	border: none;
+}
+
+.datatable th{
+	font-weight:normal;
+	font-size: 10pt;
+	color: #999;
+	text-align: left;
+}
+/* TABLE datatable end */
+
+
+/* FORM begin */
+/* overrule mangrove styling begin */
+form > * {
+    margin-top: 0 !important;
+}
+/* overrule mangrove styling end */
+
+.group-choices,
+.group {
+    margin: 0 0 10pt;
+    display: block;
+   	clear: both;
+}
+
+.group-choices::after {
+	clear: both;
+	content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+.controls{
+	clear: both;
+}
+
+.help-block {
+	display: none;
+	margin: 0;
+	padding: 5pt 10pt;
+	clear: both;
+}
+
+.error .help-block {
+	display: block;
+	background-color: #e64616;
+	color: #fff;
+}
+
+.help-inline {
+	color: #00a6d6;
+    float: right;
+    font-size: 0.8rem;
+}
+
+.required label::after{
+	content: "*";
+	color: #00a6d6;
+	padding: 0 0 0 2pt
+}
+
+.required .controls label:after {
+    padding: 0;
+    content:"";
+    color:#000;
+}
+
+/* i_outer + -_inner are extra wraps needed for styling */
+.i_outer,
+.i_inner {
+    display: block;
+/*    float: left;*/
+}
+
+.i_inner:after,
+.i_outer:after {
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+    content:'';
+    float: none;
+    display:block;
+    clear: both;
+}
+
+/* FORM GENERAL begin */
+input,
+select {
+    vertical-align:middle;
+}
+
+.input_ok:after,
+.input_wrong:after,
+.input_required:after {
+    line-height: 30pt !important;
+    font-size: 15pt !important;
+}
+
+/*	input:required:invalid,*/
+input:required:invalid,
+textarea:required:invalid,
+select:required:invalid,
+.input_wrong input:required:invalid,
+.input_wrong input:required:valid,
+.input_required input:required:invalid,
+.input_required input:required:valid,
+.input_wrong input,
+.input_required input {
+    border-color: #f2f2f2 #f2f2f2 #e64616;
+}
+
+input:required:valid,
+textarea:required:valid,
+select:required:valid,
+.input_ok input {
+	border-color: #f2f2f2 #f2f2f2 #a5ca1a;
+}
+
+.outer .msg {
+    padding: 0;
+    clear: both;
+    display: none;
+    color: #e64616;
+    text-align: right;
+}
+
+.outer .msg .msg_label{
+    font-style: italic;
+}
+
+.outer .msg.show {
+    display: block;
+}
+
+.msg.show ul{
+    list-style:circle inside;
+    list-style:initial;
+}
+
+.msg.show li{
+    padding: 3pt 0;
+}
+
+input:required,
+input:invalid,
+input:required:invalid {
+    -moz-box-shadow: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+legend {
+    border: 0;
+    float: none;
+    font-weight: bold;
+    padding: 10pt 0;
+}
+
+label {
+    cursor: pointer;
+    display: block;
+    line-height: 20pt;
+    color: #999;
+    float: left;
+}
+
+.controls label{
+	color: #000;
+}
+
+label:hover {
+    text-decoration: underline;
+}
+
+.errorlist {
+    border: 1pt solid #e64616;
+}
+
+.errorlist .errorlist,
+.errorlist .errorlist li {
+    padding: 0;
+    border: 0;
+}
+
+.errorlist li {
+    color:#e64616;
+    padding: 0 0 0 20pt;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+/* FORM GENERAL end */
+
+/* CHECKBOX + RADIO begin */
+input[type='checkbox'],
+input[type='radio'] {
+    opacity:0;
+    /* opacity = 0, so legacy browsers only */
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    border: 0;
+    margin: 0 5pt 0 0 ;
+    position:absolute;
+    filter:alpha(opacity=0);
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    position:relative;
+    margin:0;
+    padding: 0 15pt 0 15pt;
+    cursor:pointer;
+    display:inline-block;
+    z-index:0;
+    line-height: 18pt;
+}
+
+input[type='checkbox']:checked + label,
+input[type='radio']:checked + label {
+    /*color: #00a6d6;*/
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="radio"]:checked + label:before {
+    color: #000;
+    content: "";
+    text-align: center;
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="radio"]:checked + label:before {
+    border-color: #00a6d6;
+    background: #00a6d6;
+}
+
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+	border: 1pt solid #ccc;
+    background: none;
+    content: "";
+    display: inline-block;
+    left: 0;
+    margin: 3pt 0 0;
+    outline: medium none;
+    position: absolute;
+    top: 0;
+    width: 10pt;
+    height: 10pt;
+    color: #999;
+}
+
+input[type="radio"] + label:before {
+    border-radius: 10pt;
+}
+
+input[type='radio']:disabled + label,
+input[type='radio']:disabled:checked + label,
+input[type='checkbox']:disabled + label,
+input[type='checkbox']:disabled:checked + label {
+    color:#999
+}
+/* CHECKBOX + RADIO end */
+
+
+
+/* TEXTAREA + TEXT INPUTS begin */
+::-webkit-input-placeholder {
+    font-weight: normal;
+    color: #ccc;
+    font-style:italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    font-weight: normal;
+    color: #ccc;
+    font-style:italic;
+}
+
+::-moz-placeholder {	/* Firefox 19+ */
+    font-weight: normal;
+    color: #ccc;
+    font-style:italic;
+}
+
+:-ms-input-placeholder {
+    font-weight: normal;
+    color: #ccc;
+    font-style:italic;
+}
+
+input[type="search"] {
+    /*		-webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+/* TEXT INPUTS end */
+
+/* SELECT begin */
+.select.i_outer {
+    position: relative;
+    margin-right: 13pt;
+    width: 100%;
+}
+/*
+.select .i_inner {
+    border: 1pt solid #ddd;
+    width: 100%;
+    overflow: hidden;
+    background-position: 96% center;
+    background-repeat: no-repeat;
+
+}
+*/
+select {
+    display: block;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 2pt 15pt 2pt 2pt;
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220%22%20y%3D%220%22%20width%3D%226pt%22%20height%3D%225.217392pt%22%20viewBox%3D%220%200%207.5%206.52174%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20d%3D%22M%203.75%2C6.52174%207.5%2C0%200%2C0%203.75%2C6.52174%20Z%22%2F%3E%3C%2Fsvg%3E');
+    background-position: right 5pt center;
+    background-repeat: no-repeat;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+}
+
+select::-ms-expand{
+  display:none;
+}
+
+select[multiple]{
+	padding: 0;
+	background: none;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+select:focus {
+    /*background-color: #f3f3ff;*/
+/*    border-color: #000;*/
+}
+
+option{
+    font-weight:normal;
+    color: #333;
+    padding: 5pt 10pt;
+    text-shadow: none;
+    background: #fff;
+    display: block;
+}
+
+option.selected {
+    color:#000;
+    font-weight:bold;
+}
+/* SELECT end */
+
+
+
+/* INPUT[TYPE=RANGE] begin */
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+
+    /*fix for FF unable to apply focus style bug */
+    border: 1pt solid #fff;
+
+    /*required for proper track sizing in FF*/
+    width: 85%;
+
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cccccc), color-stop(100%, #cccccc));
+    background-position: center;
+    background-size: 99% 2pt;
+    background-repeat: no-repeat;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 85%;
+    height: 3pt;
+    background: #ddd;
+    border: none;
+    border-radius: 3pt;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12pt;
+    width: 12pt;
+    border-radius: 50%;
+    background: #00a6d6;
+    margin-top: -4pt;
+}
+
+input[type=range]:focus {
+    outline: none;
+    border: 0;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 85%;
+    height: 3pt;
+    background: #ddd;
+    border: none;
+    border-radius: 2pt;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 12pt;
+    width: 12pt;
+    border-radius: 50%;
+    background: #00a6d6;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 2pt solid #fff;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 85%;
+    height: 3pt;
+
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #ccc;
+    border-radius: 7pt;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 7pt;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 12pt;
+    width: 12pt;
+    border-radius: 50%;
+    background: #00a6d6;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #ccc;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+/* INPUT[TYPE=RANGE] end */
+
+form button[disabled],
+form input[disabled],
+form select[disabled],
+form select[disabled] option,
+form select[disabled] optgroup,
+form textarea[disabled],
+form a.button_disabled {
+    -moz-user-select: none;
+    box-shadow: none;
+    color: #505050;
+    cursor: default;
+}
+
+form button[disabled],
+form button[disabled]:hover,
+form .btn[disabled]:hover,
+form input[type=submit][disabled],
+form input[type=submit][disabled]:hover{
+	background-color: #ccc;
+    color: #505050;
+}
+/* FORM end */

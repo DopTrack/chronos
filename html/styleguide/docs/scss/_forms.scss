@@ -1,0 +1,60 @@
+/*doc
+---
+title: forms
+category: layout - forms
+---
+
+```html_example_table
+<input type="text" />
+
+<textarea rows="3"></textarea>
+
+<label><input type="checkbox" />Checkbox</label>
+<label><input type="checkbox" />Checkbox</label>
+
+<label><input type="radio" name="radio"/>Radio</label>
+<label><input type="radio" name="radio" />Radio</label>
+```
+*/
+
+// textarea,
+// input {
+// 	border: 1px solid cl('grey');
+// 	padding: .4rem;
+// 	border-radius: 3px;
+// }
+
+// input[type="radio"]
+// input[type="checkbox"] {
+// 	border: none;
+// 	padding: 0;
+// }
+
+// label {
+//   @extend .label;
+// }
+form {
+	max-width: 40rem;	
+	> * {margin-top: -1rem !important;}
+}
+label.label {
+	display: block;
+	margin-top: 1rem;
+}
+// textarea,
+// select,
+// input[type="date"],
+// input[type="datetime"],
+// input[type="datetime-local"],
+// input[type="email"],
+// input[type="month"],
+// input[type="number"],
+// input[type="password"],
+// input[type="search"],
+// input[type="tel"],
+// input[type="text"],
+// input[type="time"],
+// input[type="url"],
+// input[type="week"] {
+// 	display: block;
+// }

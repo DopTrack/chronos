@@ -1,0 +1,17 @@
+{% load sitetree %}
+
+{% if sitetree_items %}
+
+	  <ul>
+     		{% for item in sitetree_items %}
+				<li>
+					<a {% if item.is_current %}class="is-active"{% endif %} href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %}>
+					  {{ item.title_resolved }}  {{item.depth}}  _b_s_{{item.in_current_branch}} {{item.is_current}}
+					</a>
+					_m_t_ {{item.inmenu}} {{item.insitetree}} _p_{{item.parent.title}}
+				    {% sitetree_children of item for sitetree template "sitetree/ctrl_printall.html" %}
+				</li>
+	    	{% endfor %}
+	  </ul>
+   
+{% endif %}

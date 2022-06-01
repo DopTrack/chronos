@@ -1,0 +1,19 @@
+{% load sitetree tag_utils %}{% gapless %}
+
+{% if sitetree_items %}
+  <ul>
+    {% for item in sitetree_items %}
+	    {% if item.url_resolved != "#unresolved" %}
+  	      <li>
+			<a {% if item.is_current %}class="is-active"{% endif %} href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}"{% endif %}>{{ item.title_resolved }}</a>
+			{% if item.has_children %}
+			  {% if item.in_current_branch %}
+	            {% sitetree_children of item for sitetree template "sitetree/tud_menuAside_sub.html" %}
+	          {% endif %}
+			{% endif %}
+	       </li>
+	    {% endif %}
+	{% endfor %}
+  </ul>
+{% endif %}
+{% endgapless %}

@@ -1,0 +1,24 @@
+<h1>{{ input_type }}</h1>
+<span class="formrow group{% if input_type == 'multicheckbox' or input_type == 'radioset'  %}-choices{%endif%}{% if field.errors %} error{% endif %}{% if field.field.required %} required{% endif %}">
+{% if input_type == "checkbox" %}
+    {% include "tud_styling/tags/field_checkbox.html" %}
+    {% include "tud_styling/tags/field_help.html" with display="inline" %}
+{% else %}
+    {% if input_type == "multicheckbox" %}
+        {% include "tud_styling/tags/field_choices.html" with type="checkbox" %}
+        {% include "tud_styling/tags/field_help.html" with display="block" %}
+    {% else %}
+        {% if field.label %}
+            <label class="control-label"{% if field.auto_id %} for="{{ field.auto_id }}"{% endif %}>{{ field.label }}</label>
+        {% endif %}
+        {% if input_type == "radioset" %}
+            {% include "tud_styling/tags/field_choices.html" with type="radio" %}
+            {% include "tud_styling/tags/field_help.html" with display="block" %}
+        {% else %}
+            {% include "tud_styling/tags/field_default.html" with display="inline"%}
+            {% include "tud_styling/tags/field_help.html" with display="inline" %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+{% include "tud_styling/tags/field_errors.html" with display="inline" %}
+</span>

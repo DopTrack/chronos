@@ -1,0 +1,17 @@
+{% load tud_styling %}
+
+{% with field|tud_input_type as input_type %}
+    {% if layout == "horizontal" %}
+        {% include "tud_styling/tags/field_horizontal.html" %}
+    {% else %}
+        {% if layout == "inline" %}
+            {% include "tud_styling/tags/field_inline.html" %}
+        {% else %}
+            {% if layout == "search" %}
+                {% include "tud_styling/tags/field_search.html" %}
+            {% else %}
+                {% include "tud_styling/tags/field_vertical.html" %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endwith %}

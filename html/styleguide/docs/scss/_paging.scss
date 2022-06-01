@@ -1,0 +1,53 @@
+/*doc
+---
+title: paging
+parent: navigation
+---
+
+Pagination is a type of navigation that lets users tap through a series of related pages and/or items.
+Users can click on specific numbers or use the previous and next buttons to navigate through the pages.
+A maximum number of 6 pages is recommended.
+
+
+```component_example
+filename: paging
+```
+*/
+
+.paging {
+	padding: 0;
+	margin: auto;
+	a,
+	li {
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		text-decoration: none;
+	}
+	a {
+		transition: t(color), t(border-color);
+		box-sizing: border-box;
+		min-width: rem(48px);
+		line-height: rem(48px);
+		border: 1px solid cl('grey');
+		color: cl('grey');
+		border-radius: 100%;
+		
+		&.is-active,
+		&:hover,
+		&:focus {
+			color: cl('blue');
+			border-color: cl('blue');
+		}
+		
+	}	
+}
+.paging__prev,
+.paging__next {
+	a {
+		background-color: cl('blue');
+		border-color: cl('blue');
+		color: cl('white');
+		height: rem(48px);
+	}
+}

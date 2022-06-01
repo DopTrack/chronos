@@ -1,0 +1,13 @@
+{% load sitetree tag_utils %}{% gapless %}
+
+{% if sitetree_items %}
+	{% for item in sitetree_items %}
+	    {% if item.has_children %}
+		    {% sitetree_children of item for menu template "sitetree/tud_menuAside.html" %}
+		{% elif item.in_current_branch %}
+		    <h3>{{item.title_resolved}}</h3>
+   			{% sitetree_children of item for sitetree template "sitetree/tud_menuAside_sub.html" %}
+		{% endif %}
+	{% endfor %}   
+{% endif %}
+{% endgapless %}

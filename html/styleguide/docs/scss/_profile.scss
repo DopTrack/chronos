@@ -1,0 +1,61 @@
+/*doc
+---
+title: profile
+category: components - profile
+---
+*/
+.profile {
+	background-color: cl('white');
+	a {
+		color: cl('blue');
+	}
+	img {
+		width: 100%;
+	}
+
+	&__contactdata {
+		@extend .list-reset;
+		overflow: visible;
+		
+		li {
+			margin-bottom: .4rem;
+			margin-top: .4rem;
+		}
+		div,
+		a {
+			display: block;
+			overflow: hidden;
+			//padding-top: .5em;
+		}
+		a {
+			text-decoration: none;
+			text-decoration: underline;
+			// padding-top: .5em;
+
+			&:hover {
+				color: cl('blue_dark');
+			}
+		}
+		span {
+			overflow: show;
+			display: block;
+		}
+		i {
+
+			color: cl('blue');
+			font-size: 1.4rem;
+			line-height: 1;
+			
+			display: inline-block;
+			
+			margin-right: 0.6em;
+			float: left;
+			clear: left;
+
+			&:before {
+				border-color: cl('blue');
+				display: block;
+			}
+		}
+	}
+}

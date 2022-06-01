@@ -1,0 +1,59 @@
+/*doc
+---
+title: blockquote
+category: typography - blockquote
+---
+
+Used for quotes, author is optional.
+Works well with the [pull helper][pull]
+
+```component_example
+filename: blockquote
+parameters:
+  author: true
+```
+*/
+blockquote {
+	font-family: $font-serif;
+	margin: 0;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	border-top: $border;
+	border-bottom: 1px solid cl('grey_medium');
+	font-size: rem(36px);
+	padding-top: 1em;
+	padding-bottom: 1em;
+	position: relative;
+	cite {
+		color: cl('grey');
+		margin-top: 1rem;
+		display: block;
+		font-size: 1rem;
+		margin-left: 10%;
+		// &:before {
+		// 	content: "\2015"
+		// }
+	}
+	img {
+		vertical-align: middle;
+		border-radius: 100%;
+	}
+	p {
+		margin-left: 0.4em;
+		margin-right: 0.4em;
+		&:before { 
+			content: "\201C"; 
+			margin-left: -.4em; 
+		}
+		&:after { 
+			content: "\201D"; 
+		}
+	}
+
+	// @include bp("sm-") {
+	// 	p {
+	// 		padding-left: 1em;
+	// 		padding-right: 1em;
+	// 	}
+	// }
+}

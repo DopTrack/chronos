@@ -1,0 +1,70 @@
+/*doc
+---
+title: pull
+category: layout - pull
+---
+
+The pull is a special component helper class that wraps around any component 
+to lift if out of it's container by a fixed margin. 
+You can specify the direction by using -left or -right on the pull class.
+By default it pulls in both directions
+
+```html_example
+<div class="container">
+	<div class="content-container">
+		<img src="//placehold.it/1200x400" />
+		
+		<div>Pull on both sides</div>
+		<div class="pull">
+			<img src="//placehold.it/1200x400" />
+		</div>
+
+		<div>Pull on left side</div>
+		<div class="pull-left">
+			<img src="//placehold.it/1200x400" />
+		</div>
+	
+		<div>Pull on right side</div>
+		<div class="pull-right">
+			<img src="//placehold.it/1200x400" />
+		</div>
+	</div>
+</div>
+```
+
+*/
+
+@mixin setpullmargins($pullmargin) {
+	.pull-left { margin-left: $pullmargin; }
+	.pull-right { margin-right: $pullmargin; }
+	.pull { 
+		margin: {
+			left: $pullmargin; 
+			right: $pullmargin;
+		}
+	}
+}
+.pull-left,
+.pull-right,
+.pull {
+	clear: both;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	overflow: hidden;
+}
+.pull-left { float: left; padding-left: 0;}
+.pull-right { float: right; padding-right: 0;}
+
+@include setpullmargins(map-get($gutters, xs) * -.5);
+
+
+@include bp('md+') {
+	$pullmargin: percentage(4 / $columns) * -1 + 0;
+	@include setpullmargins($pullmargin);
+}
+// //Acts like .row on xs, since content is 100%;
+// @include bp('xs') {
+// 	$pullmargin: map-get($gutters, 'xs') * -.5;
+
+// 	@include pulls($pullmargin);
+// }

@@ -1,0 +1,12 @@
+/*doc
+---
+title: cl
+category: sass - cl
+---
+
+Shorthand for retreiving colors from color map
+
+*/
+@function cl($key, $map: $colors) {
+	@return nth(map-get($map, $key), 1);
+}

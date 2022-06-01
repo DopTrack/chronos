@@ -1,0 +1,19 @@
+{% extends "tud_styling/demo/base.html" %}
+
+{% load tud_styling %}
+
+{% block content %}
+
+    <h1>Pagination</h1>
+
+    {{ lines|pagination }}
+
+    <hr>
+
+    {% tud_pagination lines url="/pagination?page=1&flop=flip" extra="q=foo" size="mini" align="right" %}
+
+	<hr>
+
+    {% tud_pagination lines url="/pagination?page=1" align="center" size="large" %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+.menu {
+	line-height: 1;
+	position: fixed;
+	right: 1rem;
+	top: 1rem;
+	z-index: 1;
+	border: none;
+	padding: 1em;
+	border-radius: 100%;
+	
+	&--close {
+		
+	}
+
+	&--open {
+		background: cl('background');
+		height: 3em;
+		width: 3em;
+		padding: 0;
+		// border-radius: 100%;
+		@include hover {
+			outline: none;
+			background: cl("grey_light");
+			
+			.patty:before,
+			.patty:after,
+			.patty {
+				background: cl('blue_light');
+			}		
+			// background: transparent;
+		}
+		.patty:before,
+		.patty:after,
+		.patty {
+			transition: t(background-color);
+			background: cl('blue');
+		}
+	}
+}

@@ -1,0 +1,48 @@
+/*doc
+---
+title: tabs
+parent: navigation
+---
+
+Tabs are elements that help you organize and navigate multiple documents 
+in a single container. They can be used for switching between items in the container.
+When target is not specified it will use the order of the DOM. It targets
+its direct siblings. You can break out your structure if you use a target attribute
+
+```component_example
+filename: nav-tab
+```
+*/
+.nav-tab {
+	border-bottom: 1px solid cl('grey');
+	// margin-bottom: 3rem;
+	margin-top: 3rem;
+	a {
+		transition: t(border-bottom);
+		text-decoration: none;
+		color: #000;
+		padding: 0.5rem;
+		padding-bottom: 1rem;
+		display: inline-block;
+		box-sizing: border-box;
+		border-bottom: $border;
+		border-bottom-color: transparent;
+	
+		&.is-active,
+		&:focus,
+		&:hover {
+			border-color: cl('blue');
+		}
+	}
+	+ * {margin-top: $spacing;}
+	~ *:not(.is-active) {
+		display: none;
+	}
+	li {
+		display: inline-block;
+		// margin-right: 3em;
+		// &:last-child {
+		// 	margin-right: 0;
+		// }
+	}
+}
