@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
                             '2&hz335!b3mt07%=hw&g+vtgslyiw@s)^=qdgpjemf4a#65i=d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 1)
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sdp.tudelft.nl', '*']
