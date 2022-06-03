@@ -1,5 +1,4 @@
 # Docker compose
-*.env.dev
 *.env.prod
 
 # Byte-compiled / optimized / DLL files
