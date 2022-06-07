@@ -16,30 +16,34 @@
 #   sudo update-rc.d "doptrackwebappserver" defaults
 #   sudo service "doptrackwebappserver" start
 
+NAME=doptrackwebappserver
+# FILES="DoptrackControlService.py DoptrackMonitorService.py ReceiverService.py"
+SCRIPT="python2 /opt/$NAME/DoptrackControlService.py"
+RUNAS=root
 
-SCRIPT="python /opt/doptrackwebappserver/DoptrackControlService.py"
-RUNAS=rvandenberg
-
-PIDFILE=/var/run/doptrackwebappserver.pid
-LOGFILE=/var/log/doptrackwebappserver.log
+PIDFILE="/var/run/$NAME.pid"
+LOGFILE="/var/log/$NAME.log"
 
 start() {
-  if [ -f $PIDFILE ] && kill -0 $(cat $PIDFILE); then
+  if [ -f $PIDFILE ] && [ -s $PIDFILE ] && kill -0 $(cat $PIDFILE); then
     echo 'Service already running' >&2
     return 1
   fi
 
-  echo '1 Starting service…' >&2
-  local CMD="$SCRIPT &> \"$LOGFILE\" & echo \$!"  
+  echo 'Starting service…' >&2
+  # local CMD="$SCRIPT &> \"$LOGFILE\" & echo \$!"  
+  local CMD="$SCRIPT"  
   su -c "$CMD" $RUNAS > "$PIDFILE"
-  
-  echo "running services:"
-  ps -ef | grep 'DoptrackControlService.py\|DoptrackMonitorService.py\|ReceiverService.py'
 
-  echo "processID"
-  cat $PIDFILE
-
-  echo 'Service started' >&2
+  sleep 1
+  PID=$(cat $PIDFILE)
+    if pgrep -u $RUNAS -f $NAME > /dev/null
+    then
+      echo "$NAME is now running, the PID is $PID"
+    else
+      echo ''
+      echo "Error! Could not start $NAME!"
+    fi
 }
 
 stop() {
@@ -61,9 +65,23 @@ uninstall() {
     stop
     rm -f "$PIDFILE"
     echo "Notice: log file is not be removed: '$LOGFILE'" >&2
-    update-rc.d -f doptrackwebappserver remove
+    update-rc.d -f "$NAME" remove
     rm -fv "$0"
   fi
+}
+
+status() {
+    printf "%-50s" "Checking doptrackwebappserver..."
+    if [ -f $PIDFILE ] && [ -s $PIDFILE ]; then
+        PID=$(cat $PIDFILE)
+            if [ -z "$(ps axf | grep ${PID} | grep -v grep)" ]; then
+                printf "%s\n" "The process appears to be dead but pidfile still exists"
+            else    
+                echo "Running, the PID is $PID"
+            fi
+    else
+        printf "%s\n" "Service not running"
+    fi
 }
 
 case "$1" in
@@ -72,6 +90,9 @@ case "$1" in
     ;;
   stop)
     stop
+    ;;
+  status)
+    status
     ;;
   uninstall)
     uninstall
