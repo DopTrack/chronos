@@ -13,9 +13,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # connection information to doptrack server
-DOPTRACK_CLIENT_KEY = os.environ.get('DOPTRACK_CLIENT_KEY', os.path.join(BASE_DIR, 'remote/client.key'))
-DOPTRACK_CLIENT_CRT = os.environ.get('DOPTRACK_CLIENT_CRT', os.path.join(BASE_DIR, 'remote/client.crt'))
-DOPTRACK_CA_CERTS = os.environ.get('DOPTRACK_CA_CERTS', os.path.join(BASE_DIR, 'remote/server.crt'))
+DOPTRACK_CLIENT_KEY = os.environ.get('DOPTRACK_CLIENT_KEY', os.path.join(BASE_DIR, 'certs/client.key'))
+DOPTRACK_CLIENT_CRT = os.environ.get('DOPTRACK_CLIENT_CRT', os.path.join(BASE_DIR, 'certs/client.crt'))
+DOPTRACK_CA_CERTS = os.environ.get('DOPTRACK_CA_CERTS', os.path.join(BASE_DIR, 'certs/server.crt'))
 DOPTRACK_MON_PORT = os.environ.get('DOPTRACK_MON_PORT', '8081')
 DOPTRACK_CTRL_PORT = os.environ.get('DOPTRACK_CTRL_PORT', '8080')
 DOPTRACK_SERVER = os.environ.get('DOPTRACK_SERVER', 'doptrack.tudelft.nl')
@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
                             '2&hz335!b3mt07%=hw&g+vtgslyiw@s)^=qdgpjemf4a#65i=d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 1)
+DEBUG = int(os.environ.get('DEBUG', 1))
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sdp.tudelft.nl', '*']

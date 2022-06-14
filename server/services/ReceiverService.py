@@ -123,5 +123,3 @@ if __name__ == "__main__":
 
     logging.info( "starting ReceiverService (just for internal use) on port: " + str(port) )
     t.start()
-
-

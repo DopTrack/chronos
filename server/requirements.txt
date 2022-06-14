@@ -1,0 +1,11 @@
+html5lib==0.9999999
+Pillow==5.0.0
+plumbum==1.6.3
+pytz==2018.3
+requests==2.9.1
+rpyc==3.3.0
+pyserial
+pyyaml
+six==1.11.0
+tzlocal==1.5.1
+Unidecode==0.4.21
