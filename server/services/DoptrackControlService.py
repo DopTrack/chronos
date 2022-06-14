@@ -2,7 +2,7 @@ from datetime import date, datetime, timedelta
 from time import mktime
 import rpyc
 from rpyc.utils import classic
-import serial
+# import serial
 import time
 import re
 import sys
@@ -268,5 +268,3 @@ if __name__ == "__main__":
     logging.info( "Starting server (2 way SSL, self signed client/server cert) on port: " + str(port) )
     print "Starting server (2 way SSL, self signed client/server cert) on port: " + str(port)
     t.start()
-
-
