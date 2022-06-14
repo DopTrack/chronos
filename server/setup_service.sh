@@ -10,7 +10,7 @@ cp -v "init.d/$SERVICE_FILE" "/etc/init.d/$NAME"
 chmod +x "/etc/init.d/$NAME"
 
 mkdir /opt/doptrackwebappserver/
-cp -v services/{DoptrackControlService.py,DoptrackMonitorService.py,ReceiverService.py} /opt/doptrackwebappserver/
+cp -v services/* /opt/doptrackwebappserver/
 
 echo "Creating log files..."
 touch "/var/log/$NAME.log" && chown "$USERNAME" "/var/log/$NAME.log"

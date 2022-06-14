@@ -16,13 +16,19 @@
 #   sudo update-rc.d "doptrackwebappserver" defaults
 #   sudo service "doptrackwebappserver" start
 
+
+
 NAME=doptrackwebappserver
-# FILES="DoptrackControlService.py DoptrackMonitorService.py ReceiverService.py"
-SCRIPT="python2 /opt/$NAME/DoptrackControlService.py"
+FILES="DoptrackControlService.py DoptrackMonitorService.py ReceiverService.py"
+# SCRIPT="python2 /opt/$NAME/DoptrackControlService.py"
+# SCRIPT="/opt/$NAME/DoptrackControlService.py"
 RUNAS=root
+TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 
 PIDFILE="/var/run/$NAME.pid"
 LOGFILE="/var/log/$NAME.log"
+
+echo $LOGFILE
 
 start() {
   if [ -f $PIDFILE ] && [ -s $PIDFILE ] && kill -0 $(cat $PIDFILE); then
@@ -30,20 +36,29 @@ start() {
     return 1
   fi
 
+  # echo 'Starting service…' >&2
+  # # local CMD="python2 $SCRIPT &>> $LOGFILE & echo \$!"     
+  # local CMD="python2 $SCRIPT & echo \$!"
+  # su -c "$CMD" $RUNAS >> "$PIDFILE"
+  
   echo 'Starting service…' >&2
-  # local CMD="$SCRIPT &> \"$LOGFILE\" & echo \$!"  
-  local CMD="$SCRIPT"  
-  su -c "$CMD" $RUNAS > "$PIDFILE"
+  for FILE in $FILES
+  do
+    local CMD="python2 /opt/$NAME/$FILE & echo \$!"
+    su -c "$CMD" $RUNAS >> "$PIDFILE"    
 
-  sleep 1
-  PID=$(cat $PIDFILE)
-    if pgrep -u $RUNAS -f $NAME > /dev/null
-    then
-      echo "$NAME is now running, the PID is $PID"
-    else
-      echo ''
-      echo "Error! Could not start $NAME!"
-    fi
+    sleep 1
+    PID=$(tail -n 1 $PIDFILE)
+      if pgrep -u $RUNAS -f $NAME > /dev/null
+      then
+        echo "$FILE is now running, the PID is $PID"
+        echo "$TIMESTAMP $FILE is running with PID $PID" >> $LOGFILE
+      else
+        echo ''
+        echo "Error! Could not start $NAME!"
+        echo "$TIMESTAMP $FILE could not be started" >> $LOGFILE
+      fi
+    done
 }
 
 stop() {
@@ -58,30 +73,16 @@ stop() {
 }
 
 uninstall() {
-  echo -n "Are you really sure you want to uninstall this service? That cannot be undone. [yes|No] "
+  echo -n "Are you really sure you want to stop and uninstall this service? That cannot be undone. [yes|No] "
   local SURE
   read SURE
   if [ "$SURE" = "yes" ]; then
     stop
     rm -f "$PIDFILE"
-    echo "Notice: log file is not be removed: '$LOGFILE'" >&2
+    echo "Notice: log file is not to be removed: '$LOGFILE'" >&2
     update-rc.d -f "$NAME" remove
     rm -fv "$0"
   fi
-}
-
-status() {
-    printf "%-50s" "Checking doptrackwebappserver..."
-    if [ -f $PIDFILE ] && [ -s $PIDFILE ]; then
-        PID=$(cat $PIDFILE)
-            if [ -z "$(ps axf | grep ${PID} | grep -v grep)" ]; then
-                printf "%s\n" "The process appears to be dead but pidfile still exists"
-            else    
-                echo "Running, the PID is $PID"
-            fi
-    else
-        printf "%s\n" "Service not running"
-    fi
 }
 
 case "$1" in
@@ -91,10 +92,8 @@ case "$1" in
   stop)
     stop
     ;;
-  status)
-    status
-    ;;
   uninstall)
+    stop
     uninstall
     ;;
   restart)
