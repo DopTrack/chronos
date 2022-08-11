@@ -10,3 +10,17 @@ services:
       - 8000:8000
     env_file:
       - .env.dev
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=doptrack
+      - POSTGRES_PASSWORD=doptrack
+      - POSTGRES_DB=doptrack_dev
+
+volumes:
+  postgres_data:
