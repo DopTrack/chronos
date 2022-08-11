@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web:
+  client:
     build: ./app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -10,3 +10,10 @@ services:
       - 8000:8000
     env_file:
       - .env.dev
+
+  server:
+    build: ./server
+    tty: true
+    ports:
+      - 8080:8080 # Control Service
+      - 8081:8081 # Monitor Service

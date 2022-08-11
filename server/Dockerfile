@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # install python 2
-RUN apt-get update && apt install -y -q python2 curl && apt-get clean
+RUN apt-get update && apt install -y -q python2 curl iputils-ping && apt-get clean
 
 # install pip for python 2
 RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py \
@@ -23,4 +23,5 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . .
 
-CMD ["bash"]
+# ENTRYPOINT ["/home/doptrack/src/setup_service.sh"]
+
