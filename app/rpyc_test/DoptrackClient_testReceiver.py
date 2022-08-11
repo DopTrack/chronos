@@ -3,15 +3,25 @@ import time
 import sys
 from datetime import date, datetime, timedelta
 from gzip import GzipFile
-import copy 
+import copy
 
 
-#c = rpyc.connect("doptrack.tudelft.nl", 8081)
-#c = rpyc.connect("localhost", 8081)
-#c = rpyc.ssl_connect("localhost", 8081)
-#c = rpyc.ssl_connect("localhost", 8081, keyfile='client.key', certfile ='client.crt', ca_certs='server.crt' )
+from settings import (
+    DOPTRACK_SERVER,
+    DOPTRACK_CLIENT_KEY,
+    DOPTRACK_CLIENT_CRT,
+    DOPTRACK_CA_CERTS,
+)
 
-c = rpyc.ssl_connect("doptrack.tudelft.nl", 8080, keyfile='../client.key', certfile ='../client.crt', ca_certs='../server.crt' )
+c = rpyc.ssl_connect(
+    DOPTRACK_SERVER,
+    8080,
+    keyfile=DOPTRACK_CLIENT_KEY,
+    certfile=DOPTRACK_CLIENT_CRT,
+    ca_certs=DOPTRACK_CA_CERTS,
+)
+
+
 print c.root
 
 
@@ -24,8 +34,7 @@ print "Antenna: " + orgAntenna
 print "Frequency: " + orgFreq
 
 
-
-'''
+"""
 print "_____________ change"
 print "Antenna changed to: " + c.root.setAntenna(1)
 print "Frequency changed to: " + c.root.setFrequency("0123456789")
@@ -37,10 +46,10 @@ time.sleep(1)
 print "_____________ restore"
 print "Antenna restored to: " + c.root.setAntenna(orgAntenna)
 print "Frequency resored to: " + c.root.setFrequency(orgFreq)
-'''
+"""
 
 
-'''
+"""
 # _____________ direct recording   (async met callback)
 print "\n\n________ direct recording   (async met callback)"
 def callback(userId, info):
@@ -57,10 +66,10 @@ while 1:
     if recordAsy.ready:
         print "Antwoord van server ", recordAsy.value
         break
-'''
+"""
 
 # ______________ kijken hoe snel je commandos aan receiver kunt geven en of dat dan conflicten geeft met meedere threads on server-
-for i in range(1,40):
+for i in range(1, 40):
     print "freq: ", c.root.getFrequency(), "  antenna: ", c.root.getAntenna()
 
 
