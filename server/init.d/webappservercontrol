@@ -20,8 +20,6 @@
 
 NAME=doptrackwebappserver
 FILES="DoptrackControlService.py DoptrackMonitorService.py ReceiverService.py"
-# SCRIPT="python2 /opt/$NAME/DoptrackControlService.py"
-# SCRIPT="/opt/$NAME/DoptrackControlService.py"
 RUNAS=root
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 
@@ -35,11 +33,6 @@ start() {
     echo 'Service already running' >&2
     return 1
   fi
-
-  # echo 'Starting service…' >&2
-  # # local CMD="python2 $SCRIPT &>> $LOGFILE & echo \$!"     
-  # local CMD="python2 $SCRIPT & echo \$!"
-  # su -c "$CMD" $RUNAS >> "$PIDFILE"
   
   echo 'Starting service…' >&2
   for FILE in $FILES
