@@ -21,7 +21,8 @@ sequenceDiagram
 autonumber
    participant B as Client Browser
    participant C as Chronos
-   participant Doptrack
+   participant DS as Doptrack Services
+   participant DH as Doptrack Hardware
 
    B->>C: Provide login credentials 
    activate C 
@@ -30,20 +31,23 @@ autonumber
 
    B->>C: Access scheduler
    activate C
-   C->>Doptrack: Check status services
-   activate Doptrack
-   Doptrack->>C: Return status
-   deactivate Doptrack
+   C->>DS: Check status services
+   activate DS
+   DS->>C: Return status
+   deactivate DS
    C->>B: Serve scheduler
    deactivate C
 
    B->>C: Schedule measurement
    activate C
-   C->>Doptrack: access ControlService
-   activate Doptrack
-   Doptrack-->Doptrack: Schedule measurement
-   Doptrack->>C: Add task to schedule
-   deactivate Doptrack
+   C->>DS: access ControlService
+   activate DS
+   DS->>DH: Add measurement to cue
+   activate DH
+   DH->>DS: Update schedule
+   deactivate DH
+   DS->>C: Add task to schedule
+   deactivate DS
    C->>B: Serve scheduled task
    deactivate C 
 
