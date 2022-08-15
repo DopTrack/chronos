@@ -21,7 +21,7 @@ The app can then be accessed at `127.0.0.1:8000`.
 To close the service and remove any attached volumes, run
 
 ```bash
-docker-compose down -v
+docker-compose down
 ```
 
 ### Remote server
