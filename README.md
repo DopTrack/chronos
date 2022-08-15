@@ -18,7 +18,7 @@ The app can then be accessed at `127.0.0.1:8000`.
 
 >Check for erros in the logs if this doesn't work via `docker-compose logs -f`.
 
-To close the service and remove any attached volumes, run
+To close the service, run
 
 ```bash
 docker-compose down
