@@ -15,13 +15,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # connection information to doptrack server
 DOPTRACK_CLIENT_KEY = os.environ.get(
-    "DOPTRACK_CLIENT_KEY", os.path.join(BASE_DIR, "certs/client.key")
+    "DOPTRACK_CLIENT_KEY", os.path.join(BASE_DIR, "../certs/client.key")
 )
 DOPTRACK_CLIENT_CRT = os.environ.get(
-    "DOPTRACK_CLIENT_CRT", os.path.join(BASE_DIR, "certs/client.crt")
+    "DOPTRACK_CLIENT_CRT", os.path.join(BASE_DIR, "../certs/client.crt")
 )
 DOPTRACK_CA_CERTS = os.environ.get(
-    "DOPTRACK_CA_CERTS", os.path.join(BASE_DIR, "certs/server.crt")
+    "DOPTRACK_CA_CERTS", os.path.join(BASE_DIR, "../certs/server.crt")
 )
 DOPTRACK_MON_PORT = os.environ.get("DOPTRACK_MON_PORT", "8081")
 DOPTRACK_CTRL_PORT = os.environ.get("DOPTRACK_CTRL_PORT", "8080")
@@ -35,9 +35,8 @@ SECRET_KEY = os.environ.get(
     "SECRET_KEY", "2&hz335!b3mt07%=hw&g+vtgslyiw@s)^=qdgpjemf4a#65i=d"
 )
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DEBUG", 1))
-TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "sdp.tudelft.nl", "*"]
 
@@ -113,7 +112,9 @@ DATABASES = {
     # }
     "default": {
         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", DATABASE_FOLDER / "db.sqlite3"),
+        "NAME": os.environ.get(
+            "SQL_DATABASE", os.path.join(DATABASE_FOLDER, "db.sqlite3")
+        ),
         "USER": os.environ.get("SQL_USER", "user"),
         "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
         "HOST": os.environ.get("SQL_HOST", "localhost"),
@@ -169,6 +170,7 @@ TEMPLATES = [
                 "sekizai.context_processors.sekizai",  # cms  (deze 2)
                 "cms.context_processors.cms_settings",
             ],
+            "debug": DEBUG,
         },
     },
 ]
