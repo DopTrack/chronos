@@ -7,6 +7,7 @@ USERNAME=root
 
 echo "Copying files..."
 cp -v "init.d/$SERVICE_FILE" "/etc/init.d/$NAME"
+sed -i -e 's/\r//g' "/etc/init.d/$NAME" # fix potential return (\r) characters
 chmod +x "/etc/init.d/$NAME"
 
 mkdir /opt/doptrackwebappserver/
